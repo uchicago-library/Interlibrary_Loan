@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://getbootstrap.com/docs/3.3/examples/offcanvas/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>Interlibrary Loan: Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="js/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Fonts and Icons -->
+    <script src="https://use.fontawesome.com/d26aabc0ea.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://identity.uchicago.edu/c/fonts/proximanova.css" media="all" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/ill.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-default">
+      <div class="container-fluid fluid-top">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="www.lib.uchicago.edu"><img src="images/color-logo.png" class="img-responsive" alt="library logo"> <span>Interlibrary Loan</span></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> My Library Account</a></li>
+            <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out of Interlibrary Loan</a></li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+    <div class="container main-container">
+
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div id="status" class="alert alert-info"><span class="statusNormal">Choose an option from the choices below.</span></div>
+        
+        <!-- Sidebar -->
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+          
+          <h3><i class="material-icons">add_circle</i> Make New Request</h3>
+          <div class="list-group">
+            <a href="article-form.html" class="list-group-item">Article, Chapter, or Paper</a>
+            <a href="#" class="list-group-item">Book, Video, or Microfilm</a>
+            <a href="#" class="list-group-item">Dissertation/Thesis</a>
+            <a href="#" class="list-group-item">Scan &amp; Deliver</a>
+          </div>
+          <h3><i class="material-icons">archive</i> Your Requests</h3>
+          <div class="list-group">
+            <a href="dashboard.html" class="list-group-item active">Dashboard</a>
+            <a href="#" class="list-group-item">Active Requests</a>
+            <a href="#" class="list-group-item">Electronically Received Articles</a>
+            <a href="#" class="list-group-item">Checked Out Items (Renew)</a>
+            <a href="#" class="list-group-item">Canceled Requests</a>
+            <a href="#" class="list-group-item">Request History</a>
+            <a href="#" class="list-group-item">All Requests</a>
+          </div>
+          <h3><i class="material-icons">help_outline</i> Help</h3>
+          <div class="list-group">
+            <a href="#" class="list-group-item">Ask a Librarian</a>
+            <a href="#" class="list-group-item">What is Scan and Deliver?</a>
+          </div>
+
+        <h3><i class="material-icons">search</i> Search Requests</h3>
+          <div class="sidebar-group">
+            <form action="illiad.dll" name="Search" method="post">
+              <input type="hidden" name="IlliadForm" value="Search">
+              <input id="SessionID" name="SessionID" type="hidden" value="Q154432796V">
+              <label for="SearchCriteria">
+                <input id="SearchCriteria" name="SearchCriteria" type="text" class="f-criteria">        
+              </label>
+              <input type="submit" name="SubmitButton" value="Search" class="f-submit">
+              <div id="searchType">
+                <input name="SearchType" type="radio" id="SearchTypeActive" value="Active" checked="" class="f-searchType"><label for="SearchTypeActive">Active</label>
+                <input name="SearchType" type="radio" id="SearchTypeAll" value="All" class="f-searchType"><label for="SearchTypeAll">All</label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--/ END Sidebar -->
+
+        <div class="col-xs-12 col-md-9">
+          <p class="pull-left visible-xs visible-sm">
+            <button type="button" class="btn btn-sidebar btn-xs" data-toggle="offcanvas">View options <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+          </p>
+
+          <div class="row main-content">
+            
+              <h1>Interlibrary Loan Dashboard</h1>
+              <h2><!-- <i class="fa fa-fw fa-file-text-o" aria-hidden="true"></i> -->Electronically Received Articles</h2>    
+              <table>
+                <thead>
+                  <tr>
+                    <th>Transaction</th>
+                    <th>View</th>
+                    <th>Size</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Expires</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="row-message">
+                    <td colspan="7" data-title="Status Message">No Items</td>
+                  </tr>
+                </tbody>
+              </table>
+            
+            <h2><!-- <i class="fa fa-fw fa-book" aria-hidden="true"></i>  -->Checked Out Items</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Transaction Number</th>
+                      <th>Document Type</th>
+                      <th>Title</th>
+                      <th>Author</th>
+                      <th>Due Date</th>
+                      <th>Status</th>
+                      <th>Status Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="row-message">
+                      <td colspan="7" data-title="Status Message">No Items</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+         <h2><!-- <i class="fa fa-fw fa-flag" aria-hidden="true"></i>  -->Active Requests</h2>
+         <table>
+            <thead>
+              <tr>
+                <th>Transaction</th>
+                <th>Type</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-title="Transaction"><a href="illiad.dll?Action=10&amp;Form=63&amp;Value=2173774">2173774</a></td>
+                <td data-title="Type">Automated</td>
+                <td data-title="Title">Jane Austen at home - [a biography]</td>
+                <td data-title="Author">Worsley, Lucy</td>
+                <td data-title="Status">Check <a href="#">My Library Account</a></td>
+              </tr>
+              <tr>
+                <td data-title="Transaction"><a href="illiad.dll?Action=10&amp;Form=63&amp;Value=2173774">2173774</a></td>
+                <td data-title="Type">Automated</td>
+                <td data-title="Title">From head shops to whole foods : the rise and fall of activist entrepreneurs /</td>
+                <td data-title="Author">Davis, Joshua Clark</td>
+                <td data-title="Status">Check <a href="#">My Library Account</a></td>
+              </tr>
+              <tr>
+                <td data-title="Transaction"><a href="illiad.dll?Action=10&amp;Form=63&amp;Value=2173774">2173774</a></td>
+                <td data-title="Type">Automated</td>
+                <td data-title="Title">Black Panther. : a nation under our feet</td>
+                <td data-title="Author">Coates, Ta-Nehisi</td>
+                <td data-title="Status">Check <a href="#">My Library Account</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!--/row-->
+      </div><!--/.col-xs-12.col-sm-9-->
+    </div><!--/row-->
+
+
+    </div><!--/.container-->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/offcanvas.js"></script>
+  
+
+</body></html>
