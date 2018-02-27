@@ -1,0 +1,70 @@
+/*
+LEGAL
+=====
+Copyright: Atlas Systems, Inc. 2007 http://www.atlas-sys.com
+*/
+
+#pageContainer
+{
+  width: auto;
+  border: 0;
+}
+
+#leftContent
+{
+  display: none;
+}
+
+#rightContent
+{
+  display: none;
+}
+
+#mainContent 
+{
+  padding: 0 2px;
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+body
+{
+  color: #031C35;
+  width: auto; 
+  text-align: center;
+  font-size: .95em;
+  font-family: verdana,arial,tahoma,sans-serif;
+}
+
+hr
+{
+  display: none;
+}
+
+#header
+{
+  color: #053868;
+  font-size: 2em;
+  position: relative;
+  font-weight: bold;
+}
+
+#footer
+{
+  text-align: center;
+  padding: 15px;  
+}
+
+
+#copyright
+{
+  font-size: .85em;
+  color: #046380;
+}
+
+#copyright a
+{
+  text-decoration: none;
+  color: #053868;
+}
