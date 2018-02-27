@@ -12,35 +12,37 @@
 <body id="type-c">
 <div id="wrap">
 	<#INCLUDE filename="include_header.html">
-    <div id="content-wrap">
+    <div class="container main-container" id="content-wrap">
+      <div class="row row-offcanvas row-offcanvas-left">
         <#INCLUDE filename="include_menu.html">
-        <div id="content">
-               		<div class="default-table">
-			<p><#TABLE name="ElectronicDelivery" headerText="Electronically Received Articles" column="TransactionNumber:Transaction" column="View" column="Size" column="Title" column="Author" column="Expires" column="Delete">
-			</p>				
-		</div>
-            
-           			<div class="default-table">			
-				      <p><#TABLE name="ViewRenewCheckedOutItems" headerText="Checked Out Items" noDataAction="ShowMessageRow" noDataMessage="No Items">
-			          </p>
-          </div> 
 
-          <div class="default-table">
-                <p><#TABLE name="ViewOutstandingRequests" headerText="Active Requests" noDataAction="ShowMessageRow" noDataMessage="No Requests" column="TransactionNumber:Transaction" column="DocumentType:Type" column="Title" column="Author" column="TransactionStatus:Status">
-                </p>
-            </div>
-         
-            
-            
-            <#INCLUDE filename="include_footer.html">
-      </div>
-        <div id="sidebar">
-			<!-- removed because not valid for PubCookie (Genie at Atlas) <a href="<#ACTION action="2" type="40" value="RSSID" valueType="lookup" absolutepath="false" includeSessionID="false">"> Subscribe to Alerts Feed</a>
-            <br /> -->
-            <#ALERTS> </div>
-    </div>
-</div></body>
-</html>
+       <div class="col-xs-12 col-md-9" id="content">
+          <p class="pull-left visible-xs visible-sm">
+            <button type="button" class="btn btn-sidebar btn-xs" data-toggle="offcanvas">View options <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+          </p>
+
+          <div class="row main-content">
+            <h1>Interlibrary Loan Dashboard</h1>
+
+      			<#TABLE name="ElectronicDelivery" headerText="Electronically Received Articles" column="TransactionNumber:Transaction" column="View" column="Size" column="Title" column="Author" column="Expires" column="Delete">
+			
+            <#TABLE name="ViewRenewCheckedOutItems" headerText="Checked Out Items" noDataAction="ShowMessageRow" noDataMessage="No Items">
+
+            <!--  
+            <#TABLE name="ViewOutstandingRequests" headerText="Active Requests" noDataAction="ShowMessageRow" noDataMessage="No Requests" column="TransactionNumber:Transaction" column="DocumentType:Type" column="Title" column="Author" column="TransactionStatus:Status">
+             -->
+
+        </div><!--/row-->
+      </div><!--/.col-xs-12.col-sm-9-->
+    </div><!--/row-->
+
+
+    </div><!--/.container-->
+
+<#INCLUDE filename="include_footer.html">
+  
+
+</body></html>
 
 
 

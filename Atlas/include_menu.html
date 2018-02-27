@@ -1,41 +1,44 @@
- 
-<div id="utility"> 
-  <ul id="nav">
-    <li class="active"><a href="<#ACTION action="99">">Logoff <#PARAM name="Username"></a></li>
-    <li class="active"><a href="<#ACTION action="10" form="10">">Main Menu</a></li>
-    <li class="active"><a href="#">New Borrowing Request</a> 
-      <ul>
-        <li class="first"><a href="<#ACTION action="10" form="22">">Journal Article</a></li>
-        <li><a href="<#ACTION action="10" form="21">">Book, Video, or Microfilm</a></li>
-        <li><a href="<#ACTION action="10" form="27">">Dissertation/Thesis</a></li>
-        <li><a href="<#ACTION action="10" form="23">">Book Chapter</a></li>
-        <li><a href="<#ACTION action="10" form="24">">Conference Paper</a></li>
-        <li class="last"><a href="<#ACTION action="10" form="29">">Opisi Archive 
-          Material</a></li>
-      </ul>
-    </li>
-    <li class="active"><a href="#">Scan and Deliver Document Delivery</a> 
-      <ul>
-        <li><a href="http://guides.lib.uchicago.edu/scananddeliver">What is Scan and Deliver?</a></li>
-        <li><a href="<#ACTION action="10" form="20" value="GenericRequestGargoyleExpress">">Place a Scan and Deliver 
-          Request</a></li>
-      </ul>
-    <li class="active"><a href="#">View</a> 
-      <ul>
-        <li class="first"><a href="<#ACTION action="10" form="62">">Active Requests</a></li>
-        <li><a href="<#ACTION action="10" form="64">">Electronically Received 
-          Articles</a></li>
-        <li><a href="<#ACTION action="10" form="66">">Checked Out Items (Renew)</a></li>
-        <li><a href="<#ACTION action="10" form="70">">Cancelled Requests</a></li>
-        <li><a href="<#ACTION action="10" form="68">">Request History</a></li>
-        <li><a href="<#ACTION action="10" form="60">">All Requests</a></li>
-        <li class="last"><a href="<#ACTION action="10" form="73">">Notifications</a></li>
-      </ul>
-    </li>
+<div id="status" class="alert alert-info"><#STATUS></div>
 
-				
-        
-				
-      </ul>
-  </ul>
+<!-- Sidebar -->
+<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+  
+  <h3><i class="material-icons">add_circle</i> Make New Request</h3>
+  <div class="list-group">
+    <a href="<#ACTION action="10" form="22">" class="list-group-item">Article, Chapter, or Paper</a>
+    <a href="<#ACTION action="10" form="21">" class="list-group-item">Book, Video, or Microfilm</a>
+    <a href="<#ACTION action="10" form="27">" class="list-group-item">Dissertation/Thesis</a>
+    <a href="<#ACTION action="10" form="20" value="GenericRequestGargoyleExpress">" class="list-group-item">Scan &amp; Deliver</a>
+  </div>
+  <h3><i class="material-icons">archive</i> Your Requests</h3>
+  <div class="list-group">
+    <a href="<#ACTION action="10" form="10">" class="list-group-item active">Dashboard</a>
+    <a href="<#ACTION action="10" form="62">" class="list-group-item">Active Requests</a>
+    <a href="<#ACTION action="10" form="64">" class="list-group-item">Electronically Received Articles</a>
+    <a href="<#ACTION action="10" form="66">" class="list-group-item">Checked Out Items (Renew)</a>
+    <a href="<#ACTION action="10" form="70">" class="list-group-item">Canceled Requests</a>
+    <a href="<#ACTION action="10" form="68">" class="list-group-item">Request History</a>
+    <a href="<#ACTION action="10" form="60">" class="list-group-item">All Requests</a>
+  </div>
+  <h3><i class="material-icons">help_outline</i> Help</h3>
+  <div class="list-group">
+    <a href="http://www.lib.uchicago.edu/ask" class="list-group-item">Ask a Librarian</a>
+    <a href="http://guides.lib.uchicago.edu/scananddeliver" class="list-group-item">What is Scan and Deliver?</a>
+  </div>
+
+<h3><i class="material-icons">search</i> Search Requests</h3>
+  <div class="sidebar-group" id="search">
+      <form action="illiad.dll" name="Search" method="post">
+      <input type="hidden" name="IlliadForm" value="Search" />
+      <input id="SessionID" name="SessionID" type="hidden" value="<#PARAM name="SessionID">" />
+      <label for="SearchCriteria
+        <input id="SearchCriteria" name="SearchCriteria" type="text" class="f-criteria" />        
+      </label>
+      <input type="submit" name="SubmitButton" value="Search" class="f-submit" />
+      <div id="searchType">
+        <input name="SearchType" type="radio" id="SearchTypeActive" value="Active" checked class="f-searchType" /><label for="SearchTypeActive">Active</label>
+        <input name="SearchType" type="radio" id="SearchTypeAll" value="All" class="f-searchType" /><label for="SearchTypeAll">All</label>
+      </div>
+    </form>
+  </div>
 </div>
