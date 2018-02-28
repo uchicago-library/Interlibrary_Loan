@@ -12,7 +12,7 @@
   </div>
   <h3><i class="material-icons">archive</i> Your Requests</h3>
   <div class="list-group">
-    <a href="<#ACTION action="10" form="10">" class="list-group-item active">Dashboard</a>
+    <a href="<#ACTION action="10" form="10">" class="list-group-item">Dashboard</a>
     <a href="<#ACTION action="10" form="62">" class="list-group-item">Active Requests</a>
     <a href="<#ACTION action="10" form="64">" class="list-group-item">Electronically Received Articles</a>
     <a href="<#ACTION action="10" form="66">" class="list-group-item">Checked Out Items (Renew)</a>
@@ -31,8 +31,8 @@
       <form action="illiad.dll" name="Search" method="post">
       <input type="hidden" name="IlliadForm" value="Search" />
       <input id="SessionID" name="SessionID" type="hidden" value="<#PARAM name="SessionID">" />
-      <label for="SearchCriteria
-        <input id="SearchCriteria" name="SearchCriteria" type="text" class="f-criteria" />        
+      <label for="SearchCriteria">
+        <input id="SearchCriteria" name="SearchCriteria" type="text" class="f-criteria" placeholder="Search requests"/>        
       </label>
       <input type="submit" name="SubmitButton" value="Search" class="f-submit" />
       <div id="searchType">
