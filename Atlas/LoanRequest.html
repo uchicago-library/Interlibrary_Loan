@@ -22,7 +22,7 @@
         <h1>Request a Book, Video, Journal Issue, or Microfilm</h1>
         <p class="required">Required fields are followed by <abbr title="required">*</abbr></p>
             
-            <form action="illiad.dll" method="post" name="LoanRequest" class="f-wrap-request">
+            <form action="illiad.dll" method="post" name="LoanRequest" class="ill-request f-wrap-request">
                 <input type="hidden" name="ILLiadForm" value="LoanRequest">	
 		    <input type="hidden" name="Location" id="Location" value="<#PARAM name="Location">">
 		    <input type="hidden" name="LendingString" id="LendingString" value="<#PARAM name="LendingString">">
@@ -30,7 +30,6 @@
                 <input type="hidden" name="Barcode" value="<#PARAM name="barcode">">
                 <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
 				<input type="hidden" name="AcceptNonEnglish" value="Yes">
-                <div class="req"><b>*</b> Indicates required field</div>
                 
                 <section>
                 <h2>Describe the item you want</h2>
@@ -52,6 +51,8 @@
                         <div class="col-sm-6">
                             <label for="LoanVolume"><span class="<#ERROR name="ERRORLoanVolume">">Volume/Issue</span></label>
                             <input type="text" id="LoanVolume" name="LoanVolume" class="form-control" value="<#PARAM name="LoanVolume">">
+                            <small class="text-muted">If multi-volume item or journal.</small>
+
                         </div>
 
                         <div class="col-sm-6">
@@ -61,23 +62,21 @@
                     </div>
                 	
                     <div class="form-group row">
-                        <div class="col-sm-4">
-                            <label for="LoanEdition"><span class="<#ERROR name="ERRORLoanEdition">">Edition</span></label>
-                            <input type="text" id="LoanEdition" name="LoanEdition" class="form-control" value="<#PARAM name="LoanEdition">">
-                        </div>
-
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
             				<label for="LoanPublisher"><span class="<#ERROR name="ERRORLoanPublisher">">Publisher</span></label>
                     		<input type="text" id="LoanPublisher" name="LoanPublisher" class="form-control" value="<#PARAM name="LoanPublisher">">
                         </div>
 					
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                         	<label for="LoanPlace"><span class="<#ERROR name="ERRORLoanPlace">">Place of Publication</span></label>
                     		<input type="text" id="LoanPlace" name="LoanPlace" class="form-control" value="<#PARAM name="LoanPlace">">
                         </div>
                     </div>
                 </fieldset>
+            </section>
 
+             <section>   
+                <h2>Pick-up &amp; Edition Preferences</h2>
                 <fieldset>
                     <div class="form-group row">
                         <div class="col-sm-6">		
@@ -92,30 +91,28 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="ItemInfo2"><span class="<#ERROR name="ERRORItemInfo2">">If we do not already own this item, would you also suggest it be considered for purchase for the University of Chicago Library?</span></label>
-                            <select id="ItemInfo2" name="ItemInfo2" class="form-control"> 
-                                <option selected><#PARAM name="ItemInfo2">No</option> 
-                                <option>Yes</option>
-                                <option>Library already owns it</option>
+                            <label for="ItemInfo1"><span class="<#ERROR name="ERRORItemInfo1">">Would you accept an electronic version?</span></label>
+                            <select id="ItemInfo1" name="ItemInfo1" class="form-control">
+                                <option selected><#PARAM name="ItemInfo1">Yes</option>
+                                <option>No</option>
                             </select>
                         </div>
                     </div>
 
 					<div class="form-group row">
                         <div class="col-sm-6">
-                        	<label for="AcceptAlternateEdition"><span class="<#ERROR name="ERRORAcceptAlternateEdition">">Would you accept an alternate edition of this item?</span></label>
+                            <label for="LoanEdition"><span class="<#ERROR name="ERRORLoanEdition">">Edition</span></label>
+                            <input type="text" id="LoanEdition" name="LoanEdition" class="form-control" value="<#PARAM name="LoanEdition">">
+                        </div>
+
+                        <div class="col-sm-6">
+                        	<label for="AcceptAlternateEdition"><span class="<#ERROR name="ERRORAcceptAlternateEdition">">Would you accept an alternate edition?</span></label>
     						<select id="AcceptAlternateEdition" name="AcceptAlternateEdition" class="form-control">
                         		<option selected><#PARAM name="AcceptAlternateEdition"></option>
                         		<option>Yes</option>
                     		</select>
                         </div>
-                        <div class="col-sm-6">
-                            <label for="ItemInfo1"><span class="<#ERROR name="ERRORItemInfo1">">Would you accept an electronic version of this item if one can be found?</span></label>
-                            <select id="ItemInfo1" name="ItemInfo1" class="form-control">
-                                <option selected><#PARAM name="ItemInfo1">Yes</option>
-                                <option>No</option>
-                            </select>
-                        </div>
+                        
                     </div>  
                 </fieldset>
             </section>
@@ -158,10 +155,21 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="CitedIn"><span class="valid">Where did you find this item cited?</span></label>
-                            <input type="text" name="CitedIn" id="CitedIn" class="form-control" value="<#PARAM name="CitedIn">">
-                            <small id="CitedInHelp" class="form-text text-muted">Please specify information such as the database, book, journal, journal article, pages, or date if available.</small>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="CitedIn"><span class="valid">Where did you find this item cited?</span></label>
+                                <input type="text" name="CitedIn" id="CitedIn" class="form-control" value="<#PARAM name="CitedIn">">
+                                <small id="CitedInHelp" class="form-text text-muted">Please specify information such as the database, book, journal, journal article, pages, or date if available.</small>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="ItemInfo2"><span class="<#ERROR name="ERRORItemInfo2">">If not owned by Library, would you suggest it for purchase?</span></label>
+                                <select id="ItemInfo2" name="ItemInfo2" class="form-control"> 
+                                    <option selected><#PARAM name="ItemInfo2">No</option> 
+                                    <option>Yes</option>
+                                    <option>Library already owns it</option>
+                                </select>
+                            </div>
                         </div>
                     </fieldset>
                 </section>              
