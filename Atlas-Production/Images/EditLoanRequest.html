@@ -1,0 +1,242 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>Edit Loan Request</title>
+</head>
+
+<body background="images/sandston.jpg" bgcolor="#FFFFFF">
+
+<form method="POST" action="illiad.dll">
+    <input type="hidden" name="ILLiadForm"
+    value="EditLoanRequest"><input type="hidden"
+    name="TransactionNumber" value="CGIFN=^VARTransactionNumber^">
+<input type="hidden" name="SessionID" value="CGIFN=^VARSessionID^">
+<input type="hidden" name="Username" value="CGIFN=^VARUsername^">
+<table border="0" width="100%" bordercolor="#800000" bgcolor="#800000">
+    <tr> 
+      
+    <td width="9%" bgcolor="#800000" border="0"><font color="#FFFFFF" size="5" face="Arial"><img
+      src="Images/2d%20Hull%20Gargoyle.gif" width="80" height="84"></font></td>
+      <td width="66%" bgcolor="#800000" border="0"><b><font color="#FFFFFF" size="5" face="Arial">Edit 
+        Loan Request for<br>
+        CGIFN=^VARUsername^ </font></b></td>
+      <td align="center" width="25%" bgcolor="#800000" border="0"><font color="#FFFFFF"> 
+        <input type="submit" name="SubmitButton"
+      value="Exit to Main Menu">
+        </font></td>
+    </tr>
+  </table>
+  <table border="3" width="100%" bgcolor="#C0C0C0" bordercolor="#800000">
+    <tr bgcolor="#C0C0C0" bordercolor="#C0C0C0"> 
+      <td valign="top" width="10%"><font face="Arial"><strong>Status</strong></font></td>
+      <td width="90%"><font face="Arial"><em>CGIFN=^StatusLine^</em></font></td>
+    </tr>
+  </table>
+    
+  <table border="0" cellpadding="6" width="100%">
+    <tr> 
+      <td align="center" colspan="3" bgcolor="#800000"> 
+        <p align="left"><font
+            color="#FFFFFF" face="Arial"><strong>Describe the item you want</strong></font>&nbsp;</p>
+      </td>
+    </tr>
+    <tr> 
+      <td align="center"><font size="1">CGIFN=^VARERRORLoanAuthor^</font></td>
+      <td>Author/Editors <font color="#800000"><em>(required)</em></font></td>
+      <td> 
+        <input type="text" size="40" maxlength="100"
+            name="LoanAuthor" value="CGIFN=^VARLoanAuthor^">
+      </td>
+    </tr>
+    <tr> 
+      <td align="center" width="5%"><font size="1">CGIFN=^VARERRORLoanTitle^</font></td>
+      <td width="50%">Title <font color="#800000"><em>(Please do not abbreviate 
+        unless your citation is abbreviated) (required)</em></font></td>
+      <td width="45%"> 
+        <textarea name="LoanTitle"
+            rows="2" cols="40">CGIFN=^VARLoanTitle^</textarea>
+      </td>
+    </tr>
+    <tr> 
+      <td align="center">&nbsp;<font size="1">CGIFN=^VARERRORLoanPublisher^</font></td>
+      <td>Publisher</td>
+      <td> 
+        <input type="text" size="40" maxlength="30"
+            name="LoanPublisher" value="CGIFN=^VARLoanPublisher^">
+      </td>
+    </tr>
+    <tr> 
+      <td align="center">&nbsp;<font size="1">CGIFN=^VARERRORLoanPlace^</font></td>
+      <td>Place of Publication</td>
+      <td> 
+        <input type="text" size="40" maxlength="30"
+            name="LoanPlace" value="CGIFN=^VARLoanPlace^">
+      </td>
+    </tr>
+    <tr> 
+      <td align="center">&nbsp;<font size="1">CGIFN=^VARERRORLoanDate^</font></td>
+      <td>Date of Publication</td>
+      <td> 
+        <input type="text" size="40" maxlength="30"
+            name="LoanDate" value="CGIFN=^VARLoanDate^">
+      </td>
+    </tr>
+    <tr> 
+      <td align="center">&nbsp;<font size="1">CGIFN=^VARERRORLoanEdition^</font></td>
+      <td>Edition</td>
+      <td> 
+        <input type="text" size="40" maxlength="30"
+            name="LoanEdition" value="CGIFN=^VARLoanEdition^">
+      </td>
+    </tr>
+    <tr> 
+      <td align="center">&nbsp;<font size="1">CGIFN=^VARERRORISSN^</font></td>
+      <td>ISBN<br>
+        <font size="2">(Int. Standard Book No.)</font><br>
+        <font color="#800000"><em>(if given will speed request processing)</em></font></td>
+      <td> 
+        <input type="text" size="20" maxlength="20"
+            name="ISSN" value="CGIFN=^VARISSN^">
+      </td>
+    </tr>
+    <tr> 
+      <td align="center">&nbsp;<font size="1">CGIFN=^VARERRORESPNumber^</font></td>
+      <td>OCLC Accession Number (if available)</td>
+      <td> 
+        <input type="text" size="20" name="ESPNumber"
+            value="CGIFN=^VARESPNumber^">
+      </td>
+    </tr>
+    <tr> 
+      <td align="center"><font size="1">CGIFN=^VARERRORNotWantedAfter^</font></td>
+      <td>Not Wanted After Date<font color="#800000"><em> (format: MM/DD/YYYY) 
+        (required)</em></font></td>
+      <td> 
+        <input type="text" size="40"
+            name="NotWantedAfter" value="CGIFN=^VARNotWantedAfter^">
+      </td>
+    </tr>
+    <tr> 
+      <td align="center">&nbsp;<font size="1">CGIFN=^VARERRORAcceptAlternateEdition^</font></td>
+      <td>Will you accept an alternate edition of this item?</td>
+      <td> 
+        <select name="AcceptAlternateEdition" size="1">
+          <option selected>CGIFN=^VARAcceptAlternateEdition^</option>
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+      </td>
+    </tr>
+     <tr>
+      <td align="left" colspan="3" bgcolor="#8000000"><font color="#FFFFFF" 
+      face="Arial"><strong>Is this item owned by the University of Chicago Library?</strong></font></td>
+    </tr>
+    <tr>
+      <td align="center" height="73"><font size="1">CGIFN=^VARERRORNotes^</font></td>
+      <td height="73"> 
+        <p>If title is owned by the University of Chicago, please explain this 
+          request. <font color="#8000000"><i>(Only titles which are missing, on-order, 
+          or otherwise unavailable may be requested on interlibrary loan.)</i></font></p>
+        </td>
+      <td height="73">
+<input type="text" size="40" name="CitedIn" value="CGIFN=^VARNotes^"></td>
+    </tr>
+<tr>
+            
+      <td align="center">&nbsp;</td>
+            
+      <td>
+        <div align="right"></div>
+      </td>
+            
+      <td> Previous Notes (if any):<br>
+        CGIFN=^VARNotesInformation^</td>
+        </tr>
+		<tr>
+		<td align="center">&nbsp;<font size="1">CGIFN=^VARERRORCallNumber^</font></td>
+            <td>Call Number</td>
+            <td><input type="text" size="20" name="CallNumber"
+            value="CGIFN=^VARCallNumber^"></td>
+        </tr>
+		
+        <tr>
+            <td align="center" colspan="3" bgcolor="#800000">
+              <p align="left"><font
+            color="#FFFFFF" face="Arial"><strong>Where did you
+            learn about this item?</strong></font>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">&nbsp;<font size="1">CGIFN=^VARERRORCitedIn^</font></td>
+            <td>Where did you find this item cited?<br>
+            <font size="2">Examples are databases like WorldCat, Eureka (specify which 
+        database), ProQuest Digital Dissertations, or a specific journal or book.</font></td>
+            <td><input type="text" size="40" maxlength="40"
+            name="CitedIn" value="CGIFN=^VARCitedIn^"></td>
+        </tr>
+        <tr>
+            <td align="center">&nbsp;<font size="1">CGIFN=^VARERRORCitedDate^</font></td>
+            <td>Date of the work that cited the item.</td>
+            <td><input type="text" size="40" maxlength="40"
+            name="CitedDate" value="CGIFN=^VARCitedDate^"></td>
+        </tr>
+        <tr>
+            <td align="center">&nbsp;<font size="1">CGIFN=^VARERRORCitedVolume^</font></td>
+            <td>Volume of the work that cited the item.</td>
+            <td><input type="text" size="40" maxlength="40"
+            name="CitedVolume" value="CGIFN=^VARCitedVolume^"></td>
+        </tr>
+        <tr>
+            <td align="center">&nbsp;<font size="1">CGIFN=^VARERRORCitedPages^</font></td>
+            <td>Pages where the item is cited.</td>
+            <td><input type="text" size="40" maxlength="40"
+            name="CitedPages" value="CGIFN=^VARCitedPages^"></td>
+        </tr>
+    </table>
+    <hr>
+    <table border="0" cellpadding="6" width="100%">
+        <tr>
+            <td width="5%">&nbsp;</td>
+            <td width="50%"><font color="#000000" size="2"
+            face="Arial"><strong>Press this button to submit your
+            request for processing by InterLibrary Loan staff.</strong></font></td>
+            
+      <td align="center" width="45%">
+<input type="submit" name="SubmitButton"
+            value="Submit Request"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><font color="#000000" size="2" face="Arial"><strong>Press
+            this button to clear all entries on this form and
+            start over.</strong></font></td>
+            
+      <td align="center">
+<input type="reset" name="SubmitButton2"
+            value="Clear Form"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><font size="2" face="Arial"><strong>This button
+            will cancel your request and return you to the main
+            menu. All information entered into this page will be
+            discarded.</strong></font></td>
+            
+      <td align="center">
+<input type="submit" name="SubmitButton"
+            value="Cancel - Return to Main Menu"></td>
+        </tr>
+    </table>
+</form>
+
+<hr>
+
+<p>&nbsp;</p>
+</body>
+</html>
+
+
+

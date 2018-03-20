@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Interlibrary Loan Main Menu</title>
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" /> 
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+<link href="<#ACTION action="2" type="40" value="RSSID" valueType="lookup" absolutePath="true" includeSessionID="false">" rel="alternate" type="application/rss+xml" title="Interlibrary Loan Alerts" />
+<link href="<#ACTION action="2" type="41" value="RSSID" valueType="lookup" absolutePath="true" includeSessionID="false">" rel="alternate" type="application/rss+xml" title="Interlibrary Loan Notifications" />
+</head>
+<body id="type-c">
+<div id="wrap">
+	<#INCLUDE filename="include_header.html">
+    <div id="content-wrap">
+        <#INCLUDE filename="include_menu.html">
+        <div id="content">
+               		<div class="default-table">
+			<p><#TABLE name="ElectronicDelivery" headerText="Electronically Received Articles" column="TransactionNumber:Transaction" column="View" column="Size" column="Title" column="Author" column="Expires" column="Delete">
+			</p>				
+		</div>
+            
+           			<div class="default-table">			
+				      <p><#TABLE name="ViewRenewCheckedOutItems" headerText="Checked Out Items" noDataAction="ShowMessageRow" noDataMessage="No Items">
+			          </p>
+          </div> 
+
+          <div class="default-table">
+                <p><#TABLE name="ViewOutstandingRequests" headerText="Active Requests" noDataAction="ShowMessageRow" noDataMessage="No Requests" column="TransactionNumber:Transaction" column="DocumentType:Type" column="Title" column="Author" column="TransactionStatus:Status">
+                </p>
+            </div>
+         
+            
+            
+            <#INCLUDE filename="include_footer.html">
+      </div>
+        <div id="sidebar">
+			<!-- removed because not valid for PubCookie (Genie at Atlas) <a href="<#ACTION action="2" type="40" value="RSSID" valueType="lookup" absolutepath="false" includeSessionID="false">"> Subscribe to Alerts Feed</a>
+            <br /> -->
+            <#ALERTS> </div>
+    </div>
+</div></body>
+</html>
+
+
+

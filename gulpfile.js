@@ -30,6 +30,7 @@ gulp.task('compileSass', function() {
 // Watch Files
 gulp.task('watchFiles', ['browserSync', 'compileSass'], function() {
   gulp.watch('css/**/*.scss', ['compileSass'], browserSync.reload);
+  gulp.watch('Atlas/css/**/*.scss', ['compileSass'], browserSync.reload);
   gulp.watch('*.html', browserSync.reload);
 });
 

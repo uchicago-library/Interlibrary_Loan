@@ -1,0 +1,44 @@
+<div id="status" class="alert alert-info"><#STATUS></div>
+
+<!-- Sidebar -->
+<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+  
+  <h3><i class="material-icons">add_circle</i> Make New Request</h3>
+  <div class="list-group">
+    <a href="<#ACTION action="10" form="22">" class="list-group-item">Article, Chapter, or Paper</a>
+    <a href="<#ACTION action="10" form="21">" class="list-group-item">Book, Video, Journal Issue, or Microfilm</a>
+    <a href="<#ACTION action="10" form="27">" class="list-group-item">Dissertation/Thesis</a>
+    <a href="<#ACTION action="10" form="20" value="GenericRequestGargoyleExpress">" class="list-group-item">Scan &amp; Deliver</a>
+  </div>
+  <h3><i class="material-icons">archive</i> Your Requests</h3>
+  <div class="list-group">
+    <a href="<#ACTION action="10" form="10">" class="list-group-item">Dashboard</a>
+    <a href="<#ACTION action="10" form="62">" class="list-group-item">Active Requests</a>
+    <a href="<#ACTION action="10" form="64">" class="list-group-item">Electronically Received Articles</a>
+    <a href="<#ACTION action="10" form="66">" class="list-group-item">Checked Out Items (Renew)</a>
+    <a href="<#ACTION action="10" form="70">" class="list-group-item">Canceled Requests</a>
+    <a href="<#ACTION action="10" form="68">" class="list-group-item">Request History</a>
+    <a href="<#ACTION action="10" form="60">" class="list-group-item">All Requests</a>
+  </div>
+  <h3><i class="material-icons">help_outline</i> Help</h3>
+  <div class="list-group">
+    <a href="http://www.lib.uchicago.edu/ask" class="list-group-item">Ask a Librarian</a>
+    <a href="http://guides.lib.uchicago.edu/scananddeliver" class="list-group-item">What is Scan and Deliver?</a>
+  </div>
+
+<h3><i class="material-icons">search</i> Search Requests</h3>
+  <div class="sidebar-group" id="search">
+      <form action="illiad.dll" name="Search" method="post">
+      <input type="hidden" name="IlliadForm" value="Search" />
+      <input id="SessionID" name="SessionID" type="hidden" value="<#PARAM name="SessionID">" />
+      <label for="SearchCriteria">
+        <input id="SearchCriteria" name="SearchCriteria" type="text" class="f-criteria" placeholder="Search requests"/>        
+      </label>
+      <input type="submit" name="SubmitButton" value="Search" class="f-submit" />
+      <div id="searchType">
+        <input name="SearchType" type="radio" id="SearchTypeActive" value="Active" checked class="f-searchType" /><label for="SearchTypeActive">Active</label>
+        <input name="SearchType" type="radio" id="SearchTypeAll" value="All" class="f-searchType" /><label for="SearchTypeAll">All</label>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,173 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="AtlasSystems.ILLiad.WebCirculation.Default" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>
+        ILLiad Web Circulation
+    </title>
+    <link rel="stylesheet" type="text/css" href="css/2col_left.css" media="screen" />    
+    <link rel="stylesheet" type="text/css" href="css/webcirc.css" media="screen" />     
+    <!--[if lt IE 7]>
+    <link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" media="screen" />
+    <![endif]-->   
+    <script language="javascript" type="text/javascript" src="js/gridclicks.js"></script>
+</head>
+<body>
+    <form id="formMaster" runat="server">
+        <asp:ScriptManager ID="ScriptManagerMaster" runat="server"></asp:ScriptManager>
+    
+           
+                      
+        <!-- Inset Page -->
+        <div id="pageContainer">
+        
+                    <!-- Page Header -->
+                    <div id="pageContainerHeader">
+                        <!-- Do NOT change where LEFT, RIGHT & TEXT is located within the page due to float positions -->
+                        <div id="pageContainerHeaderLeft">&nbsp;</div>
+                        <div id="pageContainerHeaderRight">&nbsp;</div>
+                        <div id="pageContainerHeaderText">
+                                <h2><asp:Literal ID="ApplicationTitle" runat="server" Text="<%$ Resources:WebResources, ApplicationTitle %>"></asp:Literal></h2>
+                        </div>
+                        </div>                                            
+                    <!-- end header -->
+                    
+                    <div id="pageContainerContent">
+                                                           
+                    <div id="leftContent" class="peekabooFix">
+                                <!-- Start MainMenuContainer -->
+                                <div id="mainMenuContainer" class="menuContainer">
+                                    <div class="menuContainerHeader">                                                                                    
+                                            <div class="menuContainerHeaderLeft">&nbsp;</div>
+                                            <div class="menuContainerHeaderRight">&nbsp;</div>
+                                            <div class="menuContainerHeaderText"><asp:Literal ID="MainMenuHeaderLiteral" runat="server" Text="<%$ Resources:WebResources, MainMenu %>"></asp:Literal></div>
+                                    </div>                                            
+                                    <div class="menuContainerContent">
+                                        <div id="menuOptions">                            
+                                            <span class="menuLine"><asp:LinkButton ID="homeLink" runat="server" OnClick="mainMenu_Click" Text="<%$ Resources:WebResources, HomeMenuText %>" ToolTip="<%$ Resources:WebResources, HomeMenuTooltip %>"></asp:LinkButton></span>
+                                            <span class="menuLine"><asp:LinkButton ID="changeSiteLink" runat="server" OnClick="mainMenu_Click" Text="<%$ Resources:WebResources, ChangeSiteMenuText %>" ToolTip="<%$ Resources:WebResources, ChangeSiteMenuTooltip %>"></asp:LinkButton></span>
+                                            <span class="menuLine"><asp:LinkButton ID="changePasswordLink" runat="server" OnClick="mainMenu_Click" Text="<%$ Resources:WebResources, ChangePasswordText %>" ToolTip="<%$ Resources:WebResources, ChangePasswordTooltip %>"></asp:LinkButton></span>
+                                            <span class="menuLine"><asp:LinkButton ID="logoffLink" runat="server" OnClick="mainMenu_Click" Text="<%$ Resources:WebResources, LogoffMenuText %>" ToolTip="<%$ Resources:WebResources, LogoffMenuTooltip %>"></asp:LinkButton></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                                <!-- End MainMenuContainer -->
+                                    <asp:Panel ID="quickTasksPanel" runat="server">
+                                        <!-- Start QuickTasks -->
+                                        
+                                        <div id="quickTasksMenuContainer" class="menuContainer">
+                                            <div class="menuContainerHeader">
+                                                <div class="menuContainerHeaderLeft">&nbsp;</div>
+                                                <div class="menuContainerHeaderRight">&nbsp;</div>
+                                                <div class="menuContainerHeaderText"><asp:Literal ID="QuickTasksHeaderLiteral" runat="server" Text="<%$ Resources:WebResources, QuickTasksMenu %>"></asp:Literal></div>
+                                                
+                                            </div>
+                                            <div class="menuContainerContent">
+                                            
+                                                <div class="menuSeperator"><asp:Literal ID="QuickTaskLiteral" runat="server" Text="Enter transaction number"></asp:Literal></div>
+
+
+                                                <asp:Panel ID="QuickCheckOutPanel" runat="server" DefaultButton="ButtonCheckOut">
+                                                    <span class="circulationTransactionPrefix"><asp:Literal ID="LiteralCheckOutTransactionPrefix" runat="server" Text="<%$ Resources:WebResources, QuickCircTransactionTextBoxPrefix%>"></asp:Literal></span>
+                                                    <asp:TextBox ID="TextBoxCheckOutTransaction" runat="server" CssClass="circulationTextbox" ToolTip="<%$ Resources:WebResources, TooltipQuickCheckOutTextbox %>"></asp:TextBox>&nbsp;
+                                                    <asp:Button ID="ButtonCheckOut" runat="server" Text="<%$ Resources:WebResources, CheckOutMenuText %>" OnClick="CirculateItem" CssClass="button quickTaskButton"  ToolTip="<%$ Resources:WebResources, TooltipQuickCheckOutButton %>"/>
+                                                    <div class="menuSeperator"></div>
+                                                </asp:Panel>
+                                                            
+                                                <asp:Panel ID="QuickMarkInTransitFromCustomerPanel" runat="server" DefaultButton="ButtonMarkInTransitFromCustomer">
+                                                    <span class="circulationTransactionPrefix"><asp:Literal ID="LiteralMarkInTransitFromCustomerTransactionPrefix" runat="server" Text="<%$ Resources:WebResources, QuickCircTransactionTextBoxPrefix%>"></asp:Literal></span>
+                                                    <asp:TextBox ID="TextBoxMarkInTransitFromCustomerTransaction" runat="server" CssClass="circulationTextbox" ToolTip="<%$ Resources:WebResources, TooltipQuickMarkInTransitFromCustomerTextbox %>"></asp:TextBox>&nbsp;
+                                                    <asp:Button ID="ButtonMarkInTransitFromCustomer" runat="server" Text="<%$ Resources:WebResources, MarkInTransitFromCustomerMenuText %>" OnClick="CirculateItem" CssClass="button quickTaskButton"  ToolTip="<%$ Resources:WebResources, TooltipQuickMarkInTransitFromCustomerButton %>" />
+                                                    <div class="menuSeperator"></div>
+                                                </asp:Panel>
+                                                
+                                                <asp:Panel ID="QuickCheckInPanel" runat="server" DefaultButton="ButtonCheckIn">                                                                                            
+                                                    <span class="circulationTransactionPrefix"><asp:Literal ID="LiteralCheckInTransactionPrefix" runat="server" Text="<%$ Resources:WebResources, QuickCircTransactionTextBoxPrefix%>"></asp:Literal></span>
+                                                    <asp:TextBox ID="TextBoxCheckInTransaction" runat="server" CssClass="circulationTextbox"  ToolTip="<%$ Resources:WebResources, TooltipQuickCheckInTextbox %>"></asp:TextBox>&nbsp;
+                                                    <asp:Button ID="ButtonCheckIn" runat="server" Text="<%$ Resources:WebResources, CheckInMenuText %>" OnClick="CirculateItem" CssClass="button quickTaskButton"  ToolTip="<%$ Resources:WebResources, TooltipQuickCheckInButton %>"/>
+                                                    <div class="menuSeperator"></div>
+                                                </asp:Panel>
+                                                
+                                                <asp:Panel ID="QuickRenewPanel" runat="server" DefaultButton="ButtonRenew">
+                                                    <span class="circulationTransactionPrefix"><asp:Literal ID="LiteralRenewTransactionPrefix" runat="server" Text="<%$ Resources:WebResources, QuickCircTransactionTextBoxPrefix%>"></asp:Literal></span>
+                                                    <asp:TextBox ID="TextBoxRenewTransaction" runat="server" CssClass="circulationTextbox" ToolTip="<%$ Resources:WebResources, TooltipQuickRenewTextbox %>"></asp:TextBox>&nbsp;
+                                                    <asp:Button ID="ButtonRenew" runat="server" Text="<%$ Resources:WebResources, RenewMenuText %>" OnClick="CirculateItem" CssClass="button quickTaskButton"  ToolTip="<%$ Resources:WebResources, TooltipQuickRenewButton %>" />
+                                                	<div class="menuSeperator"></div>
+												</asp:Panel> 
+												
+												
+												<asp:Panel ID="QuickMarkInTransitReceivedPanel" runat="server" DefaultButton="ButtonReceiveItem">
+                                                    <span class="circulationTransactionPrefix"><asp:Literal ID="LiteralInTransitReceiveTransactionPrefix" runat="server" Text="<%$ Resources:WebResources, QuickCircTransactionTextBoxPrefix%>"></asp:Literal></span>
+                                                    <asp:TextBox ID="TextBoxReceiveItemTransaction" runat="server" CssClass="circulationTextbox" ToolTip="<%$ Resources:WebResources, TooltipQuickMarkInTransitReceivedTextbox %>"></asp:TextBox>&nbsp;
+                                                    <asp:Button ID="ButtonReceiveItem" runat="server" Text="<%$ Resources:WebResources, MarkInTransitReceivedMenuText %>" OnClick="CirculateItem" CssClass="button quickTaskButton"  ToolTip="<%$ Resources:WebResources, TooltipQuickMarkInTransitReceivedButton %>"/>
+                                                    
+                                                </asp:Panel>									
+												
+												                                                                        
+                                            </div>
+                                        </div>
+                                        <!-- End QuickTasks -->
+                                    </asp:Panel>                                                                                              
+                                    
+                                    <asp:Panel ID="transactionTasksPanel" runat="server" Visible="false">
+                                        <!-- Start TransactionTasks -->
+                                        <div id="transactionTasksMenuContainer" class="menuContainer">
+                                            <div class="menuContainerHeader">
+                                                <div class="menuContainerHeaderLeft">&nbsp;</div>
+                                                <div class="menuContainerHeaderRight">&nbsp;</div>
+                                                <div class="menuContainerHeaderText"><asp:Literal ID="TransactionTasksHeaderLiteral" runat="server" Text="<%$ Resources:WebResources, TransactionTasksMenu %>"></asp:Literal></div>                                                
+                                            </div>
+                                            <div class="menuContainerContent">
+                                                <asp:Panel ID="PanelTransactionInTransitReceived" runat="server">                                        
+                                                    <asp:LinkButton ID="ButtonTransactionMarkInTransitReceived" runat="server" Text="<%$ Resources:WebResources, MarkInTransitReceivedMenuText %>" ToolTip="<%$ Resources:WebResources, TooltipQuickMarkInTransitReceivedButton %>"></asp:LinkButton>
+                                                </asp:Panel>
+                                                <asp:Panel ID="PanelTransactionCheckOut" runat="server">
+                                                    <asp:LinkButton ID="ButtonTransactionCheckOut" runat="server" Text="<%$ Resources:WebResources, CheckOutMenuText %>" ToolTip="Check out transaction"></asp:LinkButton>
+                                                </asp:Panel>                                                                               
+                                                <asp:Panel ID="PanelTransactionMarkInTransitFromCustomer" runat="server">                                        
+                                                    <asp:LinkButton ID="ButtonTransactionMarkInTransitFromCustomer" runat="server" Text="<%$ Resources:WebResources, MarkInTransitFromCustomerMenuText %>" ToolTip="Mark transaction in transit from customer"></asp:LinkButton>
+                                                </asp:Panel>
+                                                <asp:Panel ID="PanelTransactionCheckIn" runat="server">
+                                                    <asp:LinkButton ID="ButtonTransactionCheckIn" runat="server" Text="<%$ Resources:WebResources, CheckInMenuText %>" ToolTip="Check in transaction"></asp:LinkButton>
+                                                </asp:Panel>
+                                                <asp:Panel ID="PanelTransactionRenew" runat="server">
+                                                    <asp:LinkButton ID="ButtonTransactionRenew" runat="server" Text="<%$ Resources:WebResources, RenewMenuText %>" ToolTip="Renew transaction"></asp:LinkButton>
+                                                </asp:Panel>                            
+                                            </div>
+                                        </div>
+                                        <!-- End TransactionTasks -->
+                                    </asp:Panel>                                                                                                                                                                                                                                                                              
+                        </div> <!-- end leftContent -->
+                                            
+                        <div id="mainContent">                                                       
+                            <div>                            
+                                <asp:UpdatePanel ID="UpdatePanelStatusMessages" runat="server" RenderMode="Inline">
+                                    <ContentTemplate>
+                                    <asp:Repeater ID="RepeaterStatus" runat="server" OnDataBinding="RepeaterStatus_DataBinding" Visible="False">
+                                        <ItemTemplate>
+                                            <div class='<%# DataBinder.Eval(Container.DataItem, "CssClass") %>'><%# DataBinder.Eval(Container.DataItem, "Message")%></div>
+                                        </ItemTemplate>
+                                        <FooterTemplate>
+                                            <div class="menuSeperator"></div>
+                                        </FooterTemplate>                            
+                                    </asp:Repeater>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                                
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolderDefault" runat="server"></asp:ContentPlaceHolder>
+                                                                
+                            </div>                                                                                                                                                                
+                        </div> <!-- end main_content -->
+
+                   <!-- Page Footer -->
+                  <div id="footer">              
+                    <div id="copyright">
+                        <asp:Literal ID="copyrightLiteral" runat="server" Text="<%$ Resources:WebResources, Copyright %>" />
+                    </div><!-- end copyright -->
+                  </div><!-- end footer -->   
+    </div><!-- end page -->    
+  </div>
+  </form>
+</body>
+</html>

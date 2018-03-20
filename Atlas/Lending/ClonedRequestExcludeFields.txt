@@ -1,5 +1,0 @@
-LendingString
-CallNumber
-Location
-CitedIn
-
