@@ -20,17 +20,17 @@ gulp.task('compileSass', function() {
 
 //Compile Sass to css
 gulp.task('compileSass', function() {
-  return gulp.src(['Atlas/css/**/*.scss'])
+  return gulp.src(['Atlas-Test/css/**/*.scss'])
     .pipe(maps.init()) // Sass source map 1/2
     .pipe(sass())
     .pipe(maps.write('./')) // Sass source map 2/2
-    .pipe(gulp.dest('Atlas/css'))
+    .pipe(gulp.dest('Atlas-Test/css'))
 });
 
 // Watch Files
 gulp.task('watchFiles', ['browserSync', 'compileSass'], function() {
   gulp.watch('css/**/*.scss', ['compileSass'], browserSync.reload);
-  gulp.watch('Atlas/css/**/*.scss', ['compileSass'], browserSync.reload);
+  gulp.watch('Atlas-Test/css/**/*.scss', ['compileSass'], browserSync.reload);
   gulp.watch('*.html', browserSync.reload);
 });
 

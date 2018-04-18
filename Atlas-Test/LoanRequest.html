@@ -50,8 +50,8 @@
                     <div class="form-group row">
                         <div class="col-sm-6">
                             <label for="LoanVolume"><span class="<#ERROR name="ERRORLoanVolume">">Volume/Issue</span></label>
-                            <input type="text" id="LoanVolume" name="LoanVolume" class="form-control" value="<#PARAM name="LoanVolume">">
-                            <small class="text-muted">If multi-volume item or journal.</small>
+                            <input type="text" id="LoanVolume" name="LoanVolume" aria-describedby="LoanVolumeHelp" class="form-control" value="<#PARAM name="LoanVolume">">
+                            <small id="LoanVolumeHelp" class="form-text text-muted">If multi-volume item or journal.</small>
 
                         </div>
 
@@ -124,18 +124,20 @@
                         <div class="form-group row">
                             <div class="col-sm-4">
                                 <label for="ISSN"><span class="<#ERROR name="ERRORISSN">">ISSN/ISBN</span></label>
-                                <input type="text" id="ISSN" name="ISSN" class="form-control" value="<#PARAM name="ISSN">">
-                                <small id="ISSNHelp" class="form-text text-muted">(International Standard Serial/Book Number)</small>
+                                <input type="text" id="ISSN" name="ISSN" aria-describedby="ISSNHelp" class="form-control" value="<#PARAM name="ISSN">">
+                                <small id="ISSNHelp" class="form-text text-muted"><em>Example:</em> 0028-0836</small>
                             </div>
 
                             <div class="col-sm-4">
                                 <label for="CallNumber"><span class="<#ERROR name="ERRORCallNumber">">Call Number</span></label>
-                                <input type="text" id="CallNumber" name="CallNumber" class="form-control" value="<#PARAM name="CallNumber">">
+                                <input type="text" id="CallNumber" name="CallNumber" aria-describedby="CallNumberHelp" class="form-control" value="<#PARAM name="CallNumber">">
+                                <small id="CallNumberHelp" class="form-text text-muted"><em>Example:</em> PN6728.B523C63 2016</small>
                             </div>
 
                             <div class="col-sm-4">      
                                 <label for="ESPNumber"><span class="<#ERROR name="ERRORESPNumber">">OCLC or Docline UI Number</span></label>
-                                <input type="text" id="ESPNumber" name="ESPNumber" class="form-control" value="<#PARAM name="ESPNumber">">
+                                <input type="text" id="ESPNumber" name="ESPNumber" aria-describedby="ESPNumberHelp" class="form-control" value="<#PARAM name="ESPNumber">">
+                                <small id="ESPNumberHelp" class="form-text text-muted"><em>Example:</em> 905248519</small>
                             </div>
                         </div>
                     </fieldset>

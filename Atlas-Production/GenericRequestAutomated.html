@@ -36,6 +36,54 @@ $(document).ready(function() {
 		$("input:hidden[name='LoanDate']").val()
 	);
 });
+
+$(document).ready(function() {
+  function parse_query_string(q) {
+    var vars = q.split("&");
+    var query_string = {};
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split("=");
+      // If first entry with this name 
+      if (typeof query_string[pair[0]] === "undefined") {
+        query_string[pair[0]] = decodeURIComponent(pair[1]);
+        // If second entry with this name
+      } else if (typeof query_string[pair[0]] === "string") {
+        var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
+        query_string[pair[0]] = arr;
+        // If third or later entry with this name
+      } else {
+        query_string[pair[0]].push(decodeURIComponent(pair[1]));
+      }
+    }
+    return query_string;
+  }
+  
+  var params = parse_query_string(window.location.href.replace(/^.*\?/, ''));
+  delete params['action'];
+  delete params['form'];
+  delete params['rft.atitle'];
+  delete params['rft.jtitle'];
+  delete params['atitle'];
+  delete params['jtitle'];
+  delete params['heldlocally'];
+  params['Action'] = '10';
+  params['Form'] = '30';
+  params['genre'] = 'article';
+  
+  var href = 'illiad.dll/openurl';
+  var first = true;
+  for (var p in params) {
+    if (params.hasOwnProperty(p)) {
+      if (first) {
+        href = href + '?' + p + '=' + params[p];
+        first = false;
+      } else { 
+        href = href + '&' + p + '=' + params[p];
+      }
+    }
+  }
+  $('#articlerequest').attr('href', href);
+});
 </script>
 </head>
 <body>
@@ -49,7 +97,7 @@ $(document).ready(function() {
             <span class="icon-bar"></span>
           </button> -->
 
-           <a class="navbar-brand" href="www.lib.uchicago.edu"><img src="images/ucl_FindIt_logo.png" class="img-responsive" alt="library logo"></a>
+           <a class="navbar-brand" href="https://www.lib.uchicago.edu/"><img src="images/ucl_FindIt_logo.png" class="img-responsive" alt="library logo"></a>
 
         </div>
         <div id="navbar" class="collapse navbar-collapse">
@@ -108,7 +156,7 @@ $(document).ready(function() {
 			<strong>Date of Publication:</strong><span id="LoanDateDisplay"></span></p>
 
 			<legend>Request Preferences</legend>
-			<p><strong>Need only part of this item?</strong><br/>Use the <a href="<#ACTION action="10" form="22">">Request a Article, Chapter, or Paper</a> form</p>
+			<p><strong>Need only part of this item?</strong><br/>Use the <a id="articlerequest" href="<#ACTION action="10" form="22">">Request an Article, Chapter, or Paper</a> form</p>
 			<label for="ItemInfo4"><strong>Please choose your preferred pickup location:</strong></label>
             <select id="ItemInfo4" name="ItemInfo4">
 	            <option value="JRLMAIN" selected><#PARAM name="ItemInfo4">Regenstein Library</option>

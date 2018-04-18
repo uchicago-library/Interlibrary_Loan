@@ -167,281 +167,52 @@ $accent: #670000;
 
 
 /*
- * Find It! Content
+ * Custom Styles
  * --------------------------------------------------
  */
 
- h2 {
-  margin-left: 0;
-}
-
- .holdings-locpanel {
+.holdings-locpanel {
   padding: 0;
   border: 1px solid #ddd;
   margin-bottom: 1em;
+  max-width: 60em;
+  h1 {
+    font-size: 17px;
+    line-height: 17px;
+    margin: 0.5em 0;
+    border: none;
+    }
+  h2 {
+    font-size: 1em;
+    color: #670000;
+    margin: 0  0 0.5em 0;
+    border-bottom: 1px solid #ddd;
+  }
+  h3 {
+    font-size: 1.1em;
+    color: #634d4c;
+    line-height: 17px;
+    margin: 0 0 0.5em 0;
+  }
+  a {
+    color: #437e9b;
+  }
   .locpanel-heading {
-    background: #d0d2b4;
-    padding: 0.05em 1em;
     margin-bottom: 0;
-    h2 {
-      display:inline-block;
-    }
-    h3 {
-      font-size: 1.35em;
-      font-weight: 600;
-      margin: 0 0 0.5em!important; //compiled override
-      display: inline-block!important; //compiled override
-    }
-    a {
-      color: #155f83;
-      text-decoration: underline;
-      margin-left:0.75em;
-    }
-    &.online {
-      background-color: #d9e7e8;
+    padding: 0.5em 0 0.5em 1em; 
+    &.getit {
+      background-color: #f4e6d0;
     }
   }
 }
-
-.locpanel-heading .location-change {
-    margin-top: -5px;
-    font-weight: 600;
-}
-
 
 .findit-wrap {
   padding-top: 1em!important;
   padding-bottom: 3em!important;
   min-height: 100%;
   margin-bottom: -50em;
-  h1 {
-    font-size: 1.15em;
-  }
-  h2 {
-    font-size: 1em;
-  }
-  .citation p {
-    font-size: 0.9em;
-  }
-  .text-success, .text-danger, .text-unknown {
-    display: unset;
-    font-size: 1em;
-  }
-  .alert {
-    padding: 5px 0 0;
-    margin: -1em 0 1em -1em;
-    &.alert-success-match {
-      color: #3c763d;
-      &:before {
-        font-family: FontAwesome;
-        color: #b1c8b1;
-        display: inline-block;
-        content: "\f00c";
-        margin-right: 0.5em;
-      }
-    }
-    &.alert-no-match {
-      color: #767676;
-      &:before {
-        font-family: FontAwesome;
-        color: #D6D6CE;
-        display: inline-block;
-        content: "\f05e";
-        margin-right: 0.5em;
-      }
-    }
-    .resubmit-search {
-      font-size: 1.15em;
-      padding-top: 1em;
-      &:after {
-        font-family: FontAwesome;
-        color: #437e9b;
-        display: inline-block;
-        content: "\f0a9";
-      }
-    }
-  }
-  .fi-header {
-    padding: 1em 1em 0.5em;
-    border-top: 1px dashed #ddd;
-    border-bottom: 1px dashed #ddd;
-    h1 {
-      color: $accent;
-      display: inline;
-    }
-  }
-  .holdings-locpanel {
-    max-width: 60em;
-    .location {
-      padding: 0 2em;
-    }
-    .catalog-record {
-      padding-right: 2em;
-    }
-  }
-  .locpanel-heading {
-    padding: 0.5em 0 0.5em 1em;
-    h2 {
-      display: inline;
-    }
-  }
-  .view-all {
-    float: right;
-    font-size: 0.9em;
-    color: #767676;
-    & a {
-    color: #767676;
-    text-decoration: underline;
-    }
-  }
-}
-
-.holdings-table {
-  margin-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-
-.holdings-unit {
-  padding-top: 0.5em;
-  padding-bottom: 0.25em;
-  p {
-    padding-top: 10px;
-  }
-  .result-title.title {
-    font-size: 1.15em;
-    width: 250px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    .title {
-      padding-right: 1em;
-    }
-  }
-  .findit-wrap & {
-    margin: 1em 1em 0 1em;
-    border-top: none;
-  }
-  .row {
-    padding-left: 1em;
-      padding-bottom: 0.5em;
-    &+.row {
-      padding-top: 0.5em;
-      border-top: 1px solid #eee;
-    }
-    &.in-library {
-      padding-left: 1em;
-    }
-  }
-}
-
-.locpanel-heading.getit {
-  background-color: #f4e6d0;
-}
-
-.text-getit {
-  padding: 0 0 1em 0;
-  display: block;
-}
-
-.table > tbody > tr > th {
-  border-top: none;
-}
-
-.light-link {
-  font-weight: 400;
-}
-
-a.getit {
-  font-size: 1.2em;
-  margin-top: 0.5em;
-}
-
-.e-list-wrapper {
-  font-size: 0.9em;
-  color: #767676;
-  & a {
-    text-decoration: underline;
-  }
-  ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    & > li > ul {
-      padding-left: 1em;
-    }
-  }
-  label {
-    font-weight: 200;
-    display: block;
-    padding-top: 0.5em;
-    border-bottom: none;
-    cursor: pointer;
-    &:hover {
-      color: #acacac;
-    }
-  }
-  // This 'input' section can't be nested for optimal functionality
-  input[type="checkbox"] {
-    position: absolute;
-    left: -9999px;
-  }
-  input[type="checkbox"] ~ ul{
-    height: 0;
-    transform: scaleY(0);
-  }
-  input[type="checkbox"]:checked ~ ul{
-    height: 100%;
-    transform-origin: top;
-    transition: transform .2s ease-out;
-    transform: scaleY(1);
-  }
-  input[type=checkbox] + label:before {
-    font-family: FontAwesome;
-    color: #acacac;
-    content: "\f107";
-  }
-  input[type=checkbox]:checked + label:before {
-    font-family: FontAwesome;
-    color: #acacac;
-    content: "\f106";
-  }
-}
-
-p.note {
-  font-size: 0.9em;
-  color: #767676;
-  padding-top: 0;
-  padding-bottom: 0.5em;
-}
-
-
-
-/*
- * ILL Request Page
- * --------------------------------------------------
- */
-
-fieldset {
-  padding: 1em 2em;
-  margin-left: 0;
-    h2 {
-      font-size:1.65em;
-  }
-  legend {
-    font-size: 1em;
-    color: $accent;
-    padding-top: 1.3em;
-    margin-bottom: 5px;
-    & + h2 {
-      margin-top: 0;
-    }
-  }
-  label {
-    padding-top: 0.75em;
-    display: block;
-  }
   input[type="submit"] {
-    margin: 1.5em 0 0.75em;
+    margin: 0.5em 2em 2em;
     display: block;
     background-color: $accent;
     color: #fff;
@@ -454,6 +225,21 @@ fieldset {
       background-color: #c89d9a;
     }
   }
+}
+
+
+/*
+ * Form items
+ * --------------------------------------------------
+ */
+
+fieldset, section {
+  padding: 1em 2em;
+  margin-left: 0;
+  label {
+    padding-top: 0.75em;
+    display: block;
+  }
   input#notes {
     width: 30em;
   } 
@@ -461,31 +247,6 @@ fieldset {
 
 .fineprint {
   font-size: 0.85em;
-}
-
-.locpanel-heading h1 {
-  font-size: 17px;
-  line-height: 17px;
-  margin: 0.5em 0;
-  border-bottom: none;
-}
-
-/*
- * Footer
- * --------------------------------------------------
- */
-
- .push {
-  height: 50em;
- }
-
-.footer {
-  width: 100%;
-  background: $main;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  position: absolute;
-  bottom: 0;
 }
 
 

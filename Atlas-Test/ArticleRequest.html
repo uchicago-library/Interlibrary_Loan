@@ -37,19 +37,23 @@
 	        </div>
 
 			<div class="form-group">
-				<label for="PhotoArticleAuthor"><span class="<#ERROR name="ERRORPhotoArticleAuthor">">Article Author</span></label>
+				<label for="PhotoArticleAuthor"><span class="<#ERROR name="ERRORPhotoArticleAuthor">">Article Author(s)</span></label>
 				<input type="text" id="PhotoArticleAuthor" name="PhotoArticleAuthor"  class="form-control" value="<#PARAM name="PhotoArticleAuthor">">
 	        </div>
 
 			<div class="form-group">
 				<label for="PhotoJournalTitle"><span class="<#ERROR name="ERRORPhotoJournalTitle">">Title (Journal, Conference Proceedings, Anthology)</span><abbr title="required">*</abbr></label>
-	       		<input type="text" id="PhotoJournalTitle" name="PhotoJournalTitle" class="form-control" aria-describedby="emailHelp" value="<#PARAM name="PhotoJournalTitle">">
+	       		<input type="text" id="PhotoJournalTitle" name="PhotoJournalTitle" aria-describedby="ePhotoJournalTitleHelp" class="form-control" aria-describedby="emailHelp" value="<#PARAM name="PhotoJournalTitle">">
 		        <small id="ePhotoJournalTitleHelp" class="form-text text-muted">Please do not abbreviate unless your citation is abbreviated</small>
 	        </div>
         </fieldset>
 		
 		<fieldset>
             <div class="form-group row">
+			    <div class="col-sm-4"> 
+					<label for="PhotoJournalInclusivePages"><span class="<#ERROR name="ERRORPhotoJournalInclusivePages">">Inclusive Pages</span><abbr title="required">*</abbr></label>
+					<input type="text" id="PhotoJournalInclusivePages" name="PhotoJournalInclusivePages" class="form-control" value="<#PARAM name="PhotoJournalInclusivePages">">
+				</div>
 	            <div class="col-sm-4">
 					<label for="PhotoJournalVolume"><span class="<#ERROR name="ERRORPhotoJournalVolume">">Volume</span></label>
 		        	<input type="text" id="PhotoJournalVolume" name="PhotoJournalVolume" class="form-control" value="<#PARAM name="PhotoJournalVolume">">
@@ -58,12 +62,7 @@
 		        <div class="col-sm-4">
 		        	<label for="PhotoJournalIssue"><span class="<#ERROR name="ERRORPhotoJournalIssue">">Issue Number or Designation</span></label>
 					<input type="text" id="PhotoJournalIssue" name="PhotoJournalIssue" class="form-control" value="<#PARAM name="PhotoJournalIssue">">
-				</div>
-
-				<div class="col-sm-4">
-					<label for="PhotoJournalMonth"><span class="<#ERROR name="ERRORPhotoJournalMonth">">Month</span></label>
-					<input type="text" id="PhotoJournalMonth" name="PhotoJournalMonth" class="form-control" value="<#PARAM name="PhotoJournalMonth">">
-				</div>
+				</div>				
 			</div>
 
             <div class="form-group row">
@@ -71,9 +70,9 @@
 					<label for="PhotoJournalYear"><span class="<#ERROR name="ERRORPhotoJournalYear">">Year</span><abbr title="required">*</abbr></label>
 		          	<input type="text" id="PhotoJournalYear" name="PhotoJournalYear" class="form-control" value="<#PARAM name="PhotoJournalYear">">
 		        </div>
-			    <div class="col-sm-6"> 
-					<label for="PhotoJournalInclusivePages"><span class="<#ERROR name="ERRORPhotoJournalInclusivePages">">Inclusive Pages</span><abbr title="required">*</abbr></label>
-					<input type="text" id="PhotoJournalInclusivePages" name="PhotoJournalInclusivePages" class="form-control" value="<#PARAM name="PhotoJournalInclusivePages">">
+		        <div class="col-sm-6">
+					<label for="PhotoJournalMonth"><span class="<#ERROR name="ERRORPhotoJournalMonth">">Month</span></label>
+					<input type="text" id="PhotoJournalMonth" name="PhotoJournalMonth" class="form-control" value="<#PARAM name="PhotoJournalMonth">">
 				</div>
 			</div>
 		</fieldset>
@@ -82,23 +81,25 @@
 
     <section>   
     <h2>Additional Information</h2>
-    <small class="text-muted">Info that helps speed request processing, but is not required.</small>
+    <p class="text-muted">Info that helps speed request processing, but is not required.</p>
         <fieldset>
             <div class="form-group row">
 	            <div class="col-sm-4">
 					<label for="ISSN"><span class="<#ERROR name="ERRORISSN">">ISSN/ISBN</span></label>
-					<input type="text" id="ISSN" name="ISSN" class="form-control" value="<#PARAM name="ISSN">">
-	                <small id="ISSNHelp" class="form-text text-muted">(International Standard Serial/Book Number)</small>
+					<input type="text" id="ISSN" name="ISSN" aria-describedby="ISSNHelp" class="form-control" value="<#PARAM name="ISSN">">
+	                <small id="ISSNHelp" class="form-text text-muted"><em>Example:</em> 0028-0836</small>
 				</div>
 
 				<div class="col-sm-4">
 					<label for="CallNumber"><span class="<#ERROR name="ERRORCallNumber">">Call Number</span></label>
-					<input type="text" id="CallNumber" name="CallNumber" class="form-control" value="<#PARAM name="CallNumber">">
+					<input type="text" id="CallNumber" name="CallNumber" aria-describedby="CallNumberHelp" class="form-control" value="<#PARAM name="CallNumber">">
+					<small id="CallNumberHelp" class="form-text text-muted"><em>Example:</em> PN6728.B523C63 2016</small>
 				</div>
 
 				<div class="col-sm-4">		
 					<label for="ESPNumber"><span class="<#ERROR name="ERRORESPNumber">">OCLC or Docline UI Number</span></label>
-					<input type="text" id="ESPNumber" name="ESPNumber" class="form-control" value="<#PARAM name="ESPNumber">">
+					<input type="text" id="ESPNumber" name="ESPNumber" aria-describedby="ESPNumberHelp" class="form-control" value="<#PARAM name="ESPNumber">">
+					<small id="ESPNumberHelp" class="form-text text-muted"><em>Example:</em> doi:10.1038/nphys1170</small>
 				</div>
 			</div>
 		</fieldset>
@@ -107,13 +108,13 @@
             <div class="form-group row">
 	            <div class="col-sm-6">	
 					<label for="NotWantedAfter"><span class="<#ERROR name="ERRORNotWantedAfter">">Not Wanted After Date</span><abbr title="required">*</abbr></label>
-					<input type="text" id="NotWantedAfter" name="NotWantedAfter" class="form-control" value="<#PARAM name="NotWantedAfter">">
-					<small id="NotWantedAfterHelp" class="form-text text-muted">(MM/DD/YYYY)</small>
+					<input type="text" id="NotWantedAfter" name="NotWantedAfter" aria-describedby="NotWantedAfterHelp"class="form-control" value="<#PARAM name="NotWantedAfter">">
+					<small id="NotWantedAfterHelp" class="form-text text-muted">MM/DD/YYYY</small>
 				</div>
 
 				<div class="col-sm-6">
 					<label for="Notes"><span class="<#ERROR name="ERRORNotes">">Notes</span></label>
-        			<input type="text" id="Notes" name="Notes" class="form-control" value="<#PARAM name="Notes">">
+        			<input type="text" id="Notes" name="Notes" aria-describedby="NotesHelp" class="form-control" value="<#PARAM name="Notes">">
                     <small id="NotesHelp" class="form-text text-muted">Information that may help us find the item or other pertinent information.</small>
                 </div>
             </div>

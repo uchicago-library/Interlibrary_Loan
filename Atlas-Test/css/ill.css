@@ -365,9 +365,9 @@ p.required {
   margin: 0.5em 0 1em 1em; }
 
 abbr[title=required] {
-  color: #800000;
+  color: #FF3399;
   cursor: unset;
-  font-size: 1.1em;
+  font-size: 1.3em;
   margin-left: 0.25em;
   border-bottom: none;
   text-decoration: none; }
