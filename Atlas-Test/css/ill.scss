@@ -500,6 +500,15 @@ form.ill-request {
   border-radius: 8px;
   section {
     padding: 1em;
+    &.additional-info {
+      padding: 1em 1.5em;
+      ul {
+        margin-bottom: 1em;
+        li {
+          margin-bottom: 0.25em;
+        }
+      }
+    }
   }
   h2 {
     font-size: 1.4em;
@@ -523,6 +532,11 @@ abbr[title=required] {
   margin-left: 0.25em;
   border-bottom: none;
   text-decoration: none;
+}
+
+.submit-suggestion {
+  float: right;
+  padding-right: 1em;
 }
 
 .f-submit-wrap button {

@@ -13,27 +13,26 @@
       <div class="row row-offcanvas row-offcanvas-left">
         <#INCLUDE filename="include_menu.html">
 
-       <div class="col-xs-12 col-md-9" id="content">
-          <p class="pull-left visible-xs visible-sm">
-            <button type="button" class="btn btn-sidebar btn-xs" data-toggle="offcanvas">View options <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
-          </p>
+            <div class="col-xs-12 col-md-9" id="content">
+            <p class="pull-left visible-xs visible-sm">
+                <button type="button" class="btn btn-sidebar btn-xs" data-toggle="offcanvas">View options <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+            </p>
 
-          <div class="row main-content">
-        <h1>Request a Book, Video, Journal Issue, or Microfilm</h1>
-        <p class="required">Required fields are followed by <abbr title="required">*</abbr></p>
+            <div class="row main-content">
+            <h1>Request a Book, Video, Journal Issue, or Microfilm</h1>
+            <p class="required">Required fields are followed by <abbr title="required">*</abbr></p>
             
             <form action="illiad.dll" method="post" name="LoanRequest" class="ill-request f-wrap-request">
                 <input type="hidden" name="ILLiadForm" value="LoanRequest">	
-		    <input type="hidden" name="Location" id="Location" value="<#PARAM name="Location">">
-		    <input type="hidden" name="LendingString" id="LendingString" value="<#PARAM name="LendingString">">
+    		    <input type="hidden" name="Location" id="Location" value="<#PARAM name="Location">">
+    		    <input type="hidden" name="LendingString" id="LendingString" value="<#PARAM name="LendingString">">
                 <input type="hidden" name="Username" value="<#PARAM name="Username">">
                 <input type="hidden" name="Barcode" value="<#PARAM name="barcode">">
                 <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
-				<input type="hidden" name="AcceptNonEnglish" value="Yes">
+    			<input type="hidden" name="AcceptNonEnglish" value="Yes">
                 
                 <section>
-                <h2>Describe the item you want</h2>
-                <fieldset> 
+                <h2>Describe the item you want</h2> 
                 	<div class="form-group">
                         <label for="LoanTitle"><span class="<#ERROR name="ERRORLoanTitle">">Title</span><abbr title="required">*</abbr></label>
                		    <input type="text" id="LoanTitle" name="LoanTitle" class="form-control" value="<#PARAM name="LoanTitle">">
@@ -44,9 +43,8 @@
                         <label for="LoanAuthor"><span class="<#ERROR name="ERRORLoanAuthor">">Author/Editors</span><abbr title="required">*</abbr></label>
                 		<input type="text" id="LoanAuthor" name="LoanAuthor" class="form-control" value="<#PARAM name="LoanAuthor">">
                     </div>
-                </fieldset>
+                
 
-                <fieldset>
                     <div class="form-group row">
                         <div class="col-sm-6">
                             <label for="LoanVolume"><span class="<#ERROR name="ERRORLoanVolume">">Volume/Issue</span></label>
@@ -72,12 +70,10 @@
                     		<input type="text" id="LoanPlace" name="LoanPlace" class="form-control" value="<#PARAM name="LoanPlace">">
                         </div>
                     </div>
-                </fieldset>
-            </section>
+                </section>
 
-             <section>   
+                <section>   
                 <h2>Pick-up &amp; Edition Preferences</h2>
-                <fieldset>
                     <div class="form-group row">
                         <div class="col-sm-6">		
                             <label for="ItemInfo4"><span class="<#ERROR name="ERRORItemInfo4">">Pickup Location</span><abbr title="required">*</abbr></label>
@@ -112,68 +108,62 @@
                         		<option>Yes</option>
                     		</select>
                         </div>
-                        
                     </div>  
-                </fieldset>
-            </section>
+                </section>
 
-             <section>   
+                <section>   
                 <h2>Additional Information</h2>
                 <small class="text-muted">Info that helps speed request processing, but is not required.</small>
-                    <fieldset>
-                        <div class="form-group row">
-                            <div class="col-sm-4">
-                                <label for="ISSN"><span class="<#ERROR name="ERRORISSN">">ISSN/ISBN</span></label>
-                                <input type="text" id="ISSN" name="ISSN" aria-describedby="ISSNHelp" class="form-control" value="<#PARAM name="ISSN">">
-                                <small id="ISSNHelp" class="form-text text-muted"><em>Example:</em> 0028-0836</small>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <label for="CallNumber"><span class="<#ERROR name="ERRORCallNumber">">Call Number</span></label>
-                                <input type="text" id="CallNumber" name="CallNumber" aria-describedby="CallNumberHelp" class="form-control" value="<#PARAM name="CallNumber">">
-                                <small id="CallNumberHelp" class="form-text text-muted"><em>Example:</em> PN6728.B523C63 2016</small>
-                            </div>
-
-                            <div class="col-sm-4">      
-                                <label for="ESPNumber"><span class="<#ERROR name="ERRORESPNumber">">OCLC or Docline UI Number</span></label>
-                                <input type="text" id="ESPNumber" name="ESPNumber" aria-describedby="ESPNumberHelp" class="form-control" value="<#PARAM name="ESPNumber">">
-                                <small id="ESPNumberHelp" class="form-text text-muted"><em>Example:</em> 905248519</small>
-                            </div>
-                        </div>
-                    </fieldset>
-                
-                    <fieldset>
-                        <div class="form-group row">
-                            <div class="col-sm-6">  
-                                <label for="NotWantedAfter"><span class="<#ERROR name="ERRORNotWantedAfter">">Not Wanted After Date</span><abbr title="required">*</abbr></label>
-                                <input type="text" id="NotWantedAfter" name="NotWantedAfter" class="form-control" value="<#PARAM name="NotWantedAfter">">
-                                <small id="NotWantedAfterHelp" class="form-text text-muted">(MM/DD/YYYY)</small>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <label for="Notes"><span class="<#ERROR name="ERRORNotes">">Notes</span></label>
-                                <input type="text" id="Notes" name="Notes" class="form-control" value="<#PARAM name="Notes">">
-                                <small id="NotesHelp" class="form-text text-muted">Information that may help us find the item or other pertinent information.</small>
-                            </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <label for="ISSN"><span class="<#ERROR name="ERRORISSN">">ISSN/ISBN</span></label>
+                            <input type="text" id="ISSN" name="ISSN" aria-describedby="ISSNHelp" class="form-control" value="<#PARAM name="ISSN">">
+                            <small id="ISSNHelp" class="form-text text-muted"><em>Example:</em> 0028-0836</small>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="CitedIn"><span class="valid">Where did you find this item cited?</span></label>
-                                <input type="text" name="CitedIn" id="CitedIn" class="form-control" value="<#PARAM name="CitedIn">">
-                                <small id="CitedInHelp" class="form-text text-muted">Please specify information such as the database, book, journal, journal article, pages, or date if available.</small>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <label for="ItemInfo2"><span class="<#ERROR name="ERRORItemInfo2">">If not owned by Library, would you suggest it for purchase?</span></label>
-                                <select id="ItemInfo2" name="ItemInfo2" class="form-control"> 
-                                    <option selected><#PARAM name="ItemInfo2">No</option> 
-                                    <option>Yes</option>
-                                    <option>Library already owns it</option>
-                                </select>
-                            </div>
+                        <div class="col-sm-4">
+                            <label for="CallNumber"><span class="<#ERROR name="ERRORCallNumber">">Call Number</span></label>
+                            <input type="text" id="CallNumber" name="CallNumber" aria-describedby="CallNumberHelp" class="form-control" value="<#PARAM name="CallNumber">">
+                            <small id="CallNumberHelp" class="form-text text-muted"><em>Example:</em> PN6728.B523C63 2016</small>
                         </div>
-                    </fieldset>
+
+                        <div class="col-sm-4">      
+                            <label for="ESPNumber"><span class="<#ERROR name="ERRORESPNumber">">OCLC Number</span></label>
+                            <input type="text" id="ESPNumber" name="ESPNumber" aria-describedby="ESPNumberHelp" class="form-control" value="<#PARAM name="ESPNumber">">
+                            <small id="ESPNumberHelp" class="form-text text-muted"><em>Example:</em> 905248519</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">  
+                            <label for="NotWantedAfter"><span class="<#ERROR name="ERRORNotWantedAfter">">Not Wanted After Date</span><abbr title="required">*</abbr></label>
+                            <input type="text" id="NotWantedAfter" name="NotWantedAfter" class="form-control" value="<#PARAM name="NotWantedAfter">">
+                            <small id="NotWantedAfterHelp" class="form-text text-muted"><span class="sr-only">Default date auto-generated into field is 1 month from today. If you want to change, format with</span> (MM/DD/YYYY)</small>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="Notes"><span class="<#ERROR name="ERRORNotes">">Notes</span></label>
+                            <input type="text" id="Notes" name="Notes" class="form-control" value="<#PARAM name="Notes">">
+                            <small id="NotesHelp" class="form-text text-muted">Information that may help us find the item or other pertinent information.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="CitedIn"><span class="valid">Where did you find this item cited?</span></label>
+                            <input type="text" name="CitedIn" id="CitedIn" class="form-control" value="<#PARAM name="CitedIn">">
+                            <small id="CitedInHelp" class="form-text text-muted">Please specify information such as the database, book, journal, journal article, pages, or date if available.</small>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="ItemInfo2"><span class="<#ERROR name="ERRORItemInfo2">">If not owned by Library, would you suggest it for purchase?</span></label>
+                            <select id="ItemInfo2" name="ItemInfo2" class="form-control"> 
+                                <option selected><#PARAM name="ItemInfo2">No</option> 
+                                <option>Yes</option>
+                                <option>Library already owns it</option>
+                            </select>
+                        </div>
+                    </div>
                 </section>              
 
                     

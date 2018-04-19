@@ -10,124 +10,116 @@
 <div id="wrap">
 	<#INCLUDE filename="include_header.html">
     <div class="container main-container" id="content-wrap">
-      <div class="row row-offcanvas row-offcanvas-left">
+	    <div class="row row-offcanvas row-offcanvas-left">
         <#INCLUDE filename="include_menu.html">
 
-       <div class="col-xs-12 col-md-9" id="content">
-          <p class="pull-left visible-xs visible-sm">
-            <button type="button" class="btn btn-sidebar btn-xs" data-toggle="offcanvas">View options <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
-          </p>
+		    <div class="col-xs-12 col-md-9" id="content">
+	          <p class="pull-left visible-xs visible-sm">
+	            <button type="button" class="btn btn-sidebar btn-xs" data-toggle="offcanvas">View options <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+	          </p>
 
-          <div class="row main-content">
-		<h1>Request a Article, Chapter, or Paper</h1>
-		<p class="required">Required fields are followed by <abbr title="required">*</abbr></p>
+		        <div class="row main-content">
+				<h1>Request a Article, Chapter, or Paper</h1>
+				<p class="required">Required fields are followed by <abbr title="required">*</abbr></p>
 
-      <form action="illiad.dll" method="post" name="ArticleRequest" class="ill-request f-wrap-request">
-	        <input type="hidden" name="ILLiadForm" value="ArticleRequest">
-			<input type="hidden" name="Username" value="<#PARAM name="Username">">
-			<input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
-			<input type="hidden" name="AcceptNonEnglish" value="Yes">
+			    <form action="illiad.dll" method="post" name="ArticleRequest" class="ill-request f-wrap-request">
+			        <input type="hidden" name="ILLiadForm" value="ArticleRequest">
+					<input type="hidden" name="Username" value="<#PARAM name="Username">">
+					<input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+					<input type="hidden" name="AcceptNonEnglish" value="Yes">
 		
-		<section>
-        <h2>Describe the item you want</h2>
-        <fieldset> 
-	        <div class="form-group">
-				<label for="PhotoArticleTitle"><span class="<#ERROR name="ERRORPhotoArticleTitle">">Article Title</span><abbr title="required">*</abbr></label>
-	        	<input type="text" id="PhotoArticleTitle" name="PhotoArticleTitle" class="form-control" value="<#PARAM name="PhotoArticleTitle">">
-	        </div>
+				<section>
+		        <h2>Describe the item you want</h2>
+			        <div class="form-group">
+						<label for="PhotoArticleTitle"><span class="<#ERROR name="ERRORPhotoArticleTitle">">Article Title</span><abbr title="required">*</abbr></label>
+			        	<input type="text" id="PhotoArticleTitle" name="PhotoArticleTitle" class="form-control" value="<#PARAM name="PhotoArticleTitle">">
+			        </div>
 
-			<div class="form-group">
-				<label for="PhotoArticleAuthor"><span class="<#ERROR name="ERRORPhotoArticleAuthor">">Article Author(s)</span></label>
-				<input type="text" id="PhotoArticleAuthor" name="PhotoArticleAuthor"  class="form-control" value="<#PARAM name="PhotoArticleAuthor">">
-	        </div>
+					<div class="form-group">
+						<label for="PhotoArticleAuthor"><span class="<#ERROR name="ERRORPhotoArticleAuthor">">Article Author(s)</span></label>
+						<input type="text" id="PhotoArticleAuthor" name="PhotoArticleAuthor"  class="form-control" value="<#PARAM name="PhotoArticleAuthor">">
+			        </div>
 
-			<div class="form-group">
-				<label for="PhotoJournalTitle"><span class="<#ERROR name="ERRORPhotoJournalTitle">">Title (Journal, Conference Proceedings, Anthology)</span><abbr title="required">*</abbr></label>
-	       		<input type="text" id="PhotoJournalTitle" name="PhotoJournalTitle" aria-describedby="ePhotoJournalTitleHelp" class="form-control" aria-describedby="emailHelp" value="<#PARAM name="PhotoJournalTitle">">
-		        <small id="ePhotoJournalTitleHelp" class="form-text text-muted">Please do not abbreviate unless your citation is abbreviated</small>
-	        </div>
-        </fieldset>
+					<div class="form-group">
+						<label for="PhotoJournalTitle"><span class="<#ERROR name="ERRORPhotoJournalTitle">">Title (Journal, Conference Proceedings, Anthology)</span><abbr title="required">*</abbr></label>
+			       		<input type="text" id="PhotoJournalTitle" name="PhotoJournalTitle" aria-describedby="ePhotoJournalTitleHelp" class="form-control" aria-describedby="emailHelp" value="<#PARAM name="PhotoJournalTitle">">
+				        <small id="ePhotoJournalTitleHelp" class="form-text text-muted">Please do not abbreviate unless your citation is abbreviated</small>
+			        </div>
 		
-		<fieldset>
-            <div class="form-group row">
-			    <div class="col-sm-4"> 
-					<label for="PhotoJournalInclusivePages"><span class="<#ERROR name="ERRORPhotoJournalInclusivePages">">Inclusive Pages</span><abbr title="required">*</abbr></label>
-					<input type="text" id="PhotoJournalInclusivePages" name="PhotoJournalInclusivePages" class="form-control" value="<#PARAM name="PhotoJournalInclusivePages">">
-				</div>
-	            <div class="col-sm-4">
-					<label for="PhotoJournalVolume"><span class="<#ERROR name="ERRORPhotoJournalVolume">">Volume</span></label>
-		        	<input type="text" id="PhotoJournalVolume" name="PhotoJournalVolume" class="form-control" value="<#PARAM name="PhotoJournalVolume">">
-		        </div>
+		            <div class="form-group row">
+					    <div class="col-sm-4"> 
+							<label for="PhotoJournalInclusivePages"><span class="<#ERROR name="ERRORPhotoJournalInclusivePages">">Inclusive Pages</span><abbr title="required">*</abbr></label>
+							<input type="text" id="PhotoJournalInclusivePages" name="PhotoJournalInclusivePages" class="form-control" value="<#PARAM name="PhotoJournalInclusivePages">">
+						</div>
+			            <div class="col-sm-4">
+							<label for="PhotoJournalVolume"><span class="<#ERROR name="ERRORPhotoJournalVolume">">Volume</span></label>
+				        	<input type="text" id="PhotoJournalVolume" name="PhotoJournalVolume" class="form-control" value="<#PARAM name="PhotoJournalVolume">">
+				        </div>
 
-		        <div class="col-sm-4">
-		        	<label for="PhotoJournalIssue"><span class="<#ERROR name="ERRORPhotoJournalIssue">">Issue Number or Designation</span></label>
-					<input type="text" id="PhotoJournalIssue" name="PhotoJournalIssue" class="form-control" value="<#PARAM name="PhotoJournalIssue">">
-				</div>				
-			</div>
+				        <div class="col-sm-4">
+				        	<label for="PhotoJournalIssue"><span class="<#ERROR name="ERRORPhotoJournalIssue">">Issue Number or Designation</span></label>
+							<input type="text" id="PhotoJournalIssue" name="PhotoJournalIssue" class="form-control" value="<#PARAM name="PhotoJournalIssue">">
+						</div>				
+					</div>
 
-            <div class="form-group row">
-	            <div class="col-sm-6">
-					<label for="PhotoJournalYear"><span class="<#ERROR name="ERRORPhotoJournalYear">">Year</span><abbr title="required">*</abbr></label>
-		          	<input type="text" id="PhotoJournalYear" name="PhotoJournalYear" class="form-control" value="<#PARAM name="PhotoJournalYear">">
-		        </div>
-		        <div class="col-sm-6">
-					<label for="PhotoJournalMonth"><span class="<#ERROR name="ERRORPhotoJournalMonth">">Month</span></label>
-					<input type="text" id="PhotoJournalMonth" name="PhotoJournalMonth" class="form-control" value="<#PARAM name="PhotoJournalMonth">">
-				</div>
-			</div>
-		</fieldset>
-	</section>
+		            <div class="form-group row">
+			            <div class="col-sm-6">
+							<label for="PhotoJournalYear"><span class="<#ERROR name="ERRORPhotoJournalYear">">Year</span><abbr title="required">*</abbr></label>
+				          	<input type="text" id="PhotoJournalYear" name="PhotoJournalYear" class="form-control" value="<#PARAM name="PhotoJournalYear">">
+				        </div>
+				        <div class="col-sm-6">
+							<label for="PhotoJournalMonth"><span class="<#ERROR name="ERRORPhotoJournalMonth">">Month</span></label>
+							<input type="text" id="PhotoJournalMonth" name="PhotoJournalMonth" class="form-control" value="<#PARAM name="PhotoJournalMonth">">
+						</div>
+					</div>
+				</section>
 		
 
-    <section>   
-    <h2>Additional Information</h2>
-    <p class="text-muted">Info that helps speed request processing, but is not required.</p>
-        <fieldset>
-            <div class="form-group row">
-	            <div class="col-sm-4">
-					<label for="ISSN"><span class="<#ERROR name="ERRORISSN">">ISSN/ISBN</span></label>
-					<input type="text" id="ISSN" name="ISSN" aria-describedby="ISSNHelp" class="form-control" value="<#PARAM name="ISSN">">
-	                <small id="ISSNHelp" class="form-text text-muted"><em>Example:</em> 0028-0836</small>
-				</div>
+			    <section>   
+			    <h2>Additional Information</h2>
+			    <p class="text-muted">Info that helps speed request processing, but is not required.</p>
+		            <div class="form-group row">
+			            <div class="col-sm-4">
+							<label for="ISSN"><span class="<#ERROR name="ERRORISSN">">ISSN/ISBN</span></label>
+							<input type="text" id="ISSN" name="ISSN" aria-describedby="ISSNHelp" class="form-control" value="<#PARAM name="ISSN">">
+			                <small id="ISSNHelp" class="form-text text-muted"><em>Example:</em> 0028-0836</small>
+						</div>
 
-				<div class="col-sm-4">
-					<label for="CallNumber"><span class="<#ERROR name="ERRORCallNumber">">Call Number</span></label>
-					<input type="text" id="CallNumber" name="CallNumber" aria-describedby="CallNumberHelp" class="form-control" value="<#PARAM name="CallNumber">">
-					<small id="CallNumberHelp" class="form-text text-muted"><em>Example:</em> PN6728.B523C63 2016</small>
-				</div>
+						<div class="col-sm-4">
+							<label for="CallNumber"><span class="<#ERROR name="ERRORCallNumber">">Call Number</span></label>
+							<input type="text" id="CallNumber" name="CallNumber" aria-describedby="CallNumberHelp" class="form-control" value="<#PARAM name="CallNumber">">
+							<small id="CallNumberHelp" class="form-text text-muted"><em>Example:</em> PN6728.B523C63 2016</small>
+						</div>
 
-				<div class="col-sm-4">		
-					<label for="ESPNumber"><span class="<#ERROR name="ERRORESPNumber">">OCLC or Docline UI Number</span></label>
-					<input type="text" id="ESPNumber" name="ESPNumber" aria-describedby="ESPNumberHelp" class="form-control" value="<#PARAM name="ESPNumber">">
-					<small id="ESPNumberHelp" class="form-text text-muted"><em>Example:</em> doi:10.1038/nphys1170</small>
-				</div>
-			</div>
-		</fieldset>
-	
-	    <fieldset>
-            <div class="form-group row">
-	            <div class="col-sm-6">	
-					<label for="NotWantedAfter"><span class="<#ERROR name="ERRORNotWantedAfter">">Not Wanted After Date</span><abbr title="required">*</abbr></label>
-					<input type="text" id="NotWantedAfter" name="NotWantedAfter" aria-describedby="NotWantedAfterHelp"class="form-control" value="<#PARAM name="NotWantedAfter">">
-					<small id="NotWantedAfterHelp" class="form-text text-muted">MM/DD/YYYY</small>
-				</div>
+						<div class="col-sm-4">		
+							<label for="ESPNumber"><span class="<#ERROR name="ERRORESPNumber">">OCLC or Docline UI Number</span></label>
+							<input type="text" id="ESPNumber" name="ESPNumber" aria-describedby="ESPNumberHelp" class="form-control" value="<#PARAM name="ESPNumber">">
+							<small id="ESPNumberHelp" class="form-text text-muted"><em>Example:</em> doi:10.1038/nphys1170</small>
+						</div>
+					</div>
+			
+		            <div class="form-group row">
+			            <div class="col-sm-6">	
+							<label for="NotWantedAfter"><span class="<#ERROR name="ERRORNotWantedAfter">">Not Wanted After Date</span><abbr title="required">*</abbr></label>
+							<input type="text" id="NotWantedAfter" name="NotWantedAfter" aria-describedby="NotWantedAfterHelp"class="form-control" value="<#PARAM name="NotWantedAfter">">
+							<small id="NotWantedAfterHelp" class="form-text text-muted">MM/DD/YYYY</small>
+						</div>
 
-				<div class="col-sm-6">
-					<label for="Notes"><span class="<#ERROR name="ERRORNotes">">Notes</span></label>
-        			<input type="text" id="Notes" name="Notes" aria-describedby="NotesHelp" class="form-control" value="<#PARAM name="Notes">">
-                    <small id="NotesHelp" class="form-text text-muted">Information that may help us find the item or other pertinent information.</small>
-                </div>
-            </div>
-        </fieldset>
-    </section>
+						<div class="col-sm-6">
+							<label for="Notes"><span class="<#ERROR name="ERRORNotes">">Notes</span></label>
+		        			<input type="text" id="Notes" name="Notes" aria-describedby="NotesHelp" class="form-control" value="<#PARAM name="Notes">">
+		                    <small id="NotesHelp" class="form-text text-muted">Information that may help us find the item or other pertinent information.</small>
+		                </div>
+		            </div>
+			    </section>
 
-    <section> 
-	<#INCLUDE filename="include_request_cited.html">
-	</section>
+			    <section> 
+					<#INCLUDE filename="include_request_cited.html">
+				</section>
 
-	<#INCLUDE filename="include_copyright.html">
+				<#INCLUDE filename="include_copyright.html">
 
-    <#INCLUDE filename="include_request_buttons.html">
+			    <#INCLUDE filename="include_request_buttons.html">
 
 	      </form>		
       	</div><!--/row-->
