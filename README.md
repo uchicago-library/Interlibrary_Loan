@@ -9,10 +9,12 @@ gh-pages: Mocks for approval and UX testing
 - `<#INCLUDE filename="include_head.html">` = All style and script links
 - `<#INCLUDE filename="include_header.html">` = Top nav
 - `<#INCLUDE filename="include_menu.html">` = Sidebar
-- `<#INCLUDE filename="include_request_buttons.html">` = Submit button and "Your request is searched..." text
+- `<#INCLUDE filename="include_request_buttons.html">` = Submit and cancel buttons
 - `<#INCLUDE filename="include_footer.html">` = Scripts that need to be at end of doc
 - `<#INCLUDE filename="include_request_cited.html">` = "Where did you learn about this item?" block
 - `<#INCLUDE filename="include_copyright.html">` = Copyright restrictions; needs to be included when scans or PDFs are supplied.
+- `<#INCLUDE filename="include_service_links.html">` = "Your request is searched..." text
+
 
 ## Test Server
 Access: https://requests.lib.uchicago.edu/illiad/testweb/

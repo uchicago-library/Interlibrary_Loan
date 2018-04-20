@@ -1,25 +1,34 @@
 <html>
 <head>
-<title>Interlibrary Loan - Search Results</title>
-<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
-<!--[if lte IE 6]>
-<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
-<![endif]-->
+<title>Interlibrary Loan: Search Results</title>
+
+<#INCLUDE filename="include_head.html">
 </head>
-<body id="type-b">
+
+<body id="type-c">
 <div id="wrap">
-	<#INCLUDE filename="include_header.html">
-  	<div id="content-wrap">
-  		<#INCLUDE filename="include_menu.html">
-    	<div id="content">
-			<div class="default-table">			
-				<#TABLE name="ViewSearchResults" headerText="Search Results" noDataAction="ShowMessageRow" noDataMessage="No Results" 
-				 column="TransactionNumber:Transaction" column="DocumentType:Type" column="Title" column="Author" column="TransactionStatus:Status">
-			</div>
-      		<#INCLUDE filename="include_footer.html">
-    	</div>    
-  	</div>
+  <#INCLUDE filename="include_header.html">
+    <div class="container main-container" id="content-wrap">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <#INCLUDE filename="include_menu.html">
+
+       <div class="col-xs-12 col-md-9" id="content">
+          <p class="pull-left visible-xs visible-sm">
+            <button type="button" class="btn btn-sidebar btn-xs" data-toggle="offcanvas">View options <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+          </p>
+
+          <div class="row main-content">
+            <h1>Your Search Results</h1>
+
+    				<#TABLE name="ViewSearchResults" headerText="Search Results" noDataAction="ShowMessageRow" noDataMessage="No Results" column="TransactionNumber:Transaction" column="DocumentType:Type" column="Title" column="Author" column="TransactionStatus:Status">
+			
+          </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+      </div><!--/row-->
+    </div><!--/.container-->
 </div>
-</body>
-</html>
+
+<#INCLUDE filename="include_footer.html">
+  
+
+</body></html>

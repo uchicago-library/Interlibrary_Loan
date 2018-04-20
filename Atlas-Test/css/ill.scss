@@ -133,6 +133,15 @@ body {
 
 a {
   color: #437e9b;
+  &.menuClone {
+    float: right;
+    &:before {
+      content: "\f0c5";
+      font-family: FontAwesome;
+      font-size: 1.2em;
+      margin-right: 0.5em;
+   }
+  }
 }
 
 
@@ -144,7 +153,7 @@ a {
 h1 {
   font-size:1.7em;
   color: $mid-dark;
-  margin-bottom: 0;
+  margin-bottom: 0.5em;
   padding-left: 0.25em;
   border-bottom: 1px solid #eee;
 }
@@ -398,6 +407,7 @@ h6 {
   }
 }
 
+
 /*
  * Tables
  * --------------------------------------------------
@@ -409,11 +419,20 @@ table {
   a {
     text-decoration: underline;
   }
+  tr.row-odd { // Taking advantage of Atlas's class
+      background-color: #efefef;
+    }
   & thead {
     background: lighten($table-main, 35%);
     border-bottom: 2px solid $table-main;
     font-size: 1.1em;
     color: $mid-dark;
+    .row-header{
+      background-color: #fff;
+      font-size: 1.2em;
+      color: darken($table-main, 15%);
+      padding-bottom: 0.75em!important;
+    }
     & th {
       font-size: 0.9em;
       padding: 0.5em;
@@ -424,34 +443,29 @@ table {
       }
     }
   }
-  // &.articles thead {
-  //   background: lighten(#d9e7e8, 5%);
-  //   border-bottom: 2px solid #d9e7e8;
-  // }
-  @include respond-to(smallonly) {
-    display: inline-block;
-    width: inherit;
-  }
-  &>tbody {
+  tbody {
     border: 1px solid #eee;
     padding: 0.5em;
     & tr {
       vertical-align: top;
-      &:nth-of-type(even) {
-        background-color: #f9f9f9;
-      }
       &:last-child {
         border-bottom: 1px solid $table-main;
       }
     }
     & td {
       padding: 0.05em;
+      &.library-account {
+        font-size: 0.9em;
+        font-style: italic;
+      }
       @include respond-to(small) {
         padding: 0.5em;
       }
     }
   }
   @include respond-to(smallonly) {
+    display: inline-block;
+    width: inherit;
     padding: 0.5em;
     margin-top: 15px;
     display: block;
@@ -556,6 +570,11 @@ abbr[title=required] {
 
 .btn-link {
   color: $darkgray;
+}
+
+.legend {
+  font-size: 0.8em!important;
+  border-bottom: none!important;
 }
 
 

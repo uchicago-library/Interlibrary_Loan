@@ -1,58 +1,53 @@
 <html>
 <head>
-<meta http-equiv="Pragma" content="no-cache">
-<title>Interlibrary Loan Logon</title>
-<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
-<!--[if lte IE 6]>
-<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
-<![endif]-->
+<title>Interlibrary Loan: Request an Article</title>
+
+<#INCLUDE filename="include_head.html">
+
 </head>
-<body id="type-a">
+
+<body id="type-b">
 <div id="wrap">
-  <div id="header"> 
-  	<span id="site-name">Interlibrary Loan</span>
-    <div id="status">Enter your user information below.<br />
-      Then press the Logon to Interlibrary Loan button to continue.
-	 </div>
-  </div>
-  <div id="content-wrap">
-    <div id="content">
-		<form action="illiad.dll" method="post" name="Logon" class="f-wrap-1">
-			<input type="hidden" name="ILLiadForm" value="Logon">
-			<div id="logonform">
-				<div class="req"><b>*</b> Indicates required field</div>			
-				<fieldset>			
-					<h3>Interlibrary Loan Logon</h3>			
-					<label for="username">
-						<span class="field">
-							<span class="req">*</span>
-							<b>Username</b>
-						</span>
-						<input id="username" name="Username" type="text" class="f-name" tabindex="1" /><br />
-					</label>			
-					<label for="password">
-						<span class="field">
-							<span class="req">*</span>
-							<b>Password</b>
-						</span>
-						<input id="password" name="Password" type="password" class="f-name" tabindex="2" /><br />
-					</label>
+	<#INCLUDE filename="include_header.html">
+    <div class="container main-container" id="content-wrap">
+	    <div class="row row-offcanvas row-offcanvas-left">
+        <#INCLUDE filename="include_menu.html">
+
+		    <div class="col-xs-12 col-md-9" id="content">
+	          <p class="pull-left visible-xs visible-sm">
+	            <button type="button" class="btn btn-sidebar btn-xs" data-toggle="offcanvas">View options <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+	          </p>
+
+		        <div class="row main-content">
+				<h1>Interlibrary Loan Login</h1>
+				<p class="required">Required fields are followed by <abbr title="required">*</abbr></p>
+
+				<form action="illiad.dll" method="post" name="Logon" class="f-wrap-1">
+				<input type="hidden" name="ILLiadForm" value="Logon">
+				<div id="logonform">
+			
+					<label for="username">Username<abbr title="required">*</abbr></label>
+					<input id="username" name="Username" type="text" class="form-control" />			
+					<label for="password">Password<abbr title="required">*</abbr></label>
+					<input id="password" name="Password" type="password" class="form-control" />
 							
-					<div class="f-submit-wrap">
+					<!-- <div class="f-submit-wrap">
 						<input type="submit" name="SubmitButton" value="Logon to Interlibrary Loan" class="f-submit" tabindex="12" /><br />
-					</div>
-				</fieldset>
+					</div> -->
+				<#INCLUDE filename="include_request_buttons.html">
 			</div>
 		</form>
 
 		<a href="illiad.dll?Action=10&Form=84">Forgot Password?</a><br />
 		<a href="FirstTime.html">First Time Users</a>
-		<div id="footer">
-			Copyright © 1998-2006 <a href="http://www.atlas-sys.com">Atlas Systems, Inc.</a> All Rights Reserved.
-      	</div>
-    </div>    
-  </div>
-</div>
-</body>
-</html>
+		</div><!--/row-->
+      </div><!--/.col-xs-12.col-sm-9-->
+    </div><!--/row-->
+
+
+    </div><!--/.container-->
+
+<#INCLUDE filename="include_footer.html">
+  
+
+</body></html>

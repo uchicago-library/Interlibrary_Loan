@@ -100,5 +100,5 @@ $(document).ready(function () {
     reconstructTables();
   }
   
-  $('#NotWantedAfter').datepicker({ minDate: +1 });
+  //$('#NotWantedAfter').datepicker({ minDate: +1 });
 });

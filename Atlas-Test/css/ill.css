@@ -65,6 +65,13 @@ body {
 
 a {
   color: #437e9b; }
+  a.menuClone {
+    float: right; }
+    a.menuClone:before {
+      content: "\f0c5";
+      font-family: FontAwesome;
+      font-size: 1.2em;
+      margin-right: 0.5em; }
 
 /*
  * Fonts
@@ -73,7 +80,7 @@ a {
 h1 {
   font-size: 1.7em;
   color: #525252;
-  margin-bottom: 0;
+  margin-bottom: 0.5em;
   padding-left: 0.25em;
   border-bottom: 1px solid #eee; }
 
@@ -282,11 +289,18 @@ table {
   margin-bottom: 2em; }
   table a {
     text-decoration: underline; }
+  table tr.row-odd {
+    background-color: #efefef; }
   table thead {
     background: #f3f4ed;
     border-bottom: 2px solid #ADB17D;
     font-size: 1.1em;
     color: #525252; }
+    table thead .row-header {
+      background-color: #fff;
+      font-size: 1.2em;
+      color: #898d55;
+      padding-bottom: 0.75em !important; }
     table thead th {
       font-size: 0.9em;
       padding: 0.5em;
@@ -295,26 +309,25 @@ table {
       @media (max-width: 34em) {
         table thead th {
           display: none; } }
-  @media (max-width: 34em) {
-    table {
-      display: inline-block;
-      width: inherit; } }
-  table > tbody {
+  table tbody {
     border: 1px solid #eee;
     padding: 0.5em; }
-    table > tbody tr {
+    table tbody tr {
       vertical-align: top; }
-      table > tbody tr:nth-of-type(even) {
-        background-color: #f9f9f9; }
-      table > tbody tr:last-child {
+      table tbody tr:last-child {
         border-bottom: 1px solid #ADB17D; }
-    table > tbody td {
+    table tbody td {
       padding: 0.05em; }
+      table tbody td.library-account {
+        font-size: 0.9em;
+        font-style: italic; }
       @media (min-width: 48em) {
-        table > tbody td {
+        table tbody td {
           padding: 0.5em; } }
   @media (max-width: 34em) {
     table {
+      display: inline-block;
+      width: inherit;
       padding: 0.5em;
       margin-top: 15px;
       display: block;
@@ -396,5 +409,9 @@ abbr[title=required] {
 
 .btn-link {
   color: #767676; }
+
+.legend {
+  font-size: 0.8em !important;
+  border-bottom: none !important; }
 
 /*# sourceMappingURL=ill.css.map */
