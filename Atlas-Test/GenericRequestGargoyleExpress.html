@@ -21,6 +21,7 @@
                 <div class="row main-content">
                 <h1>Scan and Deliver Request</h1>
                 <p><a href="https://www.lib.uchicago.edu/borrow/requesting/scan-deliver/">Scan and Deliver</a> is a free document delivery service exclusively for University of Chicago faculty, students and staff needing copies from material owned by our library.</p>
+                <p>Please submit separate requests for each article or chapter.</p>
                 <p class="required">Required fields are followed by <abbr title="required">*</abbr></p>
 		
               	<form action="illiad.dll" method="post" name="ArticleRequest" class="ill-request f-wrap-request">
@@ -38,14 +39,19 @@
                     <h2>Describe the item you want</h2>
 
                         <div class="form-group">
-                            <label for="PhotoArticleTitle"><span class="<#ERROR name="ERRORPhotoArticleTitle">">Article Title</span><abbr title="required">*</abbr></label>
+                            <label for="PhotoArticleTitle"><span class="<#ERROR name="ERRORPhotoArticleTitle">">Article or Chapter Title</span><abbr title="required">*</abbr></label>
                             <input type="text" id="PhotoArticleTitle" name="PhotoArticleTitle" class="form-control" value="<#PARAM name="PhotoArticleTitle">">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="PhotoArticleAuthor"><span class="<#ERROR name="ERRORPhotoArticleAuthor">">Article or Chapter Author(s)</span></label>
+                            <input type="text" id="PhotoArticleAuthor" name="PhotoArticleAuthor"  class="form-control" value="<#PARAM name="PhotoArticleAuthor">">
                         </div>
 
                         <div class="form-group">
                     		<label for="PhotoJournalTitle"><span class="<#ERROR name="ERRORPhotoJournalTitle">">Title (Journal, Book, etc.)</span><abbr title="required">*</abbr></label>
             				<input id="PhotoJournalTitle" name="PhotoJournalTitle" class="form-control" value="<#PARAM name="PhotoJournalTitle">">
-                            <small id="LoanTitleHelp" class="form-text text-muted">Please do not abbreviate unless your citation is abbreviated</small>
+                            <small id="LoanTitleHelp" class="form-text text-muted">Please do not abbreviate unless your citation is abbreviated.</small>
                         </div>
 
                         <div class="form-group row">
@@ -93,7 +99,7 @@
 
                     <section>   
                     <h2>Additional Information</h2>
-                    <p class="text-muted">Info that helps speed request processing, but is not required.</p>
+                    <p class="text-muted">Information that helps speed request processing, but is not required.</p>
                         <div class="form-group row">
                             <div class="col-sm-4">
                                 <label for="ISSN"><span class="<#ERROR name="ERRORISSN">">ISSN/ISBN</span></label>
@@ -142,8 +148,8 @@
                         <h4>Per Item Limitations:</h4>
                         <p>(Due to copyright guidelines established in consultation with University Legal Counsel.)</p>
                             <ul>
-                              <li>Up to two book chapters OR 20% of the entire book, whichever is less.</li>
-                              <li>Up to two articles OR 20% (whichever is less) from a single issue of a periodical or newspaper.</li>
+                              <li>Up to two book chapters <em>or</em> 20% of the entire book, whichever is less.</li>
+                              <li>Up to two articles <em>or</em> 20% (whichever is less) from a single issue of a periodical or newspaper.</li>
                             </ul>
                     </section>
 
