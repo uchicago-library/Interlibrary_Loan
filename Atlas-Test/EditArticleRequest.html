@@ -20,7 +20,7 @@
             	<h1>Edit a Article, Chapter, or Paper Request</h1>
 				<p class="required">Required fields are followed by <abbr title="required">*</abbr></p>
 
-				<form action="illiad.dll" method="post" name="EditArticleRequest" class="f-wrap-request">
+				<form action="illiad.dll" method="post" name="EditArticleRequest" class="ill-request f-wrap-request">
 					<input type="hidden" name="ILLiadForm" value="EditArticleRequest">
 					<input type="hidden" name="Username" value="<#PARAM name="Username">">
 					<input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
@@ -28,7 +28,7 @@
 					<input type="hidden" name="TransactionNumber" value="<#PARAM name="TransactionNumber">">
 
 					<section>
-		        <h2>Describe the item you want</h2>
+			        <h2>Describe the item you want</h2>
 			        <div class="form-group">
 						<label for="PhotoArticleTitle"><span class="<#ERROR name="ERRORPhotoArticleTitle">">Article Title</span><abbr title="required">*</abbr></label>
 			        	<input type="text" id="PhotoArticleTitle" name="PhotoArticleTitle" class="form-control" value="<#PARAM name="PhotoArticleTitle">">

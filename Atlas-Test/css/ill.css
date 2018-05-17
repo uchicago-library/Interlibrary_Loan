@@ -65,13 +65,31 @@ body {
 
 a {
   color: #437e9b; }
-  a.menuClone {
-    float: right; }
-    a.menuClone:before {
-      content: "\f0c5";
+  a.menuClone:before {
+    color: #6ba4bf;
+    content: "\f0c5";
+    font-family: FontAwesome;
+    font-size: 1.2em;
+    margin: 0 0.5em; }
+  a.menuEdit[href^="illiad.dll?Action=20&Form=63"] {
+    margin-right: 0.5em; }
+    a.menuEdit[href^="illiad.dll?Action=20&Form=63"]:before {
+      color: #6ba4bf;
+      content: "\f044";
       font-family: FontAwesome;
       font-size: 1.2em;
       margin-right: 0.5em; }
+  a.menuEdit[href^="illiad.dll?Action=21&Type=10"] {
+    margin-right: 0.5em; }
+    a.menuEdit[href^="illiad.dll?Action=21&Type=10"]:before {
+      color: #6ba4bf;
+      content: "\f05e";
+      font-family: FontAwesome;
+      font-size: 1.2em;
+      margin: 0 0.5em; }
+
+.statusNormal {
+  color: #000 !important; }
 
 /*
  * Fonts

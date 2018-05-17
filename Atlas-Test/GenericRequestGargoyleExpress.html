@@ -21,8 +21,7 @@
                 <div class="row main-content">
                 <h1>Scan and Deliver Request</h1>
                 <p><a href="https://www.lib.uchicago.edu/borrow/requesting/scan-deliver/">Scan and Deliver</a> is a free document delivery service exclusively for University of Chicago faculty, students and staff needing copies from material owned by our library.</p>
-                <p>Please submit separate requests for each article or chapter.</p>
-                <p class="required">Required fields are followed by <abbr title="required">*</abbr></p>
+                <p class="required">Required fields are followed by <strong><abbr title="required">*</abbr></strong></p>
 		
               	<form action="illiad.dll" method="post" name="ArticleRequest" class="ill-request f-wrap-request">
                 	<input type="hidden" name="ILLiadForm" value="GenericRequestGargoyleExpress">
@@ -40,7 +39,8 @@
 
                         <div class="form-group">
                             <label for="PhotoArticleTitle"><span class="<#ERROR name="ERRORPhotoArticleTitle">">Article or Chapter Title</span><abbr title="required">*</abbr></label>
-                            <input type="text" id="PhotoArticleTitle" name="PhotoArticleTitle" class="form-control" value="<#PARAM name="PhotoArticleTitle">">
+                            <input type="text" id="PhotoArticleTitle" name="PhotoArticleTitle" aria-describedby="PhotoArticleTitleHelp" class="form-control" value="<#PARAM name="PhotoArticleTitle">">
+                            <small id="PhotoArticleTitleHelp" class="form-text text-muted">Please submit separate requests for each article or chapter.</small>
                         </div>
 
                         <div class="form-group">
@@ -57,7 +57,8 @@
                         <div class="form-group row">
                             <div class="col-sm-4"> 
                                 <label for="PhotoJournalInclusivePages"><span class="<#ERROR name="ERRORPhotoJournalInclusivePages">">Inclusive Pages</span><abbr title="required">*</abbr></label>
-                                <input type="text" id="PhotoJournalInclusivePages" name="PhotoJournalInclusivePages" class="form-control" value="<#PARAM name="PhotoJournalInclusivePages">">
+                                <input type="text" id="PhotoJournalInclusivePages" name="PhotoJournalInclusivePages" aria-describedby="PhotoJournalInclusivePagesHelp" class="form-control" value="<#PARAM name="PhotoJournalInclusivePages">">
+                                <small id="PhotoJournalInclusivePagesHelp" class="form-text text-muted">Submit separate requests for each article/chapter.</small>
                             </div>
                             <div class="col-sm-4">
                                 <label for="PhotoJournalVolume"><span class="<#ERROR name="ERRORPhotoJournalVolume">">Volume</span></label>

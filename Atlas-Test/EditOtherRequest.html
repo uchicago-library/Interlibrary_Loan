@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>Interlibrary Loan: Edit Other Request</title>
+
+<#INCLUDE filename="include_head.html">
+
+</head>
+
+<body id="type-b">
+<div id="wrap">
+ <#INCLUDE filename="include_header.html">
+    <div class="container main-container" id="content-wrap">
+	    <div class="row row-offcanvas row-offcanvas-left">
+        <#INCLUDE filename="include_menu.html">
+
+		    <div class="col-xs-12 col-md-9" id="content">
+	          <p class="pull-left visible-xs visible-sm">
+	            <button type="button" class="btn btn-sidebar btn-xs" data-toggle="offcanvas">View options <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+	          </p>
+
+		        <div class="row main-content">
+				<h1>Other Request</h1>
+				<p class="required">Required fields are followed by <strong><abbr title="required">*</abbr></strong></p>
+
+				<form action="illiad.dll" method="post" name="EditOtherRequest" class="f-wrap-request">
+					<input type="hidden" name="ILLiadForm" value="EditOtherRequest">
+					<input type="hidden" name="RequestType" value="Loan">
+					<input type="hidden" name="Username" value="<#PARAM name="Username">">
+					<input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+					<input type="hidden" name="AcceptNonEnglish" value="Yes">
+					<input type="hidden" name="TransactionNumber" value="<#PARAM name="TransactionNumber">">
+				
+					<section>
+						<h2>Describe the item you want</h2>
+
+						<div class="form-group">
+							<label for="Other"><span class="<#ERROR name="ERROROther">">Citation</span><abbr title="required">*</abbr></label>
+							<input type="text" name="Other" id="Other" aria-describedby="OtherHelp" class="form-control"><#PARAM name="Other"></textarea>
+							<small id="OtherHelp" class="form-text text-muted">Please paste any citation information you have here.</small>
+						</div>			
+						
+						<div class="form-group">		
+							<label for="NotWantedAfter"><span class="<#ERROR name="ERRORNotWantedAfter">">Not Wanted After Date</span><abbr title="required">*</abbr></label>
+							<input type="text" id="NotWantedAfter" name="NotWantedAfter" class="form-control" value="<#PARAM name="NotWantedAfter">">
+							<small id="NotWantedAfterHelp" class="form-text text-muted">(MM/DD/YYYY)</small>
+						</div>
+						
+						<div class="form-group">
+							<label for="Notes"><span class="<#ERROR name="ERRORNotes">">Notes</span></label>
+		        			<input type="text" id="Notes" name="Notes" aria-describedby="NotesHelp" class="form-control" value="<#PARAM name="Notes">">
+		                    <small id="NotesHelp" class="form-text text-muted">Information that may help us find the item or other pertinent information.</small>
+		                </div>
+					
+					 </section>
+
+			    <section> 
+					<#INCLUDE filename="include_request_cited.html">
+				</section>
+
+			    <#INCLUDE filename="include_request_buttons.html">
+			    <#INCLUDE filename="include_service_links.html">
+
+	      </form>		
+      	</div><!--/row-->
+      </div><!--/.col-xs-12.col-sm-9-->
+    </div><!--/row-->
+
+
+    </div><!--/.container-->
+
+<#INCLUDE filename="include_footer.html">
+  
+
+</body></html>

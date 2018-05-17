@@ -133,15 +133,41 @@ body {
 
 a {
   color: #437e9b;
-  &.menuClone {
-    float: right;
-    &:before {
+  &.menuClone { // Clone request link
+      &:before {
+      color: lighten(#437e9b, 15%);
       content: "\f0c5";
       font-family: FontAwesome;
       font-size: 1.2em;
-      margin-right: 0.5em;
-   }
+      margin: 0 0.5em;
+    }
   }
+  &.menuEdit {
+    &[href^="illiad.dll?Action=20&Form=63"] { // Edit request link
+      margin-right: 0.5em;
+      &:before {
+        color: lighten(#437e9b, 15%);
+        content: "\f044";
+        font-family: FontAwesome;
+        font-size: 1.2em;
+        margin-right: 0.5em;
+      }
+    }
+    &[href^="illiad.dll?Action=21&Type=10"] { // Cancel request link
+      margin-right: 0.5em;
+      &:before {
+        color: lighten(#437e9b, 15%);
+        content: "\f05e";
+        font-family: FontAwesome;
+        font-size: 1.2em;
+        margin: 0 0.5em;
+      }
+    }
+  }
+}
+
+.statusNormal {
+  color: #000!important;
 }
 
 
