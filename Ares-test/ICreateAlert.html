@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<script language="JavaScript" type="text/javascript" src="datetimepicker.js">
+//Date Time Picker script- by TengYong Ng of http://www.rainforestnet.com
+//Script featured on JavaScript Kit (http://www.javascriptkit.com)
+//For this script, visit http://www.javascriptkit.com 
+</script>
+<script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20051112"></script>
+<title>ares class alerts - <#USER field="Username"/></title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link href="ares.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></link>
+<style>
+div.fhead {
+  clear: both;
+  font-size: 1.2em;
+  background: #a6a6fa;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  text-align: center;
+  }
+div.frow {
+  clear: both;
+  padding-top: 10px;
+  }
+
+div.frow span.label {
+  float: left;
+  width: 100px;
+  text-align: right;
+  }
+
+div.frow span.formw {
+  float: right;
+  width: 235px;
+  text-align: left;
+  } 
+div.spacer {
+  clear: both;
+  }
+
+div.newalert {
+	width: 350px;
+	background: #e6e6fa;
+	border: 1px dotted #333;
+	padding: 5px;
+	margin: 2px;
+	float: left;
+	display: none;
+ }
+</style>
+<script type="text/javascript">
+function toggleLayer(whichLayer)
+{
+if (document.getElementById)
+{
+// this is the way the standards work
+var style2 = document.getElementById(whichLayer).style;
+style2.display = style2.display? "":"block";
+}
+else if (document.all)
+{
+// this is the way old msie versions work
+var style2 = document.all[whichLayer].style;
+style2.display = style2.display? "":"block";
+}
+else if (document.layers)
+{
+// this is the way nn4 works
+var style2 = document.layers[whichLayer].style;
+style2.display = style2.display? "":"block";
+}
+}
+
+function AddAlert() {
+var style2 = document.getElementById('newalert').style;
+if ((style2.display != 'block')||(document.getElementById('AlertHeader').innerHTML == "Add Alert")) {
+  toggleLayer('newalert');
+}
+document.getElementById('AlertHeader').innerHTML = "Add Alert";
+document.getElementById('AlertID').value= '0';
+document.getElementById('alertbtn').value= 'Create Alert';
+document.getElementById('AlertMessage').value = '';
+document.getElementById('AlertTitle').value = '';
+document.getElementById('theDate1').value = '';
+document.getElementById('theDate2').value = '';
+}
+
+function getHTTPObject() {
+  var xmlhttp;
+/*@cc_on
+  @if (@_jscript_version >= 5)
+  try {
+    xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+  } catch (e) {
+    try {
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    } catch (E) {
+      xmlhttp = false;
+    }
+  }
+  @else
+    xmlhttp = false;
+  @end @*/
+
+  if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
+    try {
+      xmlhttp = new XMLHttpRequest();
+    } catch (e) {
+      xmlhttp = false;
+    }
+  }
+  return xmlhttp;
+}
+
+var isWorking = false;
+var http = getHTTPObject();
+
+function handleHttpResponse() {
+  if (http.readyState == 4) {
+	isWorking = true;
+	var xmlDocument = http.responseXML;
+	if (xmlDocument.getElementsByTagName('araj_code').item(0).firstChild.data = 1) {
+		var style2 = document.getElementById('newalert').style;
+		style2.display = 'block';
+	      document.getElementById('AlertHeader').innerHTML = "Edit Alert";
+		document.getElementById('alertbtn').value= 'Modify Alert';
+	      document.getElementById('AlertMessage').value = xmlDocument.getElementsByTagName('alertmessage').item(0).firstChild.data;
+	      document.getElementById('AlertID').value = xmlDocument.getElementsByTagName('alertid').item(0).firstChild.data;
+	      document.getElementById('AlertTitle').value = xmlDocument.getElementsByTagName('alerttitle').item(0).firstChild.data;
+		document.getElementById('theDate1').value = xmlDocument.getElementsByTagName('activedate').item(0).firstChild.data;
+		document.getElementById('theDate2').value = xmlDocument.getElementsByTagName('inactivedate').item(0).firstChild.data;
+	}
+      isWorking = false;
+  }
+}
+
+function EditAlert(AlertID,SID,Username) {
+if (!isWorking) {
+    var url = "ares.dll/ajax?do=78&username=";
+    http.open("GET", url + escape(Username) + "&SessionID=" + escape(SID) + "&AlertID=" + escape(AlertID), true);
+    isWorking = true;
+    http.onreadystatechange = handleHttpResponse;
+    http.send(null);
+  }
+}
+
+function ConfirmDelete(AlertID,SID,Username) {
+var url = "ares.dll?do=86&username=";
+var answer = confirm ("Are you sure you want to delete this alert?")
+if (answer)
+window.location = url + escape(Username) + "&SessionID=" + escape(SID) + "&Alert=" + escape(AlertID);
+}
+
+</script>
+
+</head>
+<body>
+<form action="Ares.dll" method="post" name="alertform" id="alertform">
+<input type="hidden" name="AresForm" value="InstructorCreateAlert" />
+<input type="hidden" name="SessionID" value="<#PARAM name="SessionID"/>" />
+<input type="hidden" name="Username" value="<#USER field="Username"/>" />
+ 
+<div align="center">   
+  
+<table width="95%">
+      
+   
+<tr> 
+        
+    
+<td> <table width="100%" cellpadding="0" cellspacing="0">
+            
+      
+<tr bgcolor="#FFFFFF"> 
+              
+       
+<td> 
+                
+        
+<!--Logo Banner-->
+                CGIFN=^VARIncludeFile:LogoBanner.html^ 
+                
+        
+<!--End Logo Banner-->
+              </td>       <td align="right"> 
+                
+        <!--Right Banner-->
+                CGIFN=^VARIncludeFile:Right.html^&nbsp; 
+<!--End Right Banner-->
+              </td>
+</tr>
+          </table></td>
+</tr>
+      
+   
+<tr> 
+        
+    
+<td valign="top"> <table width="100%">
+            
+      
+<tr> 
+              
+       
+<td width="200px" valign="top"> 
+                
+        
+<!--Left Toolbars-->
+                CGIFN=^VARIncludeFile:LeftMenu.html^ 
+                
+        
+<!--End Left Toolbar-->
+              </td>
+<td valign="top"> 
+                
+<!--Main window-->
+<table border="0" cellspacing="0" cellpadding="8" width="100%">
+<tr><td class="IMyClassHeader">Manage Class Alerts</th></tr>
+<tr><td class="IMyClassMain">
+CGIFN=^VARClass.CreateAlerts^
+<br/><a href="javascript:AddAlert();" title="Add an alert">Add an alert</a>
+</td></tr></table>
+<br/>
+<div id = "newalert" class="newalert">
+  <input type="hidden" id="AlertID" name="AlertID" value="0"/>
+  <input type="hidden" id="AlertID" name="ClassID" value="CGIFN=^VARClass.ID^"/>
+    <div style="float: right; font-size: 10px;"><a href="javascript:toggleLayer('newalert')">Cancel</a></div>
+    <div class="fhead" id="AlertHeader">New Alert</div>
+    <div class="frow">
+      <span class="label">Alert Title:</span><span class="formw"><input id="AlertTitle" name="AlertTitle" type="text" size="25" /></span>
+    </div>
+    <div class="frow">
+      <span class="label">Alert Message:</span><span class="formw">
+        <textarea name="AlertMessage" id="AlertMessage" cols="25" rows="8"></textarea>
+      </span>
+    <div class="frow">
+      <span class="label">Start Alert:</span><span class="formw"><input type="text" value="01/20/2006" readonly id="theDate1" name="theDate1"/> <img src="images/cal.gif" onclick="displayCalendar(document.forms[0].theDate1,'mm/dd/yyyy',this)"/></span>
+    </div>
+    <div class="frow">
+      <span class="label">End Alert:</span><span class="formw"><input type="text" value="01/25/2005" readonly id="theDate2" name="theDate2"/> <img src="images/cal.gif" onclick="displayCalendar(document.forms[0].theDate2,'mm/dd/yyyy',this)"/></span>
+    </div>
+    <div class="frow">
+      <span class="label"></span><span class="formw"><input type="submit" id="alertbtn" name="SubmitButton" value="Create Alert"></span>
+    </div>
+  <div class="spacer">&nbsp;
+</form>
+</div>
+<!--end main window-->
+</td>
+</tr>
+</table></td>
+</tr></table>
+<p><font size="-5">&copy; Copyright 2004 - 2005 Atlas Systems, Inc. All Rights Reserved.</font></p>
+</div>
+</form>
+</body>
+</html>

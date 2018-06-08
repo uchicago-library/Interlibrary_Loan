@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ares - <#USER field="Username"/></title>
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+<script type="text/javascript" src="js/aresajax.js"></script>
+<script type="text/javascript" src="js/fat.js"></script>
+<script>
+var sessionid = '<#PARAM name="SessionID"/>';
+</script>
+</head>
+<body id="type-b">
+<div id="wrap"> <#INCLUDE filename="include_header.html">
+    <div id="content-wrap">
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseInstructor">
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseFullProxy">
+		<#INCLUDE filename="include_courseproxycoursemenu.html" restriction="Usertype:CourseProxy">
+
+        <div id="content"> 
+		<h2>Are you sure you want to delete this course?</h2>
+		<a href="<#ACTION action="22" type="11">&CourseID=<#COURSE field="CourseID">"><span style="font-size: 1.4em;">Yes</span></a>&nbsp;&nbsp;<a href="<#ACTION action="10" form="60" ValueType="Lookup" Value="CourseID">"><span  style="font-size: 1.4em;">No</span></a> 
+		<br/><br/>
+		<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"></span>
+            <div class="instructor">
+			<#INCLUDE filename="include_defaultcourseinfo.html">
+            </div>
+          <#TABLE class="instructor-table" name="Item" type="CourseItems" headerText="Reserve Items" LinkType="ItemEdit" AllowRowClick="Yes" LinkColumn="BothTitles" AllowJavascriptHover="Yes" column="BothTitles:Title" column="Author:Author" column="CurrentStatus:Status" NoDataAction="ShowMessage" NoDataMessage="There are no items in this course.">
+            <div id="footer">
+              <p><#COPYRIGHT></p>
+              <#INCLUDE filename="include_footer.html"> </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

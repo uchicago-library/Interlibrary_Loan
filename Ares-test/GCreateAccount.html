@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ares</title>
+<link rel="shortcut icon" href="favicon.ico" />
+
+<link rel=stylesheet href="css/xc2_default.css" type="text/css"/>
+<script language="javascript" src="js/xc2_default.js"></script>
+<script language="javascript" src="js/xc2_inpage.js"></script>
+<script language="javascript" src="js/arescal.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+<script type="text/javascript" src="js/aresajax.js"></script>
+<script type="text/javascript" src="js/fat.js"></script>
+</head>
+<body id="type-a">
+<div id="wrap">
+
+	<#INCLUDE filename="include_header.html"> 
+	
+
+	<div id="content-wrap">
+		
+		<div id="content">
+
+            <form action="ares.dll" method="post" name="CreateAccount" class="f-wrap-request">
+                <input type="hidden" name="Action" value="11"/>
+                <input type="hidden" name="AuthMethod" value="Ares"/>
+                <input type="hidden" name="Form" value="<#PARAM name="Form"/>"/>							
+                <div class="req"><b>*</b> Indicates required field</div>
+                <fieldset>
+				<h3>New Ares Account </h3>
+				<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"></span>
+			<!--
+                	<label for="ExternalUserId">					                		                
+						<b><#ERROR name="ERRORExternalUserId">External User Id</b>
+                		<input id="ExternalUserId" name="ExternalUserId" type="text" size="20" class="f-name" tabindex="5" value="<#USER field="ExternalUserID"/>"><br />
+                	</label>
+			-->
+
+                	<label for="Username">                		                		
+                		<span class="<#Validation name="ERRORUsername">"><b><span class="req">*</span>Username</b></span>
+                		<span class="fade" id="usernamespan" name="usernamespan"></span><input id="Username" name="UserName" onBlur="checkUniqueUsername(this.value); return false;" type="text" size="40" class="f-name" tabindex="10" value="<#PARAM Name="Username"/>"><br />							
+                	</label>
+
+                	<label for="FirstName">                		                		
+						<span class="<#Validation name="ERRORFirstName">"><b><span class="req">*</span>First Name</b></span>
+                		<input id="FirstName" name="FirstName" type="text" size="40" class="f-name" tabindex="15" value="<#PARAM Name="FirstName"/>"><br />
+                	</label>
+                	
+					<label for="Last Name">                       							         		
+						<span class="<#Validation name="ERRORLastName">"><b><span class="req">*</span>Last Name</b></span>
+                		<input id="LastName" name="LastName" type="text" size="40" class="f-name" tabindex="20" value="<#PARAM Name="LastName"/>"><br />
+                	</label>
+                	
+					<label for="LibraryID">                		               							
+						<span class="<#Validation name="ERRORLibraryID">"><b><span class="req">*</span>Library ID</b></span>
+                		<input id="LibraryID" name="LibraryID" type="text" size="40" class="f-name" tabindex="25" value="<#PARAM Name="LibraryID"/>"><br />
+                	</label>
+					
+                	<label for="EMailAddress">                		                		
+						<span class="<#Validation name="ERROREMailAddress">"><b><span class="req">*</span>E-mail Address</b></span>
+                		<input id="EMailAddress" name="EMailAddress" type="text" size="40" class="f-name" tabindex="30" value="<#PARAM Name="EmailAddress"/>"><br />
+                	</label>
+				
+                	<label for="Phone1">                     							          		
+						<span class="<#Validation name="ERRORPhone1">"><b><span class="req">*</span>Phone Number</b></span>
+                		<input id="Phone1" name="Phone1" type="text" size="40" class="f-name" tabindex="35" value="<#PARAM Name="Phone1"/>"><br />
+                	</label>
+                
+					<label for="Address1">                   							            		
+						<span class="<#Validation name="ERRORAddress1">"><b><span class="req">*</span>Address</b></span>
+                		<input id="Address1" name="Address1" type="text" size="40" class="f-name" tabindex="40" value="<#PARAM Name="Address1"/>"><br />
+                	</label>				
+
+					<label for="Address2">                   							            		
+                		<b>Address 2</b>
+						<input alt="Address 2" id="Address2" name="Address2" type="text" size="40" class="f-name" tabindex="45" value="<#PARAM NAME="Address2"/>">						
+                	</label>				
+					
+                	<label for="City">					                		                
+						<span class="<#Validation name="ERRORCity">"><b><span class="req">*</span>City</b></span>
+                		<input id="City" name="City" type="text" size="20" class="f-name" tabindex="50" value="<#PARAM Name="City"/>"><br />
+                	</label>
+					
+                	<label for="State">                            							    		
+						<span class="<#Validation name="ERRORState">"><b><span class="req">*</span>State</b></span>
+<#OPTION name="Custom" GroupName="State" SelectedValue="<#PARAM name=State>" tabindex="55" Size="1"><br/>
+
+						
+                	</label>
+								
+                	<label for="Zip">
+						<span class="<#Validation name="ERRORZip">"><b><span class="req">*</span>Zip Code</b></span>
+                		<input id="Zip" name="Zip" type="text" size="40" class="f-name" tabindex="60" value="<#PARAM Name="Zip"/>"><br />
+                	</label>
+					
+
+               	<label for="StatusGroup">                            							    		
+						<span class="<#Validation name="ERRORStatus">"><b><span class="req">*</span>Status</b></span>
+						
+<#OPTION name="Custom" GroupName="StatusGroup" SelectedValue="<#PARAM name=StatusGroup>" tabindex="65" Size="1"><br/> 					</label>						
+
+               	<label for="Department">
+						<span class="<#Validation name="ERRORDepartment">"><b><span class="req">*</span>Department</b></span>
+<#OPTION name="Custom" GroupName="Department" SelectedValue="<#PARAM name=Department>" tabindex="70" Size="1"><br/>
+ 				</label>						
+                
+				<label for="Password1">
+						<span class="<#Validation name="ERRORPassword1">"><b><span class="req">*</span>Password</b></span>
+                	<input id="Password1" name="Password1" type="password" size="40" class="f-name" tabindex="75" value="<#PARAM Name="Password1"/>"><br />
+                </label>
+
+                <label for="Password2">
+						<span class="<#Validation name="ERRORPassword2">"><b><span class="req">*</span>Confirm Password</b></span>
+                	<input id="Password2" name="Password2" type="password" size="40" class="f-name" tabindex="80" value="<#PARAM Name="Password2"/>"><br />
+                </label>
+                <label for="PasswordHint">
+                	<b>Password Hint</b>
+                	<input id="PasswordHint" name="PasswordHint" type="text" size="40" class="f-name" tabindex="85" value="<#PARAM Name="PasswordHint"/>"><br />
+                </label>
+
+		<label for="CourseEmailDefault">                            							    		
+		
+				<b><span class="<#Validation name="ERRORCourseEmailDefault">"><b>Default Course Email Subscriptions</b></span></b>
+			
+				<fieldset>
+				<label for="automaticsub">
+				<input id="automaticsub" type="radio" name="CourseEmailDefault" value="1" class="f-radio" tabindex="90" <#PARAM name="SELECTED" Identifier="CourseEmailDefault" Value="1"/> />
+				Automatic</label>
+				
+				<label for="manualsub">
+				<input id="manualsub" type="radio" name="CourseEmailDefault" value="0" class="f-radio" tabindex="95" <#PARAM name="SELECTED" Identifier="CourseEmailDefault" Value="0"/>/>
+				Manual</label>
+				
+				</fieldset>
+			</label>
+
+									
+				<input style="border: 1px solid #000066; cursor: pointer;" type="submit" name="SubmitButton" tabindex="199" value="Create account" />				
+				<input style="border: 1px solid #000066; cursor: pointer;" type="reset" name="ClearButton" tabindex="200" value="Clear" />			
+				</fieldset>
+			</form>			
+
+			<div id="footer">
+			<p><#COPYRIGHT></p>
+			<#INCLUDE filename="include_footer.html">
+			</div>
+			
+		</div>
+			
+	</div>
+	
+</div>
+</body>
+</html>

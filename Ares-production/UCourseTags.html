@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ares - <#USER field="Username"/></title>
+<link rel="stylesheet" type="text/css" href="css/tagCloud.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+<script type="text/javascript" src="js/aresajax.js"></script>
+<script type="text/javascript" src="js/fat.js"></script>
+<script>
+var sessionid = '<#PARAM name="SessionID"/>';
+</script>
+</head>
+<body id="type-b">
+<div id="wrap">
+
+	<#INCLUDE filename="include_header.html">	
+	
+
+	<div id="content-wrap">
+		<#INCLUDE filename="include_studentcoursemenu.html">	
+	
+		
+		
+		<div id="content">
+			<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"></span>
+
+			<div class="instructor">
+				<div class="header">Course Details</div>
+				<div class="row"><#COURSE field="CourseNumber"/>&nbsp;<#COURSE field="Name"/><#COURSE field="CourseCode" headerText="&nbsp;(" footerText=")"/></div>
+				<div class="row"><#TABLE class="xlist-table" name="CourseCrossList" HideColumnHeaders="True" column="CourseNumber" headerText="This course is also cross-listed as the following:" NoDataAction="ShowNothing"/></div>
+				<div class="row"><#COURSE field="Semester"/></div>
+				<div class="row"><a target="_blank" href="<#COURSE field="URL"/>"><#COURSE field="URL"/></a></div>	
+				<div class="row"><#COURSE field="Instructor"/></div>
+				<div class="row"><#COURSE field="Description"/></div>
+				<div class="rowline"><span class="note">An Email subscription will send you emails when a new items becomes available in this course.</span>
+				<#SUBSCRIBE notSubscribedText="You currently are <span class='error'>not</span> subscribed." subscribedText="You are currently subscribed." subscribeLink="<span style='text-decoration:underline;'>Subscribe Now</span>" unsubscribeLink="<span style='text-decoration:underline;'>Please remove my subscription</span>"/></div>
+			</div>
+	
+		    	<#TAGCLOUD TagType="Course" MaxFontSizes="5" IncludeTagCount="Yes" TagFence="No" /><br/>
+
+			<br/>
+			<div>
+			Current Filter: <#PARAM name="Tag" /> | <a href="<#ACTION action="10" form="60" ValueType="Lookup" Value="CourseID">">View all Items for <#COURSE field="CourseNumber" /></a>	
+			<form name="UserHome" method="post" action="ares.dll">
+			<input type="hidden" name="action" value="20" />
+			<input type="hidden" name="CourseID" value="<#COURSE field="CourseID"/>" />
+ 			<input type="hidden" name="SessionID" value="<#PARAM name="SessionID"/>"/>
+			<#TABLE class="student-table" id="SearchResults" name="Item" type="CourseItems" headerText="Reserve Items" LinkType="ItemView" AllowRowClick="Yes" IconDirect="True" LinkColumn="BothTitles" AllowJavascriptHover="Yes" column="BothTitlesIcon:Title" column="Author:Author" column="InactiveDate:Available until" HotList="Yes" hotListAdd="True" hotListAddText="Add checked items to Hot List" hotListDelete="True" hotListDeleteText="Remove checked items from Hot List" column="UserViewed" UnreadItem="<img src='images/new.gif' alt='New Item'/>" ReadItem="<img src='images/itemviewed.gif' alt='PreviouslyViewed'/>"  column="Tags:Tags" NoDataAction="ShowMessage" NoDataMessage="There are no items in this course.">		
+			</form>
+			</div>
+
+
+			<div id="footer">
+			<p><#COPYRIGHT></p>
+			<#INCLUDE filename="include_footer.html">
+			</div>
+			
+		</div>
+		
+	
+	</div>
+	
+</div>
+</body>
+</html>

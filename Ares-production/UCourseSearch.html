@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>ares - <#USER field="Username"/></title>
+<link rel="shortcut icon" href="favicon.ico" />
+<script language="javascript" type="text/javascript" src="datetimepicker.js">
+//Date Time Picker script- by TengYong Ng of http://www.rainforestnet.com
+//Script featured on JavaScript Kit (http://www.javascriptkit.com)
+//For this script, visit http://www.javascriptkit.com 
+</script>
+<link href="/ares/ares.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<form action="Ares.dll" method="POST">
+ 
+ <input type="hidden" name="SessionID" value="<#PARAM name="SessionID"/>">
+ <input type="hidden" name="AresForm" value="ReviewCourseList">
+ <input type="hidden" name="Username" value="<#USER field="Username"/>">
+ <div align="center">   
+  <table width="95%">
+      
+   <tr> 
+        
+    <td> <table width="100%" cellpadding="0" cellspacing="0">
+            
+      <tr bgcolor="#FFFFFF"> 
+              
+       <td> 
+                
+        <!--Logo Banner-->
+                CGIFN=^VARIncludeFile:LogoBanner.html^ 
+                
+        <!--End Logo Banner-->
+              </td>       <td align="right"> 
+                
+        <!--Right Banner-->
+                CGIFN=^VARIncludeFile:Right.html^&nbsp; 
+<!--End Right Banner-->
+              </td>
+      </tr>
+          </table></td>
+   </tr>
+      
+   <tr> 
+        
+    <td valign="top"> <table width="100%">
+            
+      <tr> 
+              
+       <td width="200px" valign="top"> 
+                
+        <!--Left Toolbars-->
+                CGIFN=^VARIncludeFile:LeftMenu.html^ 
+                
+        <!--End Left Toolbar-->
+              </td>
+       <td valign="top"> 
+                
+<!--Main window-->
+<table border="0" cellspacing="0" cellpadding="8" width="100%">  
+<tr>     
+<td width="35%" class="maintoolheader">Add a course</th>
+    </tr>
+    
+<tr> 
+      
+<td class="maintool">
+<table width="100%" cellspacing="1"><tr>
+<td valign="middle" align="center">Search for a</td>
+<td><table>
+		
+<tr bgcolor="#DCDCDC">
+<td align="right">Department</td>
+<td><select name="Department">            
+<option selected="selected">CGIFN=^VARUser.Department^</option>
+			CGIFN=^VARIncludeFile:DepartmentList.txt^
+          
+</select>
+		
+		          </td>
+<td>
+<input type="submit" name="DepartmentSearch" value="Go"/></td>
+</tr><tr bgcolor="#DCDCDC">
+<td align="right">Instructor</td>
+<td><select name="Instructor">
+CGIFN=^VARInstructors^
+</select></td>
+<td><input type="submit" name="InstructorSearch" value="Go"/></td>
+</tr>
+<tr bgcolor="#DCDCDC">
+<td align="right">Course</td>
+<td><select name="CourseField">
+<option>Course Number</option>
+<option>Course Name</option>
+<option>Course Code</option>
+</select>
+<select name="CourseType">
+<option>Starts with</option>
+<option>Contains</option>
+</select>
+          <input type="text" name="Course"/>
+		          </td>
+<td><input type="submit" name="CourseSearch" value="Go"/></td>
+</tr>
+				  
+				  </table></td>
+</tr>
+		
+		</table></td>
+</tr>
+</table>		
+<!--end main window-->
+</td></tr></table></td></tr></table>   
+  <p><font size="-5">&copy; Copyright 2004 - 2005 Atlas Systems, Inc. All Rights 
+      Reserved.</font></p></td></tr>
+    </table> </div>
+</form>
+</body>
+</html>

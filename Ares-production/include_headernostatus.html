@@ -1,0 +1,16 @@
+<div id="header">
+	<div id="title-name"><a href="http://www.atlas-sys.com/"><img src="images/ares_logo_final.gif" alt="Ares" title="Ares"/></a></div>
+	<div id="search">
+		<form action="ares.dll" name="Search" method="post">
+			<input type="hidden" name="action" value="11"/>
+			<input type="hidden" name="form" value="52"/>
+			<input id="SessionID" name="SessionID" type="hidden" value="<#PARAM name="SessionID">" />
+			<label for="SearchCriteria">
+			<!--img is used for accessibility purposes. Alt tag of Search for is read-->
+			<img id="searchform" src="images/c.gif" alt="Search for"/>
+			<input id="Keyword" name="Keyword" type="text" class="f-criteria" />							
+			</label>
+			<input type="submit" name="SubmitButton" value="Search" class="f-submit" />		
+		</form>
+	</div>
+</div>

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ares - <#USER field="Username"/></title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="css/fat.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+<script type="text/javascript" src="js/aresajax.js"></script>
+<script type="text/javascript" src="js/fat.js"></script>
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+</head>
+<body id="type-b">
+<div id="wrap">
+
+	<#INCLUDE filename="include_header.html">	
+	
+
+	<div id="content-wrap">
+		<#INCLUDE filename="include_menu.html">	
+	
+		
+		
+		<div id="content">
+
+            <form action="ares.dll" method="post" name="CreateCourse" class="f-wrap-request">
+                <input type="hidden" name="Action" value="11">
+                <input type="hidden" name="Type" value="11">							
+				<input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+                <div class="req"><b>*</b> Indicates required field</div>
+                <fieldset>
+                	<h3>Create a Course </h3>
+					<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"></span>
+                	<h4>Course Information</h4>
+
+			<!--
+                	<label for="ExternalCourseId">					                		                
+						<b><#ERROR name="ERRORExternalCourseId">External Course ID</b>
+                		<input id="ExternalCourseId" name="ExternalCourseId" type="text" size="20" class="f-name" tabindex="5" value="<#PARAM name="ExternalCourseID"/>"><br />
+                	</label>
+			-->
+
+
+                	<label for="CourseName">
+                		<#ERROR name="ERRORCourseName">
+                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORCourseName">">Course Name</span></b>
+                		<input id="CourseName" name="CourseName" type="text" size="40" class="f-name" tabindex="10" value="<#PARAM name="CourseName">"><br />
+                	</label>
+                	
+					<label for="CourseNumber">
+                		<#ERROR name="ERRORCourseNumber">
+                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORCourseNumber">">Course Number</span><br />
+                		<span class="note">e.g. MAT-101</span></b>
+                		<input id="CourseNumber" name="CourseNumber" type="text" size="40" class="f-name" tabindex="15" value="<#PARAM name="CourseNumber">"><br />
+                	</label>
+                	
+					<label for="CourseCode">
+                		<#ERROR name="ERRORCourseCode">
+                		<b><span class="<#VALIDATION name="ERRORCourseCode">">Section Number/Course Number</span></b>
+            		<input id="CourseCode" name="CourseCode" type="text" size="40" class="f-name" tabindex="20" value="<#PARAM name="CourseCode">"><br />
+                	</label>
+					
+					<#OPTION name="InstructorUsernames" useJavascriptNames="True" header="<label for='CourseInstructor'><#ERROR name='ERRORInstructorUsername'><b>Instructor&rsquo;s Username</b>" tabindex="25" class="f-name" footer="<br /></label>"/>					
+                	<label for="CourseInstructor">
+                		<#ERROR name="ERRORCourseInstructor">
+                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORCourseInstructor">">Instructor</span><br/>
+					<span class="note">(Last Name, First Name)</span></b>
+                		<input id="CourseInstructor" name="CourseInstructor" type="text" size="40" class="f-name" tabindex="30" value="<#PARAM name="CourseInstructor">"><br />
+                	</label>
+					
+                	<label for="Department">
+                		<#ERROR name="ERRORDepartment">
+                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORDepartment">">Department</span></b>
+	<#OPTION name='Custom' Cssclass='f-dept' GroupName='Department' AddTopOption='Choose a Department' tabindex='35' Size='1' ExcludeJoinedValues='True'>
+<br/>
+                	</label>
+                
+					<label for="CourseSemester">
+                		<#ERROR name="ERRORCourseSemester">
+                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORSemester">">Course Semester</span></b>
+						<#OPTION name="Semester" tabIndex="40" class="f-name">
+						<br/>
+                	</label>
+					
+                	<label for="CourseURL">
+                		<#ERROR name="ERRORCourseURL">
+                		<b><span class="<#VALIDATION name="ERRORCourseURL">">Course URL</span></b>
+              		<input id="CourseURL" name="CourseURL" type="text" size="20" class="f-name" tabindex="45" value="<#PARAM name="CourseURL">"/><br />
+               	</label>
+
+			<label for="CourseEnrollment">
+                		<#ERROR name="ERRORCourseEnrollment">
+                		<b><span class="<#VALIDATION name="ERRORCourseEnrollment">">Course Enrollment</span></b>
+              		<input id="CourseEnrollment" name="CourseEnrollment" type="text" size="20" class="f-name" tabindex="50" value="<#PARAM name="CourseEnrollment">"/><br />
+               	</label>
+					
+                	<label for="CourseDescription">					
+                		<#ERROR name="ERRORCourseDescription">
+                		<b><span class="<#VALIDATION name="ERRORCourseDescription">">Course Description</span></b>
+						<textarea name="CourseDescription" id="CourseDescription" tabindex="55" cols="20" rows="5"><#PARAM name="CourseDescription"/></textarea><br />
+               	</label>
+
+			<#OPTION name="PickupLocation" tabIndex="60" selectedValue="Leavey" headerText="<label for='Pickup Location'><b><span class='<#VALIDATION name=ERRORPickupLocation>'>Default Pickup Location for Physical Items</span></b>" footerText="<br /></label>">
+					<br/><br/><h4>Course Authentication</h4>
+					<p>There are multiple options for restricting access to items that you place on Reserve</p>
+			        <p>You can set a password for the course. Students will be required to enter this password when they try to add this course to their list of 
+			          enrolled courses.</p>  
+					<label for="UseCoursePassword">
+						<b>Would you like to use a course password?</b>
+			          <select tabindex="65" name="UseCoursePassword" class="f-name">
+					  	<option selected="selected" value="Yes">Yes</option>
+						<option value="No">No</option>
+					  </select>
+			    </label>
+					 <label for="CoursePassword">
+                		<#ERROR name="ERRORCoursePassword">
+                		<b><span class="<#VALIDATION name="ERRORCoursePassword">">If yes, what will the password be?</span></b>				 
+						<input type="text" class="f-name" name="CoursePassword" tabindex="70" value="<#PARAM name="CoursePassword">"/>
+					 </label>				  
+					<p>Additionally, you may enter ID numbers of the students in your course. If they are currently registered with Ares they will have access to this course. If they are not yet registered for the system, they will automatically be given access to this course when they do register.</p>
+					<label for="AddAuthorizedUsers">
+					<b>Student IDs<br/>
+					<span class="note">Student ID Numbers should be separated by new lines.</span></b>
+						<textarea name="AddAuthorizedUsers" id="AddAuthroizedUsers" tabindex="75" cols="20" rows="15"><#PARAM name="AddAuthorizedUsers"/></textarea>
+					</label>
+				<input type="submit" tabindex="200" name="SubmitButton" value="Create Course" />
+				<input type="reset" tabIndex="205" name="ClearButton" value="Clear" />	
+                </fieldset>
+            </form>
+			<div id="footer">
+			<p><#COPYRIGHT></p>
+			<#INCLUDE filename="include_footer.html">
+			</div>
+			
+		</div>
+			
+	</div>
+	
+</div>
+<script>
+	var username = document.getElementById('InstructorUsername').value;
+	GetName(username);
+</script>
+</body>
+</html>

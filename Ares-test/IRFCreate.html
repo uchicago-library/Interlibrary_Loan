@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ares - <#USER field="Username"/></title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel=stylesheet href="css/xc2_default.css" type="text/css"/>
+<!--For Calendar-->
+<script language="javascript" src="js/xc2_default.js"></script>
+<script language="javascript" src="js/xc2_inpage.js"></script>
+<script language="javascript" src="js/arescal.js"></script>
+<!--For Rich Text Editor-->
+<script type="text/javascript" src="js/FCKeditor/fckeditor.js"></script>
+
+ <script type="text/javascript">
+        <!--
+        function ReplaceAllTextareas() {
+                // replace all of the textareas
+                var itemTextArea = document.getElementById("ItemText");
+                var oFCKeditor = new FCKeditor( itemTextArea.name ) ;
+                oFCKeditor.BasePath = "js/FCKeditor/" ;
+                oFCKeditor.ReplaceTextarea();
+        }
+	function focusIframeOnTab(caller, tabTargetId, callEvent)
+	{
+	    // If keypress TAB and not SHIFT+TAB
+
+	    if(callEvent.keyCode == 9 && !callEvent.shiftKey)
+	        document.getElementById(tabTargetId).contentWindow.focus();
+	}
+        // -->
+        </script>
+
+
+<link rel="stylesheet" type="text/css" href="css/fat.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+<script type="text/javascript" src="js/aresajax.js"></script>
+<script type="text/javascript" src="js/fat.js"></script>
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+</head>
+<body id="type-b" onLoad="javascript: document.CreateCourse.Title.focus(); ReplaceAllTextareas();">
+<div id="wrap">
+
+	<#INCLUDE filename="include_header.html">	
+	
+
+	<div id="content-wrap">
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseInstructor">
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseFullProxy">
+		<#INCLUDE filename="include_courseproxycoursemenu.html" restriction="Usertype:CourseProxy">
+		
+		<div id="content">
+
+            <form action="ares.dll" method="post" name="CreateCourse" id="CreateCourse" class="f-wrap-request">
+                <input type="hidden" name="Action" value="11">
+                <input type="hidden" name="Type" value="10">		
+		<input type="hidden" name="CopyrightRequired" value="No"/>					
+                <input type="hidden" name="CourseID" value="<#COURSE field="CourseID"/>"/>				
+				<input type="hidden" name="format" value="Create" />
+                <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+                <div class="req"><b>*</b> Indicates required field</div>
+                <fieldset>
+                	<h3>Reserve Item: Free-text</h3>
+					<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"></span>
+                	<h4>Item Information</h4>
+                	<label for="Title">
+                		<#ERROR name="ERRORTitle">
+                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORTitle">">Title</span></b>
+                		<input id="Title" name="Title" type="text" size="40" class="f-name" tabindex="5" value="<#PARAM name="Title">"><br />
+                	</label>
+
+                	<label for="Author">
+                		<#ERROR name="ERRORAuthor">
+                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORAuthor">">Author</span><br/>
+				<span class="note">(Last Name, First Name)</span></b>
+                		<input id="Author" name="Author" type="text" size="40" class="f-name" tabindex="10" value="<#PARAM name="Author">" onKeyDown="focusIframeOnTab(this,'ItemText___Frame', event);if(!document.all) return false;"><br />
+                	</label>
+
+                	<label for="Notes">
+                		
+                		<b>Notes<br />
+                		<span class="note">Put any information here that may help us find the item, as well as any other pertinent information.</span></b>
+                		<textarea id="Notes" name="ItemNote" rows="2" cols="40" class="f-name" tabindex="15"><#PARAM Name="ItemNote"/></textarea>
+                		<br />
+                	</label>
+
+
+			<label for="ItemTags">
+                		<#ERROR name="ItemTags">
+                		<b>Tags
+					<br/><span class="note">Comma separated list of tags to be assigned to this Item<span>
+				</b>
+                		<textarea id="ItemTags" name="ItemTags" tabindex="20" rows="4"><#PARAM name="ItemTags"/></textarea><br />
+                	</label>
+
+                	
+					<label for="ItemText">
+                		<#ERROR name="ERRORItemContent">
+                		<textarea id="ItemText" name="ItemText" tabindex="25" rows="15" cols="80"><#ITEM field="Text"></textarea><br />
+                	</label>
+
+
+					
+					<#TABLE class="instructor-table" name="ItemRestrictions" headerText="Reserve Restrictions" classChoice="one" IncludeJavascriptCalendar="Yes" calendarText="<img src='images/cal.gif' alt='Open Calendar'/>"/>
+				<input type="submit" name="SubmitButton" value="Submit Item"  TabIndex="500" />
+				<input type="reset" name="ClearButton" value="Clear" TabIndex="505" />									
+				</fieldset>
+			</form>			
+
+			<div id="footer">
+			<p><#COPYRIGHT></p>
+			<#INCLUDE filename="include_footer.html">
+			</div>
+			
+		</div>
+			
+	</div>
+	
+</div>
+</body>
+</html>

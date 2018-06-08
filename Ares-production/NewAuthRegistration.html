@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ares - <#USER field="Username"/></title>
+<link rel="shortcut icon" href="favicon.ico" />
+
+<link rel=stylesheet href="css/xc2_default.css" type="text/css"/>
+<script language="javascript" src="js/xc2_default.js"></script>
+<script language="javascript" src="js/xc2_inpage.js"></script>
+<script language="javascript" src="js/arescal.js"></script>
+<link rel="stylesheet" type="text/css" href="css/fat.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+<script type="text/javascript" src="js/aresajax.js"></script>
+<script type="text/javascript" src="js/fat.js"></script>
+</head>
+<body id="type-b">
+<div id="wrap">
+
+	<#INCLUDE filename="include_header.html">	
+	
+
+	<div id="content-wrap">
+		<#INCLUDE filename="include_menu.html">	
+		
+		<div id="content">
+
+            <form action="ares.dll" method="post" name="NewAuthRegistration" class="f-wrap-request">
+                <input type="hidden" name="Action" value="11"/>
+                <input type="hidden" name="Form" value="<#PARAM name="Form"/>"/>							
+                <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+                <div class="req"><b>*</b> Indicates required field</div>
+               
+  
+                <fieldset>
+				<h3>Change Personal Information</h3>
+
+				<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"></span>
+
+
+                	<label for="FirstName">                		                		
+						<b><#ERROR Name="ERRORFirstName"><span class="req">*</span>First Name</b>
+                		<input id="FirstName" name="FirstName" type="text" size="40" class="f-name" tabindex="10" value="<#USER field="FirstName"/>"><br />
+                	</label>
+                	
+					<label for="Last Name">                       							         		
+                		<b><#ERROR Name="ERRORLastName"><span class="req">*</span>Last Name</b>
+                		<input id="LastName" name="LastName" type="text" size="40" class="f-name" tabindex="15" value="<#USER field="LastName"/>"><br />
+                	</label>
+                	
+					<label for="LibraryID">                		               							
+                		<b><#ERROR Name="ERRORLibraryID"><span class="req">*</span>Library ID/NetID/Some unique campus number</b>
+                		<input id="LibraryID" name="LibraryID" type="text" size="40" class="f-name" tabindex="20" value="<#USER field="LibraryID"/>"><br />
+                	</label>
+					
+                	<label for="EMailAddress">                		                		
+                		<b><#ERROR Name="ERROREMailAddress"><span class="req">*</span>EMail Address</b>
+                		<input id="EMailAddress" name="EMailAddress" type="text" size="40" class="f-name" tabindex="25" value="<#USER Field="EmailAddress"/>"><br />
+                	</label>
+				
+                	<label for="Phone1">                     							          		
+                		<b><#ERROR Name="ERRORPhone1"><span class="req">*</span>Phone Number</b>
+                		<input id="Phone1" name="Phone1" type="text" size="40" class="f-name" tabindex="30" value="<#USER field="Phone1"/>"><br />
+                	</label>
+                
+					<label for="Address1">                   							            		
+                		<b><#ERROR Name="ERRORAddress1"><span class="req">*</span>Address</b>
+                		<input id="Address1" name="Address1" type="text" size="40" class="f-name" tabindex="35" value="<#USER field="Address1"/>"><br />
+                	</label>				
+
+					<label for="Address2">                   							            		
+                		<b><#ERROR Name="ERRORAddress2">Address 2</b>
+						<input alt="Address 2" id="Address2" name="Address2" type="text" size="40" class="f-name" tabindex="45" value="<#USER field="Address2"/>">						
+                	</label>				
+					
+                	<label for="City">					                		                
+						<b><#ERROR name="ERRORCity"><span class="req">*</span>City</b>
+                		<input id="City" name="City" type="text" size="20" class="f-name" tabindex="50" value="<#USER field="City"/>"><br />
+                	</label>
+					
+                	<label for="State">                            							    		
+                		<b><#ERROR name="ERRORState"><span class="req">*</span>State</b>
+                		<!--<input id="State" name="State" type="text" size="20" class="f-name" tabindex="55" value="<#USER Field="State"/>"><br />-->
+<#OPTION name="Custom" GroupName="State" SelectedValue="<#USER Field=State>" tabindex="60" Size="1"><br/>                	</label>
+								
+                	<label for="Zip">
+                		<b><span class="req">*</span>Zip Code</b>
+                		<input id="Zip" name="Zip" type="text" size="40" class="f-name" tabindex="65" value="<#USER field="Zip"/>"><br />
+                	</label>
+					
+					<input type="hidden" name="StatusGroup" value="<#USER field="Status"/>">
+
+<!--If you allow the user to change their status -->
+<!--
+               	<label for="StatusGroup">                            							    		
+                		<b><#ERROR name="ERRORStatusGroup">Status</b>
+						
+<#OPTION name="Custom" GroupName="StatusGroup" SelectedValue="<#USER Field=Status>" tabindex="70" Size="1"><br/> 					</label>						
+ -->                	
+
+               	<label for="Department">
+                		<b><#ERROR name="ERRORDepartment">Department</b>						
+						<#OPTION name="Custom" GroupName="Department" SelectedValue="<#USER field=Department>" tabindex="75" Size="1"><br/>
+ 				</label>	
+
+		<label for="CourseEmailDefault">                            							    		
+		
+				<b><span class="<#Validation name="ERRORCourseEmailDefault">"><b>Default Course Email Subscriptions</b></span></b>
+			
+				<fieldset>
+				<label for="automaticsub">
+				<input id="automaticsub" type="radio" name="CourseEmailDefault" value="1" class="f-radio" tabindex="80" <#PARAM name="SELECTED" Identifier="CourseEmailDefault" Value="1"/> />
+				Automatic</label>
+				
+				<label for="manualsub">
+				<input id="manualsub" type="radio" name="CourseEmailDefault" value="0" class="f-radio" tabindex="85" <#PARAM name="SELECTED" Identifier="CourseEmailDefault" Value="0"/>/>
+				Manual</label>
+				
+				</fieldset>
+			</label>					
+									
+				<input style="border: 1px solid #000066; cursor: pointer;" type="submit" name="SubmitButton" tabindex="199" value="Change my info" />				
+				<input style="border: 1px solid #000066; cursor: pointer;" type="reset" name="ClearButton" tabindex="200" value="Clear" />			
+				</fieldset>
+			</form>			
+
+			<div id="footer">
+			<p><#COPYRIGHT></p>
+			<#INCLUDE filename="include_footer.html">
+			</div>
+			
+		</div>
+			
+	</div>
+	
+</div>
+</body>
+</html>

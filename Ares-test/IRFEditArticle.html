@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ares - <#USER field="Username"/></title>
+<link rel="shortcut icon" href="favicon.ico" />
+
+<link rel=stylesheet href="css/xc2_default.css" type="text/css"/>
+<script language="javascript" src="js/xc2_default.js"></script>
+<script language="javascript" src="js/xc2_inpage.js"></script>
+<script language="javascript" src="js/arescal.js"></script>
+<link rel="stylesheet" type="text/css" href="css/fat.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+<script type="text/javascript" src="js/aresajax.js"></script>
+<script type="text/javascript" src="js/fat.js"></script>
+</head>
+<body id="type-b">
+<div id="wrap">
+
+	<#INCLUDE filename="include_header.html">	
+	
+
+	<div id="content-wrap">
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseInstructor">
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseFullProxy">
+		<#INCLUDE filename="include_courseproxycoursemenu.html" restriction="Usertype:CourseProxy">
+	
+		<div id="content">
+			
+            <form action="ares.dll" method="post" name="CreateCourse" class="f-wrap-request">
+                <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+				<input type="hidden" name="ItemID" value="<#ITEM field="ItemID"/>">
+				<input type="hidden" name="ItemType" value="SER">  
+                <input type="hidden" name="Action" value="11"/>
+                <input type="hidden" name="Type" value="30"/>							
+
+                <div class="req"><b>*</b> Indicates required field</div>
+                <fieldset>
+                	<h3>Edit Reserve Item: Article</h3>
+					<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"></span>
+					<p>This item is currenty at a status of: <span class="success"><#ITEM field="CurrentStatus"></span></p>
+					<#Include filename="include_viewdelete.html">
+                	
+                  <label for="NeededBy"> 
+			<b><span class="req">*</span><span class="Valid">Needed By</span><br />
+			<span class="note">Please indicate the week this material will be taught</span></b>
+			<select id="NeededBy" name="NeededBy">
+			<option></option>
+			<option>01</option>
+			<option>02</option>
+			<option>03</option>
+			<option>04</option>
+			<option>05</option>
+			<option>06</option>
+			<option>07</option>
+			<option>08</option>
+			<option>09</option>
+			<option>10</option>
+			<option>11</option>
+			</select>
+			</label>
+
+			<h4>Item Information</h4>
+                	<label for="JournalTitle">
+                		<#ERROR name="ERRORTitle">
+                		<b><span class="req">*</span>Journal Title<br/>
+						<span class="note">Please do not abbreviate unless your citation is abbreviated</span></b>
+                		<input id="Title" name="Title" type="text" size="40" class="f-name" tabindex="5" value="<#ITEM field="Title">"><br />
+                	</label>
+                	
+					<label for="Volume">
+                		<#ERROR name="ERRORVolume">
+                		<b><span class="req">*</span>Journal Volume</b>
+                		<input id="Volume" name="Volume" type="text" size="40" class="f-name" tabindex="10" value="<#ITEM field="Volume">"><br />
+                	</label>
+
+					<label for="Issue">
+                		<#ERROR name="ERRORVolume">
+                		<b>Journal Issue</b>
+                		<input id="Issue" name="Issue" type="text" size="40" class="f-name" tabindex="15" value="<#ITEM field="Issue">"><br />
+                	</label>
+
+					<label for="JournalYear">
+                		<#ERROR name="ERRORYear">
+                		<b><span class="req">*</span>Journal Year</b>
+                		<input id="JournalYear" name="JournalYear" type="text" size="40" class="f-name" tabindex="20" value="<#ITEM field="JournalYear">"><br />
+                	</label>
+					
+					<label for="JournalMonth">
+                		<#ERROR name="ERRORMonth">
+                		<b>Journal Month</b>
+                		<input id="JournalMonth" name="JournalMonth" type="text" size="40" class="f-name" tabindex="25" value="<#ITEM field="JournalMonth">"><br />
+                	</label>
+
+					<label for="ArticleTitle">
+                		<#ERROR name="ERRORArticleTitle">
+                		<b><span class="req">*</span>Article Title</b>
+                		<input id="ArticleTitle" name="ArticleTitle" type="text" size="40" class="f-name" tabindex="30" value="<#ITEM field="ArticleTitle">"><br />
+                	</label>
+
+					<label for="Author">
+                		<#ERROR name="ERRORAuthor">
+                		<b><span class="req">*</span>Article Author<br/>
+						<span class="note">(Last Name, First Name)</span></b>
+                		<input id="Author" name="Author" type="text" size="40" class="f-name" tabindex="35" value="<#ITEM field="Author">"><br />
+                	</label>
+
+					<label for="Pages">
+                		<#ERROR name="ERRORPages">
+                		<b>Inclusive Pages</b>
+                		<input id="Pages" name="Pages" type="text" size="40" class="f-name" tabindex="40" value="<#ITEM field="Pages">"><br />
+                	</label>
+
+					<label for="ISXN">
+                		<#ERROR name="ERRORISXN">
+                		<b>ISSN</b>
+                		<input id="ISXN" name="ISXN" type="text" size="40" class="f-name" tabindex="45" value="<#ITEM field="ISXN">"><br />
+                	</label>
+
+                	<label for="CallNumber">					                		
+                		<#ERROR name="ERRORCallNumber">
+				<b><span class="<#VALIDATION name="ERRORCallNumber">">Call Number</span></b>
+                		<input id="CallNumber" name="CallNumber" type="text" size="40" class="f-name" tabindex="40" value="<#PARAM Name="callnumber"/>"><br />
+                	</label>
+
+			<label for="DOI">
+                		<#ERROR name="ERRORDOI">
+                		<b>DOI</b>
+                		<input id="DOI" name="DOI" type="text" size="40" class="f-name" tabindex="50" value="<#ITEM field="DOI">"><br />
+                	</label>
+
+
+			<label for="ESPNumber">
+                		<#ERROR name="ERRORESPNumber">
+                		<b>OCLC Record Number</b>
+                		<input id="ESPNumber" name="ESPNumber" type="text" size="40" class="f-name" tabindex="55" value="<#ITEM field="ESPNumber">"><br />
+                	</label>
+
+                	<label for="Notes">
+                		
+                		<b>Notes<br />
+                		<span class="note">Put any information here that may help us find the item, as well as any other pertinent information.</span></b>
+                		<textarea id="Notes" name="ItemNote" rows="2" cols="40" class="f-name" tabindex="60"><#PARAM Name="ItemNote"/></textarea>
+                		<br />
+				<#TABLE class="instructor-table-nohover" name="ItemNotes" headerText="Previous Notes" noDataAction="ShowNothing" noDataMessage="No Notes" column="Note" column="AddedBy" column="NoteDate" column="NoteType" ExcludeNoteTypes="Staff">
+                	</label>
+
+			
+			<label for="ItemTags">
+                		<#ERROR name="ItemTags">
+                		<b>Tags
+					<br/><span class="note">Comma separated list of tags to be assigned to this Item (e.g., "required reading," "week 3," etc.)<span>
+				</b>
+                		<textarea id="ItemTags" name="ItemTags" tabindex="65" rows="4"><#ITEM field="Tags" TagType="Instructor"/></textarea><br />
+                	</label>
+
+
+			<label for="CitedIn">
+                		<#ERROR name="ERRORCitedIn">
+                		<b><span class="<#VALIDATION name="CitedIn">">Where did you find this item?</span></b>
+                		<input id="CitedIn" name="CitedIn" type="text" size="40" class="f-name" tabindex="70" value="<#ITEM field="CitedIn">"><br />
+					</label>
+				
+					<label for="SupplyMethod">
+                		<#ERROR name="ERRORSupplyMethod">
+                		<b>Do you want to supply new material for this reserve item? <#ITEM field="BuildURL" alt="View this item" linkText="<br/>This item is currently available to students"></b>
+						<fieldset>			
+						<label for="None">
+						<input id="None" type="radio" checked="checked" name="SupplyMethod" value="None" class="f-radio" tabindex="200" />
+						I do not want to change the actual reserve content</label>
+
+						<label for="File">
+						<input id="File" type="radio" name="SupplyMethod" value="File" class="f-radio" tabindex="205" />
+						I will upload a file (You will be asked to upload the file immediately after you submit the request.)</label>
+						
+						<label for="WillDeliver">
+						<input id="WillDeliver" type="radio" name="SupplyMethod" value="WillDeliver" class="f-radio" tabindex="210" />
+						I will bring the material to the library</label>
+					
+						<label for="StaffSearch">
+						<input id="StaffSearch" type="radio" name="SupplyMethod" value="StaffSearch" class="f-radio" tabindex="220" />
+						Please have library staff find the material and place it on electronic reserves</label>
+
+						<label for="WebLink">
+						<input id="WebLink" type="radio" name="SupplyMethod" value="WebLink" class="f-radio" tabindex="215" />
+						The item should link to a website
+						</label>
+						</fieldset>
+               		</label>
+
+					<label for="URL">
+                				<#ERROR name="ERRORURL">
+						<b>If you chose the item should link to a website above, please enter the URL</b>
+						<input id="URL" name="URL" type="text" size="40" class="f-name" tabindex="225" value="<#ITEM field="URL">"><br />
+					</label>
+				
+					<#TABLE class="instructor-table-nohover" name="ItemRestrictions" classChoice="one" headerText="Reserve Restrictions" IncludeJavascriptCalendar="Yes" calendarText="<img src='images/cal.gif' alt='Open Calendar'/>"/>
+
+				<input type="submit" name="SubmitButton" tabindex="500" value="Submit Item" />
+				<input type="submit" name="DeleteButton" tabindex="505" value="Delete Item" />				
+				<input type="reset" name="ClearButton" tabindex="510" value="Clear" />									
+				</fieldset>
+			</form>			
+
+			<div id="footer">
+			<p><#COPYRIGHT></p>
+			<#INCLUDE filename="include_footer.html">
+			</div>
+			
+		</div>
+			
+	</div>
+	
+</div>
+</body>
+</html>

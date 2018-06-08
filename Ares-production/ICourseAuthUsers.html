@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ares - <#USER field="Username"/></title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+<script type="text/javascript" src="js/aresajax.js"></script>
+<script type="text/javascript" src="js/fat.js"></script>
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+</head>
+<body id="type-b">
+<div id="wrap">
+
+	<#INCLUDE filename="include_header.html">	
+	
+
+	<div id="content-wrap">
+
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseInstructor">
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseFullProxy">
+		<#INCLUDE filename="include_courseproxycoursemenu.html" restriction="Usertype:CourseProxy">		
+		
+		<div id="content">
+
+			<div class="instructor">
+				<#INCLUDE filename="include_defaultcourseinfo.html">		
+			</div>	
+			<form method="post" action="ares.dll">
+
+				<input type="hidden" name="SessionID" value="<#PARAM name="SessionID"/>"/>
+				<input type="hidden" name="action" value="11"/>
+				<input type="hidden" name="CourseID" value="<#COURSE field="CourseID"/>"/>				
+				<input type="hidden" name="Form" value="<#PARAM name="Form">"/>
+			
+
+			<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"></span>
+			<#TABLE Name="AuthorizedUsers" headerText="Authorized Users" class="instructor-table-nohover" NoDataMessage="There are currently no students in this course." NoDataAction="ShowMessage" orderBy="LastName">
+			<span style="float: left; width: 45%; border: 1px solid #000066; text-align:center; margin: 1px; padding: 5px;">
+			To add authorized course users, enter their Student ID Numbers separated by lines.<p>
+			<textarea name="addauthorizedusers" cols="25" rows="15"></textarea><br/>
+			<input type="submit" name="SubmitButton" value="Add Authorized Users"/>
+			</span>
+			
+			<span style="float: left; width: 45%; border: 1px solid #000066; text-align:center; margin: 1px; padding: 5px;">To remove authorized course users, enter their Student ID Numbers separated by lines.<p>
+			<textarea name="removeauthorizedusers" cols="25" rows="15"></textarea><br/>
+			<input type="submit" name="SubmitButton" value="Remove Authorized Users"/>
+			<input type="submit" name="SubmitButton" value="Clear All Authorized Users"/>
+			</span>
+					
+			</form>			
+
+
+			<div id="footer">
+			<p><#COPYRIGHT></p>
+			<#INCLUDE filename="include_footer.html">
+			</div>
+			
+		</div>
+			
+	</div>
+	
+</div>
+</body>
+</html>

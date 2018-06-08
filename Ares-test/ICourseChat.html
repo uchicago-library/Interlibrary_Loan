@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ares - <#USER field="Username"/></title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="css/fat.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+<script type="text/javascript" src="js/aresajax.js"></script>
+<script type="text/javascript" src="js/fat.js"></script>
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<style type="text/css" media="all"> 
+@import "css/chatstyle.css"; 
+</style>
+<script type="text/javascript" defer="defer">
+var lace_timeout = '10';
+var lace_interval = '7';
+var lace_name_cookie = 'Lace_name';
+var lace_url_rel = '';
+var chatid = '<#COURSE field="CourseID"/>';
+var sessionid = '<#PARAM name="SessionID"/>';
+var username = '<#USER field="Username"/>';
+</script>
+<script type="text/javascript" src="js/chat/startup.js"> </script>
+<script type="text/javascript" src="js/chat/clientengine.js" defer="defer"> </script>
+<script type="text/javascript" src="js/chat/intervalmanager.js" defer="defer"> </script>
+<script type="text/javascript" src="js/chat/livepreview.js" defer="defer"> </script>
+<script type="text/javascript" src="js/chat/htmlbuttons.js" defer="defer"> </script>
+</head>
+<body id="type-b">
+<div id="wrap"> <#INCLUDE filename="include_header.html">
+  <div id="content-wrap"> 
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseInstructor">
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseFullProxy">
+		<#INCLUDE filename="include_courseproxycoursemenu.html" restriction="Usertype:CourseProxy">
+    <div id="content">
+      <div id="container">
+		<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"/></span>
+		<div class="chatfunctions"><a href="<#ACTION action="22" type="200" value="CourseID" valuetype="Lookup">"">Clear the chat log</a> | <a href="<#ACTION action="11" type="203" value="CourseID" valuetype="Lookup">"">Save the chat as a reserve item</a></div>
+	  	<div id="subnav"><div id="users"></div>
+		</div>
+        <div id="main">
+          <div class="chat" id="laceoutput"> </div>
+        </div>
+        <form name="laceform" id="laceform" action="#" method="post">
+          <table>
+            <tbody id="lacecontrols">
+              <tr>
+                <td class="name"><input name="name" id="name" maxlength="10" size="10" value="<#USER Field="Username"/>" type="text" readonly="readonly"> </td>
+                <td><input autocomplete="off" name="text" id="text" maxlength="500" size="50" type="text">
+                  <input name="say" id="say" value="Say" class="button" type="submit">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+      <div id="footer">
+        <p><#COPYRIGHT></p>
+        <#INCLUDE filename="include_footer.html"> </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

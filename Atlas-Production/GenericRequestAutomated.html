@@ -140,7 +140,6 @@ $(document).ready(function() {
 <input type="hidden" name="CitedIn" value="<#PARAM name="CitedIn">">
 <input type="hidden" name="CitedDate" value="<#PARAM name="CitedDate">">
 <input type="hidden" name="CitedPages" value="<#PARAM name="CitedPages">">
-<input type="hidden" name="ItemInfo1" value="Yes">
 <input type="hidden" name="ItemInfo2" value="No">
 </div>
 
@@ -173,6 +172,12 @@ $(document).ready(function() {
         <label for="CitedVolume"><strong>Volumes/Issues</strong> (Optional)</label>
         <input name="CitedVolume" type="text" aria-describedby="CitedVolumeHelp">
         <br/><small id="CitedVolumeHelp">If multi-volume item or journal.</small>
+
+         <label for="ItemInfo1">Would you accept an electronic version?</span></label>
+        <select id="ItemInfo1" name="ItemInfo1">
+            <option selected="selected"><#PARAM name="ItemInfo1">Yes</option>
+            <option>No</option>
+        </select>
 
         <label for="Notes"><strong>Notes</strong></label>
         <input id="notes" name="Notes" type="text" aria-describedby="NotesHelp">

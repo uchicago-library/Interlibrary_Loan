@@ -1,0 +1,29 @@
+<script type="text/javascript" src="js/aresajax.js"></script>
+<script type="text/javascript" src="js/fat.js"></script>
+<script type="text/javascript" src="js/prototype.js"></script>
+<script type="text/javascript" src="js/scriptaculous.js"></script>
+<div id="utility">
+	<ul id="nav-secondary">
+    <#SWITCHMODE header=" 
+    <li class='active'>" footer="</li>
+    "> 		
+		
+		<li class="active"><a href="#">Instructor Class Tools</a>
+			<ul>
+				<li class="first"><a href="<#ACTION action="10" form="60" ValueType="Lookup" Value="ClassID">">Class Home</a></li>
+				<li><a href="<#ACTION action="10" form="2" value="IRFMenu">&ClassID=<#COURSE field="ClassID">">Add Reserve Items</a></li>
+				<li class="last"><a href="<#ACTION action="10" form="115" value="ClassID" valuetype="Lookup">">Reserve Item Usage</a></li>
+				<li><<a href="http://guides.lib.uchicago.edu/reservecopyright" target="_blank">Copyright Guidelines</a></li>
+			</ul>
+		</li>
+	
+		<#INCLUDE filename="include_studentmenu.html" restriction="UserType:Student">
+		<li class="active"><a href="#">Other Tools</a>
+			<ul>
+				
+				<li class="last"><a href="<#ACTION action="10" form="73">">My EMails</a></li>
+			</ul>
+		</li>
+<li><span id="alertsgroup"><#ALERTS NoDataAction="showMessage" AllowAjax="Yes"></span></li>
+	</ul>
+</div>

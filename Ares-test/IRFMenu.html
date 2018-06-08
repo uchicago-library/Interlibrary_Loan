@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ares - <#USER field="Username"/></title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+
+<script type="text/javascript" src="js/aresajax.js"></script>
+<script type="text/javascript" src="js/fat.js"></script>
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+
+</head>
+<body id="type-b">
+<div id="wrap"> <#INCLUDE filename="include_header.html"> 
+  <div id="content-wrap">
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseInstructor">
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseFullProxy">
+		<#INCLUDE filename="include_courseproxycoursemenu.html" restriction="Usertype:CourseProxy">
+		
+		<div id="content">
+			<div>
+
+			<h3>What would you like to place on Reserves?</h3>			
+
+			<span style="float:left; text-align: center; margin: 5px; padding: 20px;">		
+			<a href="<#ACTION action="10" form="21" valuetype="Lookup" value="Course">">
+			<img src="images/large/docs_32.gif" height="32" width="32" alt="Article" title="Article"/><br/>
+
+			Article</a>
+			</span>
+			
+			<span style="float:left; text-align: center; margin: 5px; padding: 20px;">		
+			<a href="<#ACTION action="10" form="2" value="IRFBookChapter">&CourseID=<#COURSE field="CourseID">">
+			<img src="images/large/hist_32.gif" height="32" width="32" alt="Chapter" title="Chapter"/><br/>
+			Chapter</a>
+			</span>
+
+			<span style="float:left; text-align: center; margin: 5px; padding: 20px;">		
+			<a href="<#ACTION action="10" form="2" value="IRFBook">&CourseID=<#COURSE field="CourseID">">
+			<img src="images/large/book03.gif" height="32" width="32" alt="Book" title="Book"/><br/>
+
+			Book/CD/DVD</a>
+			</span>
+
+
+			</div>
+
+			<br/><div style="clear: both;">
+
+			<h3>Import items from a previously taught course</h3> 
+			<#TABLE name="Course" class="instructor-table" Type="Import" AllowRowClick="Yes" headerText="Previous Courses" LimitRecentMonths="120" AllowJavascriptHover="True" Session="Previous" Role="Instructor" column="Semester:Semester" column="CourseNumber:Course" column="CourseCode:Section Number" column="Name:Name" column="ReserveItems:Reserve Items" NoDataAction="ShowMessage" NoDataMessage="No courses found." orderby="C.StopDate DESC,C.CourseNumber ASC">	
+
+			<h3>Import items from a currently taught course</h3> 
+			<#TABLE name="Course" class="instructor-table" Type="Import" AllowRowClick="Yes" headerText="Current Courses" AllowJavascriptHover="True" Session="Current" Role="Instructor" column="Semester:Semester" column="CourseNumber:Course" column="CourseCode:Section Number" column="Name:Name" column="ReserveItems:Reserve Items" NoDataAction="ShowMessage" NoDataMessage="No courses found." orderby="C.StopDate DESC,C.CourseNumber ASC">	
+			</div>
+
+			<div id="footer">
+			<p><#COPYRIGHT></p>
+			<#INCLUDE filename="include_footer.html">
+			</div>
+			
+		</div>
+
+	
+	
+	</div>
+	
+</div>
+</body>
+</html>

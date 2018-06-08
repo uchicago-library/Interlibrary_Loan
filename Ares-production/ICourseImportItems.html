@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ares - <#USER field="Username"/></title>
+<link rel="stylesheet" type="text/css" href="css/tagCloud.css"/>
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+<script type="text/javascript" src="js/aresajax.js"></script>
+<script type="text/javascript" src="js/fat.js"></script>
+<script>
+var sessionid = '<#PARAM name="SessionID"/>';
+</script>
+
+</head>
+<body id="type-b">
+<div id="wrap"> <#INCLUDE filename="include_header.html">
+
+    <div id="content-wrap"> 
+		
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseInstructor">
+		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseFullProxy">
+		<#INCLUDE filename="include_courseproxycoursemenu.html" restriction="Usertype:CourseProxy">
+
+
+        <div id="content"> 
+		<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"/></span>
+
+		<table style="border: 1px solid rgb(0, 0, 102); border-collapse: collapse;" width="100%">
+		<tr style="background-color: rgb(0, 0, 102); color: #FFFFFF; font-weight: bold;">
+			<td>Import From</td>
+
+			<td>Import To</td>
+		</tr>
+		<tr>
+		<td width="50%" valign="top">
+	
+
+			<div class="row"><span style="font-weight: bold; font-size: 1.2em;"><#FROMCOURSE field="CourseNumber"/><#COURSE field="CourseCode" headerText="&nbsp;(" footerText=")"/></span>&nbsp;<span style="font-size: 1.2em;"><#FROMCOURSE field="Name"/></span></div>
+			<div class="row"><#FROMCOURSE field="Semester"/></div>
+
+			<div class="row"><a target="_blank" href="<#FROMCOURSE field="URL"/>"><#FROMCOURSE field="URL"/></a></div>	
+			<div class="row"><#FROMCOURSE field="Instructor"/></div>
+			<div class="row"><#FROMCOURSE field="Description"/></div>			
+
+		</td>
+
+		<td width="50%" valign="top">
+			<div class="row"><span style="font-weight: bold; font-size: 1.2em;"><#COURSE field="CourseNumber"/><#COURSE field="CourseCode" headerText="&nbsp;(" footerText=")"/></span>&nbsp;<span style="font-size: 1.2em;"><#COURSE field="Name"/></span></div>
+
+			<div class="row"><#COURSE field="Semester"/></div>
+			<div class="row"><a target="_blank" href="<#COURSE field="URL"/>"><#COURSE field="URL"/></a></div>	
+			<div class="row"><#COURSE field="Instructor"/></div>
+			<div class="row"><#COURSE field="Description"/></div>			
+		</td>
+		</table>
+		
+	    <h4>Choose reserve items you wish to import:</h4>	
+
+            <form action="ares.dll" id="ImportItems" method="post" name="ImportItems" class="f-wrap-request">
+
+                <input type="hidden" name="Action" value="11">
+                <input type="hidden" name="Form" value="70">							
+		<input type="hidden" name="FromCourseID" value="<#PARAM name="FromCourse"/>"/>
+		<input type="hidden" name="CourseID" value="<#COURSE field="CourseID"/>"/>
+                <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+		<input type="hidden" name="IncludeXListInfo" value="On">
+		<input type="hidden" name="CloneItemTags" value="On">
+                
+                <div>
+                    <a href="#" onclick="ToggleCheckboxes(false, 'ImportItems'); return false;">Uncheck All</a> | <a href="#" onclick="ToggleCheckboxes(true, 'ImportItems'); return false;">Check All</a><br />
+                </div>                
+                
+            	<#TABLE id="ImportItems" class="instructor-table-nohover" type="Import" name="CloneItems" headerText="Reserve Materials to Import" IncludeJavascriptCalendar="Yes" calendarText="<img src='images/cal.gif' alt='Open Calendar'/>"/>                
+
+		<input type="submit" id="SubmitButton" name="SubmitButton" onClick="toggleloading();" value="Import Items" tabIndex="2000"/>
+		<div id="ImportingItemsWait" align="center" style="padding: 20px; background-color: #FFFFFF;border:1px solid rgb(0, 0, 102);position:absolute;z-index:5;top:30%;left:32%;visibility:hidden">
+
+			<h3>Please wait as items are imported into <#COURSE field="CourseNumber"/></h3>
+			<img src="images/ajax-loader.gif">
+		</div>
+	     </form>
+
+
+            <div id="footer">
+              <p><#COPYRIGHT></p>
+
+              <#INCLUDE filename="include_footer.html"> 
+	    </div>
+        </div>
+    </div>
+</div>
+
+<script language="javascript">
+
+
+function toggleloading()
+{
+	
+	ImportPanel = document.getElementById("ImportingItemsWait");
+	
+	ImportPanel.style.pixelTop = (document.body.scrollTop + 50);
+
+	ImportPanel.style.visibility="visible";
+
+}
+</script>
+
+</body>
+</html>
