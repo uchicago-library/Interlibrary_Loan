@@ -6,7 +6,7 @@ background: transparent url("/css/images/aoutside.gif") no-repeat 100%;
 white-space: nowrap;
 }
 
-.levelSeparator
+/*.levelSeparator
 {
   border-bottom: 1px solid #336699;
 }
@@ -17,7 +17,7 @@ white-space: nowrap;
   border: 1px solid #336699;
 
 
-}
+}*/
 
 .level1AdditionalCopies
 {
@@ -71,10 +71,10 @@ label br {clear:left}
 	input.f-submit {padding: 1px 3px;background:#666;color:#fff;font-weight:bold;font-size:96%}
 	
 	/* FORMS - f-wrap-1 - simple form, headings on left, form elements on right */
-	form.f-wrap-1 {width:100%;padding: .5em 0;background: #f6f6f6;border-top: 1px solid #d7d7d7;position:relative}
+	form.f-wrap-1 {width:100%;padding: .5em 0;background: #f6f6f6;position:relative}
 		form.f-wrap-1 fieldset {width:auto;margin: 0 1em}
 		form.f-wrap-1 h3 {margin:0 0 .6em;font: bold 155% arial;color:#c00}
-		form.f-wrap-1 label {clear:left;float:left;width:100%;border-top: 1px solid #fff}
+		form.f-wrap-1 label {clear:left;float:left;width:100%;}
 		
 		/* hide from IE mac \*/
 		form.f-wrap-1 label {float:none}
@@ -101,10 +101,10 @@ label br {clear:left}
 		form.f-wrap-1 label span.errormsg b {padding: 10px 0;margin: 0 10px 0 30px;color:#B30800;font-weight:bold;display:block;width:auto;float:none;line-height:1.3}
 
 /* FORMS - f-wrap-2 - simple form, headings on top, form elements on bottom */
-	form.f-wrap-2 {width:100%;padding: .5em 0;background: #f6f6f6;border-top: 1px solid #d7d7d7;position:relative}
+	form.f-wrap-2 {width:100%;padding: .5em 0;background: #f6f6f6;position:relative}
 		form.f-wrap-2 fieldset {width:auto;margin: 0 1em}
 		form.f-wrap-2 h3 {margin:0 0 .6em;font: bold 155% arial;color:#c00}
-		form.f-wrap-2 label {clear:left;float:left;width:100%;border-top: 1px solid #fff}
+		form.f-wrap-2 label {clear:left;float:left;width:100%;}
 		
 		/* hide from IE mac \*/
 		form.f-wrap-2 label {float:none}
@@ -131,11 +131,11 @@ label br {clear:left}
 		form.f-wrap-2 label span.errormsg b {padding: 10px 0;margin: 0 10px 0 30px;color:#B30800;font-weight:bold;display:block;width:auto;float:none;line-height:1.3}	
 
 /* FORMS - f-wrap-request - simple form, headings on left, form elements on right */
-	form.f-wrap-request {width:100%;padding: .5em 0;background: #f6f6f6;border-top: 1px solid #d7d7d7;position:relative}
+	form.f-wrap-request {width:100%;padding: .5em 0;background: #f6f6f6;position:relative}
 		form.f-wrap-request fieldset {width:auto;margin: 0 1em}
 		form.f-wrap-request h3 {margin:0 0 .6em;font: bold 155% arial;color:#c00}
 		form.f-wrap-request h2 {margin:.6em 0 .6em;font: bold 155% arial;color:#000066}
-		form.f-wrap-request label {clear:left;float:left;width:100%;border-bottom: 1px solid #fff}
+		form.f-wrap-request label {clear:left;float:left;width:100%;}
 		
 		/* hide from IE mac \*/
 		form.f-wrap-request label {float:none}
@@ -163,11 +163,11 @@ label br {clear:left}
 		form.f-wrap-request label span.errormsg b {padding: 10px 0;margin: 0 10px 0 30px;color:#B30800;font-weight:bold;display:block;width:auto;float:none;line-height:1.3}
 		
 /* FORMS - f-wrap-detail - simple form, headings on left, form elements on right */
-	form.f-wrap-detail {width:100%;padding: .5em 0;background: #f6f6f6;border-top: 1px solid #d7d7d7;position:relative}
+	form.f-wrap-detail {width:100%;padding: .5em 0;background: #f6f6f6;position:relative}
 		form.f-wrap-detail fieldset {width:auto;margin: 0 1em}
 		form.f-wrap-detail h3 {margin:0 0 .6em;font: bold 155% arial;color:#c00}
 		form.f-wrap-detail h2 {margin:.6em 0 .6em;font: bold 155% arial;color:#000066}
-		form.f-wrap-detail label {clear:left;float:left;width:100%;border-bottom: 1px solid #fff}
+		form.f-wrap-detail label {clear:left;float:left;width:100%;}
 		
 		/* hide from IE mac \*/
 		form.f-wrap-detail label {float:none}
@@ -197,7 +197,7 @@ label br {clear:left}
 
 /* TYPOGRAPHY */
 p, ul, ol {margin: 0 0 1.5em}
-h1, h2, h3, h4, h5, h6 {letter-spacing: -1px;font-family: arial,verdana,sans-serif;margin: 1.2em 0 .3em;color:#000;border-bottom: 1px solid #eee;padding-bottom: .1em}
+h1, h2, h3, h4, h5, h6 {letter-spacing: -1px;font-family: arial,verdana,sans-serif;margin: 1.2em 0 .3em;color:#000;padding-bottom: .1em}
 h1 {font-size: 196%;margin-top:.6em}
 h2 {font-size: 136%}
 h3 {font-size: 126%}
@@ -235,7 +235,7 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 .clear {clear:both;position:relative;font-size:0px;height:0px;line-height:0px} 
 
 /* LAYOUT - HEADER */
-#header {background-color: #efefef; border-left: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC; border-top: 5px solid #000066;border-bottom: 5px solid #000066;margin: 0 0 25px;padding: 6px 0 0 2px}
+#header {background-color: #efefef; margin: 0 0 25px;padding: 6px 0 0 2px}
 
 	#header #site-name {font: 265% arial;letter-spacing: -.05em;margin:0px 0 0 40px;padding:3px;color:#000066;border:none}
 	#header #title-name {font: 265% arial;letter-spacing: -.05em;margin:0px 0 0 40px;padding:3px;color:#000066;border:none}
@@ -250,7 +250,7 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 	#nav a, #nav a:link, #nav a:visited, #nav a:hover, #nav a:active {color: #002c5f; text-decoration:none;cursor:pointer;border-width: 1px 1px 1px 0px; border-color: #043767; display: block;padding: 4px 10px 2px}
 	#nav a:hover {color: #3088BD}
 	
-	#nav li ul {border-left: 1px solid #000066;background: #efefef url("images/featurebox_bg.gif") no-repeat 100% 100%;width:18.8em;font-size:80%;margin-top:0px;position: absolute;font-weight:normal;left: -999em}
+	#nav li ul {background: #efefef url("images/featurebox_bg.gif") no-repeat 100% 100%;width:18.8em;font-size:80%;margin-top:0px;position: absolute;font-weight:normal;left: -999em}
 	#nav li:hover ul, #nav li.sfhover ul {left: 10px;z-index:99999}
 	
 	#nav li li {background:none;float:none;border:none;border: 1px solid #999;border-top:1px solid #fff;border-right:none;border-left:none;padding-left:0px}
@@ -406,19 +406,19 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 	#type-e #content {margin: 0 243px 0 50px}
 
 /* SECONDARY NAVIGATION - vertical navigation */
-	#nav-secondary, #nav-secondary ul {position:static}
+	/*#nav-secondary, #nav-secondary ul {position:static}
 	#nav-secondary, #nav-secondary li {list-style: none;margin:0;padding:0;background:#fff}
 	#nav-secondary {padding-top:0;border-top: 5px solid #999;margin-top: 1px}
-	#nav-secondary a {line-height:1.8;padding: 5px 0 5px 23px;background: #fff url("images/sprites.gif") no-repeat 10px -695px;font: bold 96% arial;display:block}
+	#nav-secondary a {line-height:1.8;padding: 5px 0 5px 23px; url("images/sprites.gif") no-repeat 10px -695px;font: bold 96% arial;display:block}
 	#nav-secondary a, #nav-secondary a:link, #nav-secondary a:visited, #nav-secondary a:hover, #nav-secondary a:active {text-decoration:none;cursor:pointer} 
 	#nav-secondary a:link {color:#000} 
 	#nav-secondary a:visited {color:#000} 
 	#nav-secondary a:hover {color:#c00;background: #fee url("images/sprites.gif") no-repeat 10px -695px} 
 	#nav-secondary li.active a:link, #nav-secondary li.active a:visited, #nav-secondary li.active a:hover, #nav-secondary li.active a:active {color:#c00} 
-	#nav-secondary li {border-top: 1px solid #fff;border-bottom: 1px solid #ccc}
+	#nav-secondary li {border-top: 1px solid #fff;border-bottom: 1px solid #ccc}*/
 
 /* SECONDARY NAVIGATION - 2nd TIER */
-	#nav-secondary ul {margin: 0 0 1em 23px;padding:0}
+	/*#nav-secondary ul {margin: 0 0 1em 23px;padding:0}
 	#nav-secondary li.active li a, #nav-secondary li.active li a:link, #nav-secondary li.active li a:visited {line-height:1.3;background: #fff url("images/sprites.gif") no-repeat 0 -798px;padding:0 0 0 12px;font-weight:normal;width:auto;color:#000;width:130px;display:block}
 	#nav-secondary li.active li a:hover, #nav-secondary li.active li a:active {color: #c00}
 	#nav-secondary li.active li {border: none;margin:0}
@@ -426,10 +426,10 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 	#nav-secondary li.active li.active a:link, 
 	#nav-secondary li.active li.active a:visited, 
 	#nav-secondary li.active li.active a:hover, 
-	#nav-secondary li.active li.active a:active {font-weight:bold}
+	#nav-secondary li.active li.active a:active {font-weight:bold}*/
 
 /* SECONDARY NAVIGATION - 3rd TIER */
-	#nav-secondary ul ul {margin: 0 0 1em 13px;padding:0}
+	/*#nav-secondary ul ul {margin: 0 0 1em 13px;padding:0}
 	#nav-secondary li.active li.active li a, #nav-secondary li.active li.active li a:link, #nav-secondary li.active li.active li a:visited {width:117px}
 	#nav-secondary li.active li.active li a:link, 
 	#nav-secondary li.active li.active li a:visited, 
@@ -438,10 +438,10 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 	#nav-secondary li.active li.active li.active a:link, 
 	#nav-secondary li.active li.active li.active a:visited, 
 	#nav-secondary li.active li.active li.active a:hover, 
-	#nav-secondary li.active li.active li.active a:active {font-weight:bold}
+	#nav-secondary li.active li.active li.active a:active {font-weight:bold}*/
 
 /* SECONDARY NAVIGATION - 4th TIER */
-	#nav-secondary ul ul ul {margin: 0 0 1em 13px;padding:0}
+	/*#nav-secondary ul ul ul {margin: 0 0 1em 13px;padding:0}
 	#nav-secondary li.active li.active li.active li a, #nav-secondary li.active li.active li.active li a:link, #nav-secondary li.active li.active li.active li a:visited {width:104px}
 	#nav-secondary li.active li.active li.active li a:link, 
 	#nav-secondary li.active li.active li.active li a:visited, 
@@ -450,7 +450,7 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 	#nav-secondary li.active li.active li.active li.active a:link, 
 	#nav-secondary li.active li.active li.active li.active a:visited, 
 	#nav-secondary li.active li.active li.active li.active a:hover, 
-	#nav-secondary li.active li.active li.active li.active a:active {font-weight:bold}
+	#nav-secondary li.active li.active li.active li.active a:active {font-weight:bold}*/
 
 /* LAYOUT - FOOTER */
 #footer {clear:both;border-top: 1px solid #E3E8EE;padding: 10px 0 30px;font-size:86%;color:#999; text-align: left}
@@ -547,7 +547,7 @@ font-size: 110%;
 }
 
 /* INSTRUCTOR TABLE */
-.instructor-table, .instructor-table-nohover {	
+/*.instructor-table, .instructor-table-nohover {	
 	width:100%
 }
 .instructor-table table, .instructor-table-nohover table {
@@ -635,13 +635,13 @@ border: 1px solid #000066;
 
 .instructor-table a, .instructor-table-nohover a {
 	text-decoration:none;
-}
+}*/
 
 /* INSTRUCTOR DIVS */
 
 .instructor 
 {
-	border: 1px solid #000066;
+	/*border: 1px solid #000066;*/
 	margin-bottom: 20px;
 	width: 100%;
 }

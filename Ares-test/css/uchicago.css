@@ -1,0 +1,77 @@
+/*
+ * Colors
+ * --------------------------------------------------
+ */
+/*
+ * Global
+ * --------------------------------------------------
+ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px); }
+
+/*
+ * Fonts
+ * --------------------------------------------------
+ */
+h1 {
+  font-size: 2em;
+  color: #642822;
+  margin-bottom: 0.5em;
+  line-height: 2.5em; }
+
+h2 {
+  margin-top: 0.5em; }
+
+h3 {
+  border-bottom: 1px solid #767676;
+  margin-top: 0.5em; }
+
+/*
+ * Left Sidebar
+ * --------------------------------------------------
+ */
+#nav-secondary {
+  border-top: none;
+  color: #fff;
+  background-color: #767676;
+  border-radius: .25rem; }
+  #nav-secondary a {
+    color: #fff; }
+
+/*
+ * Main Content
+ * --------------------------------------------------
+ */
+.copyright {
+  border-top: 1px dashed #fff;
+  border-bottom: 1px dashed #fff;
+  margin-bottom: 1em; }
+  .copyright p {
+    font-size: 0.9em; }
+
+.tagCloud {
+  color: #fff;
+  background-color: #007bff;
+  display: inline-block;
+  padding: .25em .4em;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem; }
+  .tagCloud a, .tagCloud .tagCount {
+    color: #fff; }
+
+/*
+ * Tables
+ * --------------------------------------------------
+ */
+.level2:nth-child(odd) {
+  background-color: #dedede; }
+
+/*# sourceMappingURL=uchicago.css.map */
