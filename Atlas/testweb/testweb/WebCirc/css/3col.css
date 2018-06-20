@@ -1,0 +1,30 @@
+/*
+LEGAL
+=====
+Copyright © 2011 Atlas Systems, Inc. http://www.atlas-sys.com
+*/
+
+
+/* import core styles */
+@import url("core.css");
+
+
+#leftContent
+{ 
+  width: 240px;
+}
+
+#rightContent
+{
+  width: 240px;
+}
+
+#mainContent
+{
+  /* margin-left should be same as left width. 
+  if "#left {display:none;}", margin-left: 0;
+  Same applies to margin-right
+  */
+  margin-left: 250px;
+  margin-right: 250px; 
+}

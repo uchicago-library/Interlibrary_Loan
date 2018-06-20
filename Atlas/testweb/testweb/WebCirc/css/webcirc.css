@@ -1,0 +1,136 @@
+/* Layour for ViewRequest and ViewUser content */
+#generaluserInfo, #userRequests
+{	
+	float: left;
+	width: 700px;
+}
+
+#userRequests
+{
+    clear:left;
+	background-color: #FFFFFF;
+}
+
+#menuOptions
+{
+	position: relative;
+}
+
+#generalInfo, #userInfo
+{	
+	float: left;
+	width: 50%;
+}
+
+#bibInfo
+{
+	clear: left;
+	float: left;	
+	width: 700px;	
+}
+
+/* Layout of areas on ViewRequest page */
+.transactionGeneral, .transactionUser
+{
+	margin: 1px;	
+	float: left;		
+}
+
+.transactionBibliographic
+{
+	clear: both;
+	margin: 1px;
+	
+	float: left;		
+}
+
+/* Search Results Layout */
+.searchResultsGrid
+{
+	margin: 10px 0px 0px 0px;
+}
+
+/* Request & User Details */
+.detailBold
+{
+	font-weight: bold;
+}
+
+.detailLine
+{
+	width: 100%;
+	float: left;			
+	line-height: 1.5em;	
+}
+
+.menuLine
+{	
+	display: block;
+	line-height: 1.5em;	
+}
+
+
+/* Configure the layout for the search textboxes and buttons */
+.searchTextbox
+{
+	width: 350px;
+	vertical-align: middle;
+	margin-top: 0px;
+}
+
+.searchButton
+{	
+	vertical-align: middle;
+	margin-top: 0px;
+}
+
+/* Used to format the text that prefixes the textboxes in quick circulation */
+.circulationTransactionPrefix
+{
+	margin-left: .15em;
+	margin-right: .15em;	
+	vertical-align: middle;
+	font-size: .75em;
+}
+
+/* Used to format the textboxes in quick circulation */  
+.circulationTextbox
+{
+	width: 5em;
+	font-size: 2em;
+	vertical-align: top;
+}
+
+
+/* Used to separate the quick transaction operations and to separate status messages from the rest of the content*/
+ .menuSeperator
+{
+	text-align: left;
+	border-bottom: solid 1px #053868;
+	padding-bottom: 2em;
+	margin-bottom: 2em;
+}
+
+/* Quick Circulation Buttons */
+.quickTaskButton
+{
+	width: 175px;
+	height: 50px;	
+}
+
+/* Fix the 1px difference between the left and main content by pushing left content down */
+#leftContent
+{
+	padding-top: 1px;
+}
+
+.defaultPage
+{
+	min-width: 700px;
+}
+
+/*Spacing on Request Form Task Lists */
+#transactionTasksMenuContainer .menuContainerContent
+{
+	line-height: 3em;
+}

@@ -1,0 +1,35 @@
+IMG {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none
+}
+.smb-img {
+	LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+.smb-uscb {
+	LEFT: 71px; POSITION: absolute; TOP: 0px
+}
+.smb-menu {
+	LEFT: 275px; POSITION: absolute; TOP: 26px
+}
+.smb-bkg {
+	LEFT: 0px; WIDTH: 275px; COLOR: #ffffff; POSITION: absolute; TOP: 49px; HEIGHT: 2px; BACKGROUND-COLOR: #1d5b8c
+}
+.globalnav {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; LEFT: 266px; PADDING-BOTTOM: 3px; COLOR: #fff; PADDING-TOP: 2px; WHITE-SPACE: nowrap; POSITION: absolute; TOP: 29px; BACKGROUND-COLOR: transparent
+}
+.globalnav BR {
+	DISPLAY: none
+; color: #FFFFFF
+; text-decoration: none
+}
+.globalnav SPAN {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 12px; PADDING-LEFT: 12px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; PADDING-BOTTOM: 3px; BORDER-LEFT: #fff 1px solid; COLOR: #fff; PADDING-TOP: 2px; BACKGROUND-COLOR: #811; TEXT-DECORATION: none
+}
+.globalnav A {
+	BORDER-RIGHT: #1c5c90 1px solid; PADDING-RIGHT: 12px; PADDING-LEFT: 12px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; PADDING-BOTTOM: 3px; BORDER-LEFT: #1c5c90 1px solid; COLOR: #eee; PADDING-TOP: 2px; BACKGROUND-COLOR: transparent; TEXT-DECORATION: none
+}
+.globalnav A:hover {
+	BORDER-RIGHT: #fff 1px solid; BORDER-LEFT: #fff 1px solid; COLOR: #eee; BACKGROUND-COLOR: #c63
+}
+.functionname {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #003165; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif; BACKGROUND-COLOR: transparent
+}
