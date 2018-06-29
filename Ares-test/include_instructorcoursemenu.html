@@ -1,10 +1,6 @@
 <div class="col-xs-12 col-md-3" id="utility">
 	<ul id="nav-secondary">
-    <#SWITCHMODE header=" 
-    <li>" footer="</li>
-    "> 		
-		
-		<li>Instructor Course Tools
+		<li><h4>Instructor Course Tools</h4>
 			<ul>
 				<li><a href="<#ACTION action="10" form="60" ValueType="Lookup" Value="CourseID">">Course Home</a></li>
 				<li><a href="<#ACTION action="10" form="2" value="IRFMenu">&CourseID=<#COURSE field="CourseID">">Add Reserve Items</a></li>
@@ -15,12 +11,12 @@
 		</li>
 	
 		<#INCLUDE filename="include_studentmenu.html" restriction="UserType:Student">
-		<li>Other Tools
+		<li><h4>Other Tools</h4>
 			<ul>
-				
 				<li class="last"><a href="<#ACTION action="10" form="73">">My EMails</a></li>
+				<#SWITCHMODE header="<li>" footer="</li>"> 	
 			</ul>
 		</li>
-<li><span id="alertsgroup"><#ALERTS NoDataAction="showMessage" AllowAjax="Yes"></span></li>
+		<li><span id="alertsgroup"><#ALERTS NoDataAction="showMessage" AllowAjax="Yes"></span></li>
 	</ul>
 </div>

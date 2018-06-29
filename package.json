@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kzadrozny/VuFind.git"
+    "url": "git+https://github.com/uchicago-library/INterlibrary_Loan.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/uchicago-library/issues"
   },
-  "homepage": "https://requests.lib.uchicago.edu/illiad/illiad.dll",
+  "homepage": "https://requests.lib.uchicago.edu/",
   "devDependencies": {
     "browser-sync": "^2.24.4",
-    "gulp": "^4.0.0",
+    "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.3.0",
     "gulp-sass": "^4.0.1",

@@ -18,40 +18,77 @@
  * --------------------------------------------------
  */
 h1 {
-  font-size: 2em;
   color: #642822;
+  font-size: 2em;
+  font-weight: 100;
   margin-bottom: 0.5em;
-  line-height: 2.5em; }
+  line-height: 1em; }
+  h1 + h2 {
+    margin: -0.5em 0 0 0; }
 
 h2 {
+  color: #000;
+  font-size: 1.5em;
   margin-top: 0.5em; }
 
 h3 {
-  border-bottom: 1px solid #767676;
+  color: #0F425C;
+  border-bottom: 1px solid #0F425C;
   margin-top: 0.5em; }
+
+h4 {
+  color: #767676;
+  margin-bottom: 0; }
 
 /*
  * Left Sidebar
  * --------------------------------------------------
  */
+#utility {
+  left: 0;
+  width: auto; }
+
 #nav-secondary {
+  font-size: 1.1em;
   border-top: none;
   color: #fff;
+  padding: 0.5em 1em;
   background-color: #767676;
-  border-radius: .25rem; }
+  border-radius: 0; }
+  #nav-secondary h4 {
+    margin-top: 0;
+    font-size: 1em;
+    color: #eee;
+    font-weight: 100;
+    line-height: 1em;
+    letter-spacing: normal;
+    border-bottom: 1px solid #eee; }
   #nav-secondary a {
     color: #fff; }
+  #nav-secondary li {
+    line-height: 2em;
+    padding-left: 0; }
+
+#type-b #content-wrap {
+  background: none; }
 
 /*
  * Main Content
  * --------------------------------------------------
  */
-.copyright {
-  border-top: 1px dashed #fff;
-  border-bottom: 1px dashed #fff;
-  margin-bottom: 1em; }
-  .copyright p {
-    font-size: 0.9em; }
+.instructor {
+  margin-bottom: 2.25em; }
+
+.student-table table {
+  border: none; }
+  .student-table table tbody tr.row-odd {
+    background-color: #eef3f6; }
+
+table caption {
+  background: transparent;
+  color: #0F425C;
+  border-bottom: 1px solid #0F425C;
+  margin-top: 0.5em; }
 
 .tagCloud {
   color: #fff;
@@ -67,11 +104,31 @@ h3 {
   .tagCloud a, .tagCloud .tagCount {
     color: #fff; }
 
+.copyright {
+  margin-bottom: 1em; }
+  .copyright p {
+    font-size: 0.9em; }
+
 /*
  * Tables
  * --------------------------------------------------
  */
-.level2:nth-child(odd) {
-  background-color: #dedede; }
+div.level1 > div:nth-of-type(4n-3) {
+  background-color: #eef3f6; }
+
+div.level1 > div:last-child {
+  border-bottom: 2px solid #0F425C; }
+
+/*
+ * Footer
+ * --------------------------------------------------
+ */
+#footer img {
+  max-height: 40px;
+  padding: 0 1em;
+  vertical-align: top; }
+
+#footer .library-logo {
+  border-left: 1px solid #767676; }
 
 /*# sourceMappingURL=uchicago.css.map */

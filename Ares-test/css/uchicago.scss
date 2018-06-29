@@ -8,7 +8,8 @@ $accent: #670000;
 $darkaccent: #806362;
 $mid-dark: #525252;
 $darkgray: #767676;
-$table-main: #ADB17D;
+$pop-accent: #0F425C;
+$pop-accent-light: #eef3f6;
 
 
 /*
@@ -32,19 +33,31 @@ $table-main: #ADB17D;
  */
 
 h1 {
+  color: #642822;
 	font-size: 2em;
-	color: #642822;
+  font-weight: 100;
 	margin-bottom: 0.5em;
-	line-height: 2.5em;
+	line-height: 1em;
+  & + h2 {
+    margin: -0.5em 0 0 0;
+  }
 }
 
 h2 {
+  color: #000;
+  font-size: 1.5em;
 	margin-top: 0.5em;
 }
 
 h3 {
-	border-bottom: 1px solid $darkgray;
+  color: $pop-accent;
+	border-bottom: 1px solid $pop-accent;
 	margin-top: 0.5em;
+}
+
+h4 {
+  color: $darkgray;
+  margin-bottom: 0;
 }
 
 
@@ -54,14 +67,38 @@ h3 {
  * --------------------------------------------------
  */
 
+#utility {
+  left: 0;
+  width: auto;
+}
+
 #nav-secondary {
+  font-size: 1.1em;
 	border-top: none;
 	color: #fff;
+  padding: 0.5em 1em;
 	background-color: $darkgray;
-	border-radius: .25rem;
+	border-radius: 0;
+  h4 {
+    margin-top: 0;
+    font-size: 1em;
+    color: #eee;
+    font-weight: 100;
+    line-height: 1em;
+    letter-spacing: normal;
+    border-bottom: 1px solid #eee;
+  }
 	a {
 		color: #fff;
 	}
+  li {
+    line-height: 2em;
+    padding-left: 0;
+  }
+}
+
+#type-b #content-wrap {
+  background: none; // Get rid of border between sidebar and main content
 }
 
 
@@ -70,33 +107,47 @@ h3 {
  * --------------------------------------------------
  */
 
+.instructor {
+  margin-bottom: 2.25em;
+}
+
+.student-table table {
+  border: none;
+  tbody tr.row-odd { // Zebra striping using Atlas's classes
+    background-color: $pop-accent-light;
+  }
+}
+
+table caption {
+  background: transparent;
+  color: $pop-accent;
+  border-bottom: 1px solid $pop-accent;
+  margin-top: 0.5em;
+}
+
+//Reserve Items
+.tagCloud {
+	color: #fff;
+  background-color: #007bff;
+  display: inline-block;
+  padding: .25em .4em;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem;
+  a, .tagCount {
+  	color: #fff;
+  }
+}
+
 .copyright {
-  border-top: 1px dashed #fff;
-  border-bottom: 1px dashed #fff;
   margin-bottom: 1em;
   p {
     font-size: 0.9em;
   }
 }
-
-// Reserve Items
-
-.tagCloud {
-	color: #fff;
-    background-color: #007bff;
-    display: inline-block;
-    padding: .25em .4em;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: .25rem;
-    a, .tagCount {
-    	color: #fff;
-    }
-}
-
 
 
 /*
@@ -104,11 +155,32 @@ h3 {
  * --------------------------------------------------
  */
 
-.level2 {
-	&:nth-child(odd) {
-		background-color: #dedede;
-	}
+div.level1 {
+  & > div:nth-of-type(4n-3) { // Zebra striping workaround for the nested divs that create the "table"
+    background-color: $pop-accent-light;
+  }
+  & > div:last-child {
+    border-bottom: 2px solid $pop-accent;
+  }
 }
+
+
+/*
+ * Footer
+ * --------------------------------------------------
+ */
+
+#footer {
+  img {
+    max-height: 40px;
+    padding: 0 1em;
+    vertical-align: top;
+  }
+  .library-logo {
+    border-left: 1px solid $darkgray;
+  }
+}
+
 
 
 

@@ -15,32 +15,23 @@
 			<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"></span>
 
 			<div class="instructor">
-				<h1><#COURSE field="Name"/></h1>
-				<h2><span class="visually-hidden">Instructor: </span><#COURSE field="Instructor"/></h2>
-				<h3>Course Details</h3>
-				<p><#COURSE field="CourseNumber"/>&nbsp; &nbsp;<#COURSE field="CourseCode" headerText="&nbsp;(" footerText=")"/><br/>
-				<#COURSE field="Description"/></p>
-				<p><#TABLE class="xlist-table" name="CourseCrossList" HideColumnHeaders="True" column="CourseNumber" headerText="This course is also cross-listed as the following:" NoDataAction="ShowNothing"/></p>
-				<p><#COURSE field="Semester"/> <a target="_blank" href="<#COURSE field="URL"/>"><#COURSE field="URL"/></a></p>
-				
+				<#INCLUDE filename="include_defaultcourseinfo.html"/>
 				<#INCLUDE filename="include_subscription.html">
 			</div>				
+			
+			<form name="UserHome" method="post" action="ares.dll">
+			<input type="hidden" name="action" value="20" />
+			<input type="hidden" name="CourseID" value="<#COURSE field="CourseID"/>" />
+ 			<input type="hidden" name="SessionID" value="<#PARAM name="SessionID"/>"/>
+			
+			<h3>Reserve Items</h3>
+		    <#TAGCLOUD TagType="Course" MaxFontSizes="5" IncludeTagCount="Yes" TagFence="No" />
 
-			<div>
-				<form name="UserHome" method="post" action="ares.dll">
-				<input type="hidden" name="action" value="20" />
-				<input type="hidden" name="CourseID" value="<#COURSE field="CourseID"/>" />
-	 			<input type="hidden" name="SessionID" value="<#PARAM name="SessionID"/>"/>
+		    <#ITEMGROUP GroupBy="Title,Location" OrderBy="Title" type="CourseItems" Level1CSSClass="level1" GroupSeparatorCssClass="levelSeparator" Level2CssClass="level2" Level3CssClass="level3" MainTemplate="include_studentItemGroupMainTemplate.html" GroupTemplate="include_studentGroupTemplate.html" />
+			</form>
 
-			    <div class="row"><#TAGCLOUD TagType="Course" MaxFontSizes="5" IncludeTagCount="Yes" TagFence="No" /></div>
-
-				<h3>Reserve Items</h3>
-			    <#ITEMGROUP GroupBy="Title,Location" OrderBy="Title" type="CourseItems" Level1CSSClass="level1" GroupSeparatorCssClass="levelSeparator" Level2CssClass="level2" Level3CssClass="level3" MainTemplate="include_studentItemGroupMainTemplate.html" GroupTemplate="include_studentGroupTemplate.html" />
-				</form>
-
-				<#INCLUDE filename="include_copyright.html">
-			</div>
-		<#INCLUDE filename="include_footer.html">
+			<#INCLUDE filename="include_copyright.html">
+			<#INCLUDE filename="include_footer.html">
 		</div>
 	</div>
 
