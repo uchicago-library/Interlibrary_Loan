@@ -547,7 +547,7 @@ font-size: 110%;
 }
 
 /* INSTRUCTOR TABLE */
-/*.instructor-table, .instructor-table-nohover {	
+.instructor-table, .instructor-table-nohover {	
 	width:100%
 }
 .instructor-table table, .instructor-table-nohover table {
@@ -635,7 +635,7 @@ border: 1px solid #000066;
 
 .instructor-table a, .instructor-table-nohover a {
 	text-decoration:none;
-}*/
+}
 
 /* INSTRUCTOR DIVS */
 

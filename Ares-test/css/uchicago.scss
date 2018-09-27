@@ -9,7 +9,8 @@ $darkaccent: #806362;
 $mid-dark: #525252;
 $darkgray: #767676;
 $pop-accent: #0F425C;
-$pop-accent-light: #eef3f6;
+$pop-accent-light: #eff4f6;
+$hover: #47B5FF;
 
 
 /*
@@ -26,6 +27,28 @@ $pop-accent-light: #eef3f6;
   clip: rect(1px, 1px, 1px, 1px);
 }
 
+body {
+  font-size: 14px;
+}
+
+.alertSystem {
+  color: #fff;
+  background-color: #9A5324;
+  padding: 0 20px 5px 20px;
+  & p {
+    color: #fff;
+  }
+  & h4 {
+    color: #eee;
+    font-weight: 600;
+  }
+  & a {
+    color: #eee;
+    font-weight: 200;
+    text-decoration: underline;
+  }
+}
+
 
 /*
  * Fonts
@@ -34,7 +57,7 @@ $pop-accent-light: #eef3f6;
 
 h1 {
   color: #642822;
-	font-size: 2em;
+	font-size: 1.5em;
   font-weight: 100;
 	margin-bottom: 0.5em;
 	line-height: 1em;
@@ -49,7 +72,7 @@ h2 {
 	margin-top: 0.5em;
 }
 
-h3 {
+h3, .h3 {
   color: $pop-accent;
 	border-bottom: 1px solid $pop-accent;
 	margin-top: 0.5em;
@@ -59,7 +82,6 @@ h4 {
   color: $darkgray;
   margin-bottom: 0;
 }
-
 
 
 /*
@@ -80,7 +102,7 @@ h4 {
 	background-color: $darkgray;
 	border-radius: 0;
   h4 {
-    margin-top: 0;
+    margin-top: 1em;
     font-size: 1em;
     color: #eee;
     font-weight: 100;
@@ -88,12 +110,16 @@ h4 {
     letter-spacing: normal;
     border-bottom: 1px solid #eee;
   }
-	a {
-		color: #fff;
-	}
   li {
     line-height: 2em;
     padding-left: 0;
+    a, .mode-switch {
+      color: #fff;
+      &:hover {
+        color: $hover;
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -107,22 +133,12 @@ h4 {
  * --------------------------------------------------
  */
 
+ #type-c #content {
+  margin: 0 5% 0 235px;
+}
+
 .instructor {
   margin-bottom: 2.25em;
-}
-
-.student-table table {
-  border: none;
-  tbody tr.row-odd { // Zebra striping using Atlas's classes
-    background-color: $pop-accent-light;
-  }
-}
-
-table caption {
-  background: transparent;
-  color: $pop-accent;
-  border-bottom: 1px solid $pop-accent;
-  margin-top: 0.5em;
 }
 
 //Reserve Items
@@ -162,6 +178,183 @@ div.level1 {
   & > div:last-child {
     border-bottom: 2px solid $pop-accent;
   }
+}
+
+.student-table table, .instructor-table table {
+  border: none;
+  a {
+    text-decoration: underline;
+    color: #069;
+  }
+  tbody tr.row-odd { // Zebra striping using Atlas's classes
+    background-color: $pop-accent-light;
+  }
+}
+
+.instructor-table thead tr, .student-table thead tr, .tableViewNotifications table thead tr { // Needs to be separated out to override Ares styling
+  background: #fff;
+  color: $darkgray;
+}
+
+.instructor-table thead th a, .instructor-table-nohover thead th a { // Needs to be separated out to override Ares styling
+  color: $darkgray;
+  text-decoration: none;
+  &:after {
+    font-family: FontAwesome;
+    content: "\f0dc";
+    color: lighten($darkgray, 25%);
+    margin-left: 0.5em;
+  }
+}
+
+.instructor-table tbody td, th, .student-table tbody td, th { // Needs to be separated out to override Ares styling
+  border-left: none;
+}
+
+.tableViewNotifications table {
+  thead tr.row-headings {
+    border-bottom: 1px solid #000066;
+  }
+  tbody {
+    border-bottom: 2px solid #0F425C;
+  }
+}
+
+table {
+  caption {
+    color: $pop-accent;
+    background: transparent;
+    font-size: 126%; // matching main.css font size
+    border-bottom: none;
+    margin: 0.75em 0;
+  }
+  tbody {
+    border-bottom: 2px solid $pop-accent;
+    tr.row-message td {
+      padding: 2em;
+      font-size: 1.2em;
+      text-align: center;
+      font-style: italic;
+    }
+  }
+}
+
+/*
+ * Forms
+ * --------------------------------------------------
+ */
+
+span.edit-link a {
+  color: #069;
+  text-decoration: underline;
+}
+
+form.f-wrap-request {
+  background: $pop-accent-light;
+  border-radius: 8px;
+  section {
+    padding: 1em;
+    &.additional-info {
+      padding: 1em 1.5em;
+      ul {
+        margin-bottom: 1em;
+        li {
+          margin-bottom: 0.25em;
+        }
+      }
+    }
+  }
+  h2 {
+    margin: 0.25em 0 0.75em 0;
+    color: $pop-accent;
+  }
+}
+
+section + section {
+  border-top: 2px solid #fff;
+}
+
+p.required {
+  margin: 0.5em 0 1em 1em;
+}
+
+abbr[title=required] {
+  color: #FF3399;
+  cursor: unset;
+  font-size: 1.3em;
+  margin-left: 0.25em;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.submit-suggestion {
+  float: right;
+  padding-right: 1em;
+}
+
+.f-submit-wrap button {
+  margin: 1em 3em 2em;
+}
+
+.btn-primary {
+    background: $main;
+    border-color: $main;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    &:hover {
+      box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+      background: darken($main, 5%);
+      border-color: $main;
+  }
+}
+
+.btn-link {
+  color: $darkgray;
+}
+
+legend {
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-bottom: none !important;
+  margin-bottom: 0.5em;
+}
+
+.form-group caption {
+  font-size: 1.3rem;
+  font-color: $darkgray;
+  letter-spacing: normal;
+}
+
+input[type="radio"] + label {
+  font-size: 1.3rem;
+  font-weight: normal;
+  margin-left: 0.5em;
+  display: inline;
+  line-height: 2em;
+}
+
+small {
+  display: block;
+}
+
+.text-addition {
+  margin: -1em 0 0 3em;
+  width: 80%;
+}
+
+#PickupLocation, #LoanPeriod { //Workaround to add .form-control to these auto-generated drop-downs in IRFBook.html
+  display: block;
+  width: 100%;
+  font-weight: 100;
+  height: 34px;
+  padding: 6px 12px;
+  margin-left: 0;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 

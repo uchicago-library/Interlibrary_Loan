@@ -5,206 +5,187 @@
 <title>Ares - <#USER field="Username"/></title>
 <link rel="shortcut icon" href="favicon.ico" />
 
-<link rel=stylesheet href="css/xc2_default.css" type="text/css"/>
-<script language="javascript" src="js/xc2_default.js"></script>
-<script language="javascript" src="js/xc2_inpage.js"></script>
-<script language="javascript" src="js/arescal.js"></script>
-<link rel="stylesheet" type="text/css" href="css/fat.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
-<!--[if lte IE 6]>
-<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
-<![endif]-->
-<script type="text/javascript" src="js/aresajax.js"></script>
-<script type="text/javascript" src="js/fat.js"></script>
+<#INCLUDE filename="include_head.html">
 </head>
+
 <body id="type-b">
 <div id="wrap">
 
-	<#INCLUDE filename="include_header.html">	
-	
-
-	<div id="content-wrap">
+	<div class="container main-container" id="content-wrap"> 
 		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseInstructor">
 		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseFullProxy">
 		<#INCLUDE filename="include_courseproxycoursemenu.html" restriction="Usertype:CourseProxy">
 		
-		<div id="content">
-
-            <form action="ares.dll" method="post" name="createitem" class="f-wrap-request">
-                <input type="hidden" name="Action" value="11"/>        
-                <input type="hidden" name="Type" value="10"/>	
-		<input type="hidden" name="CopyrightRequired" value="Yes"/>
-		<input type="hidden" name="ItemType" value="SER"/>						
-      	    	<input type="hidden" name="format" value="Article"/>
-                <input type="hidden" name="CourseID" value="<#COURSE field="CourseID"/>"/>				
-                <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+		<div class="col-xs-12 col-md-9" id="content">
 				
-                <div class="req"><b>*</b> Indicates required field</div>
-                <fieldset>
-                	<h3>Reserve Item: Article </h3>
-					<span style="background-color:#E6F4FF ;font-size: 110%">
-					<#STATUS class="fade">
-					</span>
-                	<h4>Item Information</h4>
-                	
-                  <label for="NeededBy"> 
-			<b><span class="req">*</span><span class="Valid">Needed By</span><br />
-			<span class="note">Please indicate the week this material will be taught</span></b>
-			<select id="NeededBy" name="NeededBy">
-			<option></option>
-			<option>01</option>
-			<option>02</option>
-			<option>03</option>
-			<option>04</option>
-			<option>05</option>
-			<option>06</option>
-			<option>07</option>
-			<option>08</option>
-			<option>09</option>
-			<option>10</option>
-			<option>11</option>
-			</select>
-			</label>
+            <div class="row main-content">
+            	<h1>Reserve Item: Article</h1>
+            	<p class="required">Required fields are followed by <strong><abbr title="required">*</abbr></strong></p>
+				<span style="background-color:#E6F4FF ;font-size: 110%">
+				<#STATUS class="fade">
+				</span>
 
-             	<label for="JournalTitle">
-                		<#ERROR name="ERRORTitle">
-                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORTitle">">Journal Title</span><br/>
-                		<span class="note">Please do not abbreviate unless your citation is abbreviated</span></b>						
-                		<input id="Title" name="Title" type="text" size="40" class="f-name" tabindex="5" value="<#PARAM name="Title">"><br />
-                	</label>
-                	
-					<label for="Volume">
-                		<#ERROR name="ERRORVolume">
-                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORVolume">">Journal Volume</span></b>
-                		<input id="Volume" name="Volume" type="text" size="40" class="f-name" tabindex="10" value="<#PARAM name="Volume">"><br />
-                	</label>
+	            <form action="ares.dll" method="post" name="createitem" class="f-wrap-request">
+		            <input type="hidden" name="Action" value="11"/>        
+		            <input type="hidden" name="Type" value="10"/>	
+					<input type="hidden" name="CopyrightRequired" value="Yes"/>
+					<input type="hidden" name="ItemType" value="SER"/>						
+		  	    	<input type="hidden" name="format" value="Article"/>
+		            <input type="hidden" name="CourseID" value="<#COURSE field="CourseID"/>"/>				
+		            <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+                
 
-					<label for="Issue">
-                		<#ERROR name="ERRORVolume">
-                		<b><span class="<#VALIDATION name="ERRORIssue">">Journal Issue</span></b>
-                		<input id="Issue" name="Issue" type="text" size="40" class="f-name" tabindex="15" value="<#PARAM name="Issue">"><br />
-                	</label>
-			
-					<label for="JournalMonth">
-                		<#ERROR name="ERRORMonth">
-                		<b><span class="<#VALIDATION name="ERRORMonth">">Journal Month</span></b>
-                		<input id="Month" name="JournalMonth" type="text" size="40" class="f-name" tabindex="20" value="<#PARAM name="JournalMonth">"><br />
-                	</label>
+				<section>
+	                <h2>Item Information</h2>
 
-					<label for="JournalYear">
-                		<#ERROR name="ERRORYear">
-                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORYear">">Journal Year</span></b>
-                		<input id="JournalYear" name="JournalYear" type="text" size="40" class="f-name" tabindex="25" value="<#PARAM name="JournalYear">"><br />
-                	</label>
+					<div class="form-group">
+						<label for="ArticleTitle"><#ERROR name="ERRORArticleTitle"><span class="<#VALIDATION name="ERRORArticleTitle">">Article Title</span><abbr title="required">*</abbr></label>
+	            		<input id="ArticleTitle" name="ArticleTitle" type="text" class="form-control" value="<#PARAM name="ArticleTitle">">
+					</div>
 
-					<label for="ArticleTitle">
-                		<#ERROR name="ERRORArticleTitle">
-                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORArticleTitle">">Article Title</span></b>
-                		<input id="ArticleTitle" name="ArticleTitle" type="text" size="40" class="f-name" tabindex="30" value="<#PARAM name="ArticleTitle">"><br />
-                	</label>
+					<div class="form-group">
+						<label for="Author"><#ERROR name="ERRORAuthor"><span class="<#VALIDATION name="ERRORAuthor">">Article Author</span><abbr title="required">*</abbr></label>
+	            		<input id="Author" name="Author" type="text" class="form-control" aria-describedby="AuthorHelp" value="<#PARAM name="Author">">
+	            		<small id="AuthorHelp" class="form-text">(Last Name, First Name)</small>
+	                </div>
 
-					<label for="Author">
-                		<#ERROR name="ERRORAuthor">
-                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORAuthor">">Article Author</span><br/>
-						<span class="note">(Last Name, First Name)</span></b>
-                		<input id="Author" name="Author" type="text" size="40" class="f-name" tabindex="35" value="<#PARAM name="Author">"><br />
-                	</label>
+	             	<div class="form-group">
+		             	<label for="JournalTitle"><#ERROR name="ERRORTitle"><span class="<#VALIDATION name="ERRORTitle">">Journal Title</span><abbr title="required">*</abbr></label>					
+	            		<input id="Title" name="Title" type="text" class="form-control" aria-describedby="JournalTitleHelp" value="<#PARAM name="Title">">
+	                	<small id="JournalTitleHelp" class="form-text">Please do not abbreviate unless your citation is abbreviated.</small>
+	                </div>
 
-					<label for="Pages">
-                		<#ERROR name="ERRORPages">
-				<b><span class="req">*</span><span class="<#VALIDATION name="ERRORPages">">Inclusive Pages</span></b>
-                		<input id="Pages" name="Pages" type="text" size="40" class="f-name" tabindex="40" value="<#PARAM name="Pages">"><br />
-                	</label>
+	                <div class="form-group row">
+					    <div class="col-sm-4">
+					    	<label for="Pages"><#ERROR name="ERRORPages"><span class="<#VALIDATION name="ERRORPages">">Inclusive Pages</span><abbr title="required">*</abbr></label>
+	                		<input id="Pages" name="Pages" type="text" class="form-control" value="<#PARAM name="Pages">">
+					    </div>
 
-					<label for="ISXN">
-                		<#ERROR name="ERRORISXN">
-                		<b><span class="<#VALIDATION name="ERRORISXN">">ISSN</span></b>
-                		<input id="ISXN" name="ISXN" type="text" size="40" class="f-name" tabindex="45" value="<#PARAM name="ISXN">"><br />
-                	</label>
+					    <div class="col-sm-4">
+					    	<label for="Volume"><#ERROR name="ERRORVolume"><span class="<#VALIDATION name="ERRORVolume">">Journal Volume</span><abbr title="required">*</abbr></label>
+	                		<input id="Volume" name="Volume" type="text" class="form-control" value="<#PARAM name="Volume">"><br />
+					    </div>
 
-                	<label for="CallNumber">					                		
-                		<#ERROR name="ERRORCallNumber">
-				<b><span class="<#VALIDATION name="ERRORCallNumber">">Call Number</span></b>
-                		<input id="CallNumber" name="CallNumber" type="text" size="40" class="f-name" tabindex="40" value="<#PARAM Name="callnumber"/>"><br />
-                	</label>
+					    <div class="col-sm-4">
+					    	<label for="Issue"><#ERROR name="ERRORIssue"><span class="<#VALIDATION name="ERRORIssue">">Journal Issue</span></label>
+	                		<input id="Issue" name="Issue" type="text" class="form-control" value="<#PARAM name="Issue">">
+					    </div>
+					</div>
+	                	
+					<div class="form-group row">
+		                <div class="col-sm-6">
+							<label for="JournalYear"><#ERROR name="ERRORYear"><span class="<#VALIDATION name="ERRORYear">">Journal Year</span><abbr title="required">*</abbr></label>
+		                	<input id="JournalYear" name="JournalYear" type="text" class="form-control" value="<#PARAM name="JournalYear">">
+		                </div>
 
-			<label for="DOI">
-                		<#ERROR name="ERRORDOI">
-                		<b><span class="<#VALIDATION name="ERRORDOI">">DOI</span></b>
-                		<input id="DOI" name="DOI" type="text" size="40" class="f-name" tabindex="50" value="<#PARAM name="DOI">"><br />
-                	</label>
-
-					<label for="ESPNumber">
-                		<#ERROR name="ERRORESPNumber">
-                		<b><span class="<#VALIDATION name="ERRORESPNumber">">OCLC Record Number</span></b>
-                		<input id="ESPNumber" name="ESPNumber" type="text" size="55" class="f-name" tabindex="55" value="<#PARAM name="ESPNumber">"><br />
-                	</label>
-
-                	<label for="Notes">
-                		
-                		<b>Notes<br />
-                		<span class="note">Put any information here that may help us find the item, as well as any other pertinent information.</span></b>
-                		<textarea id="Notes" name="ItemNote" rows="2" cols="40" class="f-name" tabindex="57"></textarea>
-                		<br />
-                	</label>
-
-
-			<label for="ItemTags">
-                		<#ERROR name="ItemTags">
-                		<b>Tags
-					<br/><span class="note">Comma separated list of tags to be assigned to this Item (e.g., "required reading," "week 3," etc.)<span>
-				</b>
-                		<textarea id="ItemTags" name="ItemTags" tabindex="60" rows="4"><#PARAM name="ItemTags"/></textarea><br />
-                	</label>
-
-
-
-					<label for="CitedIn">
-                		<#ERROR name="ERRORCitedIn">
-						<b><span class="<#VALIDATION name="ERRORCitedIn">">Where did you find this citation?</span></b>
-                		<input id="CitedIn" name="CitedIn" type="text" size="40" class="f-name" tabindex="65" value="<#PARAM name="CitedIn">"><br />
-					</label>
-
-					<label for="SupplyMethod">
-                		<#ERROR name="ERRORSupplyMethod">
-                		<b><span class="<#VALIDATION name="ERRORSupplyMethod">">How will this item be supplied?</span></b>
-						<fieldset>			
-						<label for="File">
-						<input id="File" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="File"> name="SupplyMethod" value="File" class="f-radio" tabindex="200" />
-						I will upload a file (You will be asked to upload the file immediately after you submit the request.)</label>
-						
-						<label for="WillDeliver">
-						<input id="WillDeliver" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="WillDeliver"> name="SupplyMethod" value="WillDeliver" class="f-radio" tabindex="205" />
-						I will bring the material to the library</label>
+					    <div class="col-sm-6">			
+							<label for="JournalMonth"><#ERROR name="ERRORMonth"><span class="<#VALIDATION name="ERRORMonth">">Journal Month</span></label>
+		                	<input id="Month" name="JournalMonth" type="text" class="form-control" value="<#PARAM name="JournalMonth">">
+		                </div>
+		            </div>
+				</section>
 					
-						<label for="StaffSearch">
-						<input id="StaffSearch" type="radio" checked="checked" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="StaffSearch"> name="SupplyMethod" value="StaffSearch" class="f-radio" tabindex="215" />
-						Please have library staff find the material and place it on electronic reserves</label>
-						
-						<label for="WebLink">
-						<input id="WebLink" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="WebLink"> name="SupplyMethod" value="WebLink" class="f-radio" tabindex="210" />
-						The item should link to a website
-						</label>
-	
-						</fieldset>
-               		</label>
+				<section>   
+				    <h2>Additional Information</h2>
+					<p>Information that helps speed request processing, but is not required.</p>
+		            <div class="form-group row">
+			            <div class="col-sm-4">
+			            	<label for="ISXN"><#ERROR name="ERRORISXN"><span class="<#VALIDATION name="ERRORISXN">">ISSN</span></label>
+	                		<input id="ISXN" name="ISXN" type="text" class="form-control" aria-describedby="ISSNHelp" value="<#PARAM name="ISXN">">
+	                		<small id="ISSNHelp" class="form-text"><em>Example:</em> 0028-0836</small>
+	                	</div>
 
-					<label for="URL">
-                		<#ERROR name="ERRORURL">
-						<b><span class="<#VALIDATION name="ERRORURL">">If you chose the item should link to a website above, please enter the URL</span></b>
-						<input id="URL" name="URL" type="text" size="40" class="f-name" tabindex="220" value="<#PARAM name="URL">"><br />
-					</label>
-					<#TABLE class="instructor-table" name="ItemRestrictions" classChoice="one" headerText="Reserve Restrictions" IncludeJavascriptCalendar="Yes" calendarText="<img src='images/cal.gif' alt='Open Calendar'/>"/>
-				<input type="submit" name="SubmitButton" tabindex="500" value="Submit Item" />
-				<input type="reset" name="ClearButton" tabindex="505" value="Clear" />									
-				</fieldset>
+	                	<div class="col-sm-4">
+							<label for="CallNumber"><#ERROR name="ERRORCallNumber"><span class="<#VALIDATION name="ERRORCallNumber">">Call Number</span></label>
+							<input type="text" id="CallNumber" name="CallNumber" aria-describedby="CallNumberHelp" class="form-control" value="<#PARAM name="callnumber">">
+							<small id="CallNumberHelp" class="form-text"><em>Example:</em> PN6728.B523C63 2016</small>
+						</div>
+
+						<div class="col-sm-4">		
+							<label for="ESPNumber"><#ERROR name="ERRORESPNumber"><span class="<#VALIDATION name="ERRORESPNumber">">OCLC or Docline UI Number</span></label>
+							<input type="text" id="ESPNumber" name="ESPNumber" aria-describedby="ESPNumberHelp" class="form-control" value="<#PARAM name="ESPNumber">">
+							<small id="ESPNumberHelp" class="form-text"><em>Example:</em> doi:10.1038/nphys1170</small>
+						</div>
+					</div>
+
+					<div class="form-group">
+		            	<label for="Notes">Notes</label>
+                		<input type="text" id="Notes" name="ItemNote" class="form-control" aria-describedby="NotesHelp value="<#PARAM name="Notes">">
+                		<small id="NotesHelp" class="form-text">Information that may help us find the item or other pertinent information.</small>
+                	</div>
+
+					<div class="form-group">
+						<label for="CitedIn"><#ERROR name="ERRORCitedIn"><span class="<#VALIDATION name="ERRORCitedIn">">Where did you find this citation?</span></label>
+	                	<input id="CitedIn" name="CitedIn" type="text" class="form-control" value="<#PARAM name="CitedIn">">
+	                </div>
+				</section>
+
+				<section>
+	                <h2>Course Information</h2>
+            	
+	                <div class="form-group row">
+					    <div class="col-sm-6">
+		                	<label for="NeededBy">Needed By<abbr title="required">*</abbr></label>
+							<select id="NeededBy" name="NeededBy" class="form-control" aria-describedby="NeededByHelp">
+								<option value="01">Week 1</option>
+								<option value="02">Week 2</option>
+								<option value="03">Week 3</option>
+								<option value="04">Week 4</option>
+								<option value="05">Week 5</option>
+								<option value="06">Week 6</option>
+								<option value="07">Week 7</option>
+								<option value="08">Week 8</option>
+								<option value="09">Week 9</option>
+								<option value="10">Week 10</option>
+								<option value="11">Week 11</option>
+							</select>
+							<small id="NeededByHelp">Please indicate the week this material will be taught</small>
+						</div>
+
+						<div class="col-sm-6">
+							<label for="ItemTags"><#ERROR name="ItemTags">Tags</label>
+		                	<input id="ItemTags" name="ItemTags" class="form-control" aria-describedby="ItemTagsHelp"><#PARAM name="ItemTags"/>
+		                	<small id="ItemTagsHelp" class="form-text">Comma separated list of tags to be assigned to this Item (e.g., "required reading," "week 3," etc.)</small>
+						</div>
+					</div>                	
+
+					<div class="form-group">
+						<fieldset>
+						<legend for="SupplyMethod"><#ERROR name="ERRORSupplyMethod"><span class="<#VALIDATION name="ERRORSupplyMethod">">How will this item be supplied?</span></legend>
+							<input id="File" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="File"> name="SupplyMethod" value="File"/>
+							<label for="File">I will upload a file (You will be asked to upload the file immediately after you submit the request.)</label><br/>
+							
+							<input id="WillDeliver" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="WillDeliver"> name="SupplyMethod" value="WillDeliver"/>
+							<label for="WillDeliver">I will bring the material to the library</label><br/>
+						
+							<input id="StaffSearch" type="radio" checked="checked" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="StaffSearch"> name="SupplyMethod" value="StaffSearch" />
+							<label for="StaffSearch">Please have library staff find the material and place it on electronic reserves</label><br/>
+							
+							<input id="WebLink" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="WebLink"> name="SupplyMethod" value="WebLink" />
+							<label for="WebLink">The item should link to the following website:</label><br/>
+						</fieldset>
+               		</div>
+
+					<div class="form-group text-addition">
+						<label for="URL" class="visually-hidden"><#ERROR name="ERRORURL"><span class="<#VALIDATION name="ERRORURL">">Website URL, if applicable</span></label>
+						<input id="URL" name="URL" type="text" class="form-control" aria-describedby="URLHelp" value="<#PARAM name="URL">">
+						<small id="URLHelp" class="form-text">If you chose the item should link to a website above, please enter the URL</small>
+					</div>
+					
+					<div class="form-group">
+						<#TABLE class="instructor-table" name="ItemRestrictions" classChoice="one" headerText="Reserve Restrictions" IncludeJavascriptCalendar="Yes" calendarText="<img src='images/cal.gif' alt='Open Calendar'/>"/>
+					</div>
+				</section>
+
+				<section>
+					<#INCLUDE filename="include_copyright.html">
+				</section>
+
+				<#INCLUDE filename="include_request_buttons.html">								
+
 			</form>			
 
-			<div id="footer">
-			<p><#COPYRIGHT></p>
 			<#INCLUDE filename="include_footer.html">
-			</div>
 			
 		</div>
 			

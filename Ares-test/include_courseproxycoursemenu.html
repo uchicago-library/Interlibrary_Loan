@@ -1,23 +1,19 @@
-<script type="text/javascript" src="js/aresajax.js"></script>
-<script type="text/javascript" src="js/fat.js"></script>
-<script type="text/javascript" src="js/prototype.js"></script>
-<script type="text/javascript" src="js/scriptaculous.js"></script>
 <div id="utility">
 	<ul id="nav-secondary">
-		<#SWITCHMODE header="<li class='active'>" footer="</li>">
-		<li class="active"><a href="<#ACTION action="10" form="10">">Current Courses</a></li>
-		<li class="active"><a href="#">Proxy Course Tools</a>
+		<li><h4>Proxy Course Tools</h4>
 			<ul>
-				<li class="first"><a href="<#ACTION action="10" form="60" ValueType="Lookup" Value="CourseID">">Course Home</a></li>
+				<li><a href="<#ACTION action="10" form="10">">Current Courses</a></li>
+				<li><a href="<#ACTION action="10" form="60" ValueType="Lookup" Value="CourseID">">Course Home</a></li>
 				<li><a href="<#ACTION action="10" form="2" value="IRFMenu">&CourseID=<#COURSE field="CourseID">">Add Reserve Items</a></li>
 				<li class="last"><a href="<#ACTION action="10" form="115" value="CourseID" valuetype="Lookup">">Reserve Item Usage</a></li>
 			</ul>
 		</li>
 		<#INCLUDE filename="include_instructormenu.html" restriction="UserType:Instructor">
 		<#INCLUDE filename="include_studentmenu.html" restriction="UserType:Student">
-		<li class="active"><a href="#">Other Tools</a>
+		<li><h4>Other Tools</h4>
 			<ul>
 				<li class="last"><a href="<#ACTION action="10" form="73">">My EMails</a></li>
+				<#SWITCHMODE header="<li class='active'>" footer="</li>">
 			</ul>
 		</li>
 		<li><span id="alertsgroup"><#ALERTS NoDataAction="showMessage" AllowAjax="Yes"></span></li>

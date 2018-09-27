@@ -3,54 +3,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Ares - <#USER field="Username"/></title>
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
-<!--[if lte IE 6]>
-<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
-<![endif]-->
-<script type="text/javascript" src="js/aresajax.js"></script>
-<script type="text/javascript" src="js/fat.js"></script>
-<script>
-var sessionid = '<#PARAM Name="SessionID">';
-</script>
+
+<#INCLUDE filename="include_head.html">
 </head>
+
 <body id="type-b">
 <div id="wrap">
-
-	<#INCLUDE filename="include_header.html">	
-	
-
 	<div id="content-wrap">
 		<#INCLUDE filename="include_instructorcoursemenu.html">	
 	
+		<div class="col-xs-12 col-md-9" id="content">
+		<h1>Detailed Reserve Usage</h1>
 		
+		<p><strong>Reserve Item:</strong><br/><#ITEM field="Title"/> <#ITEM field="ArticleTitle"/> <#ITEM field="Author"/><br/>
+		<#ITEM field="Description"/></p>
+
 		
-		<div id="content">
-		<h3>Detailed Reserve Usage</h3>
-		
-		<div class="instructor">
-		<div class="row"><span style="font-weight: bold"><#ITEM field="Title"/></span></div>
-			<div class="row"><#ITEM field="ArticleTitle"/></div>
-			<div class="row"><#ITEM field="Author"/></div>
-			<div class="row"><#ITEM field="Description"/></div>
-			<div class="row"><a href="<#ACTION action="10" form="115" valueType="Lookup" Value="CourseID">">Back to Course Usage</a></div>
-		</div>
-		
-		<p><#TABLE Name="ItemUsage" class="instructor-table-nohover" headerText="Detailed Reserve Usage" AllowJavascriptHover="False" AllowSort="Yes" NoDataMessage="This item has not been viewed." NoDataAction="ShowMessage" AllowSort="True" orderBy="UsageCount DESC"></p> 
+		<p><#TABLE Name="ItemUsage" class="student-table-nohover" headerText="Detailed Reserve Usage" AllowJavascriptHover="False" AllowSort="Yes" NoDataMessage="This item has not been viewed." NoDataAction="ShowMessage" AllowSort="True" orderBy="UsageCount DESC"></p> 
+
+		<a href="<#ACTION action="10" form="115" valueType="Lookup" Value="CourseID">"><< Back to Course Usage</a><p><br/></p>
 
 		<!-- <p><#TABLE Name="ItemNonUsage" class="instructor-table-nohover" headerText="Students who did not view this item" AllowJavascriptHover="False" AllowSort="Yes" NoDataMessage="All Students viewed this item." NoDataAction="ShowMessage" AllowSort="True" orderBy="LastName,FirstName,UsageCount DESC"></p> -->			 
 
 
-			<div id="footer">
-			<p><#COPYRIGHT></p>
-			<#INCLUDE filename="include_footer.html">
+		<#INCLUDE filename="include_footer.html">
 			</div>
-			
-		</div>
-			
 	</div>
-	
+
 </div>
-</body>
-</html>
+	
+</body></html>
