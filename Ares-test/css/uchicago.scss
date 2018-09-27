@@ -270,6 +270,10 @@ form.f-wrap-request {
   }
 }
 
+form#ImportItems {
+  background-color: transparent;
+}
+
 section + section {
   border-top: 2px solid #fff;
 }
@@ -355,6 +359,19 @@ small {
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.import-section {
+  background: $pop-accent-light;
+  border-radius: 8px;
+  padding: 1em;
+  margin-bottom: 1em;
+  .col-sm-6 + .col-sm-6 {
+    border-left: 2px solid #fff;
+  }
+  span {
+    display: block;
+  }
 }
 
 

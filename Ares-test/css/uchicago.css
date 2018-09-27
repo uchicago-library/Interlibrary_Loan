@@ -199,6 +199,9 @@ form.f-wrap-request {
     margin: 0.25em 0 0.75em 0;
     color: #0F425C; }
 
+form#ImportItems {
+  background-color: transparent; }
+
 section + section {
   border-top: 2px solid #fff; }
 
@@ -271,6 +274,16 @@ small {
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px; }
+
+.import-section {
+  background: #eff4f6;
+  border-radius: 8px;
+  padding: 1em;
+  margin-bottom: 1em; }
+  .import-section .col-sm-6 + .col-sm-6 {
+    border-left: 2px solid #fff; }
+  .import-section span {
+    display: block; }
 
 /*
  * Footer
