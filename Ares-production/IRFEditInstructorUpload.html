@@ -5,103 +5,100 @@
 <title>Ares - <#USER field="Username"/></title>
 <link rel="shortcut icon" href="favicon.ico" />
 
-<link rel=stylesheet href="css/xc2_default.css" type="text/css"/>
-<script language="javascript" src="js/xc2_default.js"></script>
-<script language="javascript" src="js/xc2_inpage.js"></script>
-<script language="javascript" src="js/arescal.js"></script>
-<link rel="stylesheet" type="text/css" href="css/fat.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
-<!--[if lte IE 6]>
-<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
-<![endif]-->
-<script type="text/javascript" src="js/aresajax.js"></script>
-<script type="text/javascript" src="js/fat.js"></script>
+<#INCLUDE filename="include_head.html">	
 </head>
 <body id="type-b">
-<div id="wrap"> <#INCLUDE filename="include_header.html"> 
-  <div id="content-wrap">
+<div id="wrap">
+
+	<div class="container main-container" id="content-wrap">
 		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseInstructor">
 		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseFullProxy">
 		<#INCLUDE filename="include_courseproxycoursemenu.html" restriction="Usertype:CourseProxy">
 	
-		<div id="content">
+		<div class="col-xs-12 col-md-9" id="content">
 			
-            <form action="ares.dll" method="post" name="CreateCourse" class="f-wrap-request">
-                <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
-				<input type="hidden" name="ItemID" value="<#ITEM field="ItemID"/>">
-				<input type="hidden" name="ItemType" value="MON">  
-                <input type="hidden" name="Action" value="11"/>
-                <input type="hidden" name="Type" value="30"/>							
-
-                <div class="req"><b>*</b> Indicates required field</div>
-                <fieldset>
-                	<h3>Edit Reserve Item: File Upload</h3>
-					<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"></span>
-					<p>This item is currenty at a status of: <span class="success"><#ITEM field="CurrentStatus"></span></p>
-					<#Include filename="include_viewdelete.html">
-                	<h4>Item Information</h4>
+			<div class="row main-content">
+				<h1>Edit Reserve Item: File Upload</h1>
+				<p>This item is currently at a status of: <span class="success"><#ITEM field="CurrentStatus"></span><br/><#Include filename="include_viewdelete.html"></p>
                 	
-				<label for="Title">                		
-                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORTitle">">Title</span><br />
-                		<span class="note">Please do not abbreviate unless your citation is abbreviated</span></b>
-                		<input id="Title" name="Title" type="text" size="40" class="f-name" tabindex="5" value="<#ITEM Field="Title"/>"><br />
-                	</label>
+                <p class="required">Required fields are followed by <strong><abbr title="required">*</abbr></strong></p>
+				<span style="background-color:#E6F4FF ;font-size: 110%">
+				<#STATUS class="fade">
+				</span>	
 
 
-               	<label for="Author">
-                		<b><span class="req">*</span><span class="<#VALIDATION name="ERRORAuthor">">Author/Editors</span><br/>
-				<span class="note">(Last Name, First Name)</span></b>
-                		<input id="Author" name="Author" type="text" size="40" class="f-name" tabindex="10" value="<#ITEM Field="Author"/>"><br />
-                	</label>
+	            <form action="ares.dll" method="post" name="CreateCourse" class="f-wrap-request">
+	                <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+					<input type="hidden" name="ItemID" value="<#ITEM field="ItemID"/>">
+					<input type="hidden" name="ItemType" value="MON">  
+	                <input type="hidden" name="Action" value="11"/>
+	                <input type="hidden" name="Type" value="30"/>	
 
-                	<label for="Notes">
-                		
-                		<b>Notes<br />
-                		<span class="note">Put any information here that may be pertinent to Reserves Staff.</span></b>
-                		<textarea id="Notes" name="ItemNote" rows="2" cols="40" class="f-name" tabindex="50"></textarea>
-                		<br />
-				<#TABLE class="instructor-table-nohover" name="ItemNotes" headerText="Previous Notes" noDataAction="ShowNothing" noDataMessage="No Notes" column="Note" column="AddedBy" column="NoteDate" column="NoteType" ExcludeNoteTypes="Staff">
-                	</label>
+				<section>
+	            	<h2>Item Information</h2>
+                	
+					<div class="form-group">
+		             	<label for="Title"><#ERROR name="ERRORTitle"><span class="<#VALIDATION name="ERRORTitle">">Title</span><abbr title="required">*</abbr></label>					
+	            		<input id="Title" name="Title" type="text" class="form-control" aria-describedby="TitleHelp" value="<#PARAM name="Title">">
+	                	<small id="TitleHelp" class="form-text">Please do not abbreviate unless your citation is abbreviated.</small>
+	                </div>
+
+					<div class="form-group">
+						<label for="Author"><#ERROR name="ERRORAuthor"><span class="<#VALIDATION name="ERRORAuthor">">Authors/Editors</span><abbr title="required">*</abbr></label>
+	            		<input id="Author" name="Author" type="text" class="form-control" aria-describedby="AuthorHelp" value="<#PARAM name="Author">">
+	            		<small id="AuthorHelp" class="form-text">(Last Name, First Name)</small>
+	                </div>
+	            </section>
+
+	             <section>
+	                <h2>Additional Information</h2>
+
+	                <div class="form-group">
+		            	<label for="Notes">Notes</label>
+	            		<input type="text" id="Notes" name="ItemNote" class="form-control" aria-describedby="NotesHelp value="<#PARAM name="Notes">">
+	            		<small id="NotesHelp" class="form-text">Information that may help us find the item or other pertinent information.</small>
+						<#TABLE class="instructor-table-nohover" name="ItemNotes" headerText="Previous Notes" noDataAction="ShowNothing" noDataMessage="No Notes" column="Note" column="AddedBy" column="NoteDate" column="NoteType" ExcludeNoteTypes="Staff">
+	            	</div>
+	            </section>
+
+	            <section>
+	                <h2>Course Information</h2>
+
+	                <div class="form-group">
+						<label for="ItemTags"><#ERROR name="ItemTags">Tags</label>
+	                	<input id="ItemTags" name="ItemTags" class="form-control" aria-describedby="ItemTagsHelp"><#PARAM name="ItemTags"/>
+	                	<small id="ItemTagsHelp" class="form-text">Comma separated list of tags to be assigned to this Item (e.g., "required reading," "week 3," etc.)</small>
+					</div>
+
+					<div class="form-group">
+						<fieldset>
+						<legend for="SupplyMethod"><#ERROR name="ERRORSupplyMethod"><span class="<#VALIDATION name="ERRORSupplyMethod">Do you want to supply new material for this reserve item?</span></legend>
+						<p><#ITEM field="BuildURL" alt="View this item" linkText="<br/>This item is currently available to students"></p>		
+							<input id="File" type="radio" checked="checked" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="None"> name="SupplyMethod" value="None"/>
+							<label for="None">I do not want to change the actual reserve content</label><br/>
+
+							<input id="File" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="File"> name="SupplyMethod" value="File"/>
+							<label for="File">I will upload a file (You will be asked to upload the file immediately after you submit the request.)</label><br/>
+							</fieldset>
+	               		</div>
+
+	               		<div class="form-group">
+		               		<#TABLE class="instructor-table-nohover" name="ItemRestrictions" classChoice="one" headerText="Reserve Restrictions" IncludeJavascriptCalendar="Yes" calendarText="<img src='images/cal.gif' alt='Open Calendar'/>"/>
+
+						</div>
+					</section>
+
+					<section>
+						<#INCLUDE filename="include_copyright.html">
+					</section>
+
+				<#INCLUDE filename="include_request_buttons.html">								
+
+			</form>		
 
 
-			<label for="ItemTags">
-                		<#ERROR name="ItemTags">
-                		<b>Tags
-					<br/><span class="note">Comma separated list of tags to be assigned to this Item<span>
-				</b>
-                		<textarea id="ItemTags" name="ItemTags" tabindex="100" rows="4"><#ITEM field="Tags"/></textarea><br />
-                	</label>
-
-                	<br>
-
-				<label for="SupplyMethod">
-                		<#ERROR name="ERRORSupplyMethod">
-                		<b>Do you want to supply new material for this reserve item? <#ITEM field="BuildURL" alt="View this item" linkText="<br/>This item is currently available to students"></b>
-						<fieldset>			
-						<label for="None">
-						<input id="None" type="radio" checked="checked" name="SupplyMethod" value="None" class="f-radio" tabindex="200" />
-						I do not want to change the actual reserve content</label>
-
-						<label for="File">
-						<input id="File" type="radio" name="SupplyMethod" value="File" class="f-radio" tabindex="210" />
-						I will upload a file</label>
-						</fieldset> </label> <br>
-
-					<#TABLE class="instructor-table-nohover" name="ItemRestrictions" classChoice="one" headerText="Reserve Restrictions" IncludeJavascriptCalendar="Yes" calendarText="<img src='images/cal.gif' alt='Open Calendar'/>"/>
-
-				<input type="submit" name="SubmitButton" tabindex="300" value="Submit Item" />
-				<input type="submit" name="DeleteButton" tabindex="305" value="Delete Item" />				
-				<input type="reset" name="ClearButton" tabindex="310" value="Clear" />									
-				</fieldset>
-			</form>			
-
-			<div id="footer">
-			<p><#COPYRIGHT></p>
 			<#INCLUDE filename="include_footer.html">
-			</div>
-			
-		</div>
+</div>
 			
 	</div>
 	

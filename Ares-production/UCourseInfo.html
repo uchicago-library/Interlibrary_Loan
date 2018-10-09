@@ -1,78 +1,47 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Ares - <#USER field="Username"/></title>
-<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
-<!--[if lte IE 6]>
-<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
-<![endif]-->
-<script type="text/javascript" src="js/aresajax.js"></script>
-<script type="text/javascript" src="js/fat.js"></script>
-<script>
-var sessionid = '<#PARAM name="SessionID"/>';
-</script>
+
+<#INCLUDE filename="include_head.html">	
 </head>
+
 <body id="type-b">
 <div id="wrap">
-
-	<#INCLUDE filename="include_header.html">	
-	
-
-	<div id="content-wrap">
+    <div class="container main-container" id="content-wrap">
 		<#INCLUDE filename="include_studentcoursemenu.html">	
 	
-		
-		
-		<div id="content">
+		<div class="col-xs-12 col-md-9" id="content">
 			<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"></span>
 
 			<div class="instructor">
-				<div class="header">Course Details</div>
-				<div class="row"><#COURSE field="CourseNumber"/>&nbsp;<#COURSE field="Name"/><#COURSE field="CourseCode" headerText="&nbsp;(" footerText=")"/></div>
-				<div class="row"><#TABLE class="xlist-table" name="CourseCrossList" HideColumnHeaders="True" 
-column="CourseNumber" headerText="This course is also cross-listed as the following:" NoDataAction="ShowNothing"/></div>
-				<div class="row"><#COURSE field="Semester"/></div>
-				<div class="row"><a target="_blank" href="<#COURSE field="URL"/>"><#COURSE field="URL"/></a></div>	
-				<div class="row"><#COURSE field="Instructor"/></div>
-				<div class="row"><#COURSE field="Description"/></div>
-			<div class="row"><p class="note">Email subscriptions allow you to receive an email notification when a new 
-item becomes available in this course.<br/>
-				<#SUBSCRIBE notSubscribedText="You are currently <span class='error'>not</span> subscribed. " 
-subscribedText="You are currently subscribed. " subscribeLink="Subscribe Now" unsubscribeLink="Please remove my subscription"/>
-			</p><p style="font-size:90%"><b>Copyright Warning</b><br><i>The copyright law of the United States (Title 17, United States Code) governs the making of copies or other reproductions of copyrighted materials.  Under certain conditions specified in the law, libraries and archives are authorized to furnish a copy or other reproduction. One of these specified conditions is that the copy or reproduction is not to be "used for any purpose other than private study, scholarship, or research". If a user makes a request for, or later uses, a copy or reproduction for purposes in excess of "fair use", that user may be liable for copyright infringement.</i></p>
-</div>				
-            </div>
-			<br/>
+				<h1>Library Reserves for <em><#COURSE field="Name"/></em></h1>
+				<#INCLUDE filename="include_defaultcourseinfo.html"/>
+				<#INCLUDE filename="include_subscription.html">
+			</div>
+
 			<div>
+				<p class="note">Email subscriptions allow you to receive an email notification when a new item becomes available in this course.<br/>
+				<#SUBSCRIBE notSubscribedText="You are currently <span class='error'>not</span> subscribed. " subscribedText="You are currently subscribed. " subscribeLink="Subscribe Now" unsubscribeLink="Please remove my subscription"/>
+				</p>
+			</div>	
+			
 			<form name="UserHome" method="post" action="ares.dll">
 			<input type="hidden" name="action" value="20" />
 			<input type="hidden" name="CourseID" value="<#COURSE field="CourseID"/>" />
  			<input type="hidden" name="SessionID" value="<#PARAM name="SessionID"/>"/>
-
-	    <#TAGCLOUD TagType="Course" MaxFontSizes="5" IncludeTagCount="Yes" TagFence="No" /><br/><br/>
-
-	    <#ITEMGROUP GroupBy="Title,Location" OrderBy="Title" type="CourseItems" Level1CSSClass="level1" 
-GroupSeparatorCssClass="levelSeparator" Level2CssClass="level2" 
-Level3CssClass="level3" MainTemplate="include_studentItemGroupMainTemplate.html" GroupTemplate="include_studentGroupTemplate.html" 
-/>
-
-			</form>
-			</div>
-
-
-
-			<div id="footer">
-			<p><#COPYRIGHT></p>
-			<#INCLUDE filename="include_footer.html">
-			</div>
 			
+			<h3>Reserve Items</h3>
+		    <#TAGCLOUD TagType="Course" MaxFontSizes="5" IncludeTagCount="Yes" TagFence="No" />
+
+		    <#ITEMGROUP GroupBy="Title,Location" OrderBy="Title" type="CourseItems" Level1CSSClass="level1" GroupSeparatorCssClass="levelSeparator" Level2CssClass="level2" Level3CssClass="level3" MainTemplate="include_studentItemGroupMainTemplate.html" GroupTemplate="include_studentGroupTemplate.html" />
+			</form>
+
+			<#INCLUDE filename="include_copyright.html">
+			<#INCLUDE filename="include_footer.html">
 		</div>
-		
-	
 	</div>
-	
+
 </div>
-</body>
-</html>
+	
+</body></html>

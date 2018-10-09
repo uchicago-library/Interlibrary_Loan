@@ -18,7 +18,13 @@
 				<h1>Library Reserves for <em><#COURSE field="Name"/></em></h1>
 				<#INCLUDE filename="include_defaultcourseinfo.html"/>
 				<#INCLUDE filename="include_subscription.html">
-			</div>				
+			</div>
+
+			<div>
+				<p class="note">Email subscriptions allow you to receive an email notification when a new item becomes available in this course.<br/>
+				<#SUBSCRIBE notSubscribedText="You are currently <span class='error'>not</span> subscribed. " subscribedText="You are currently subscribed. " subscribeLink="Subscribe Now" unsubscribeLink="Please remove my subscription"/>
+				</p>
+			</div>	
 			
 			<form name="UserHome" method="post" action="ares.dll">
 			<input type="hidden" name="action" value="20" />

@@ -1,0 +1,300 @@
+/*
+ * Colors
+ * --------------------------------------------------
+ */
+/*
+ * Global
+ * --------------------------------------------------
+ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px); }
+
+body {
+  font-size: 14px; }
+
+.alertSystem {
+  color: #fff;
+  background-color: #9A5324;
+  padding: 0 20px 5px 20px; }
+  .alertSystem p {
+    color: #fff; }
+  .alertSystem h4 {
+    color: #eee;
+    font-weight: 600; }
+  .alertSystem a {
+    color: #eee;
+    font-weight: 200;
+    text-decoration: underline; }
+
+/*
+ * Fonts
+ * --------------------------------------------------
+ */
+h1 {
+  color: #642822;
+  font-size: 1.5em;
+  font-weight: 100;
+  margin-bottom: 0.5em;
+  line-height: 1em; }
+  h1 + h2 {
+    margin: -0.5em 0 0 0; }
+
+h2 {
+  color: #000;
+  font-size: 1.5em;
+  margin-top: 0.5em; }
+
+h3, .h3 {
+  color: #0F425C;
+  border-bottom: 1px solid #0F425C;
+  margin-top: 0.5em; }
+
+h4 {
+  color: #767676;
+  margin-bottom: 0; }
+
+/*
+ * Left Sidebar
+ * --------------------------------------------------
+ */
+#utility {
+  left: 0;
+  width: auto; }
+
+#nav-secondary {
+  font-size: 1.1em;
+  border-top: none;
+  color: #fff;
+  padding: 0.5em 1em;
+  background-color: #767676;
+  border-radius: 0; }
+  #nav-secondary h4 {
+    margin-top: 1em;
+    font-size: 1em;
+    color: #eee;
+    font-weight: 100;
+    line-height: 1em;
+    letter-spacing: normal;
+    border-bottom: 1px solid #eee; }
+  #nav-secondary li {
+    line-height: 2em;
+    padding-left: 0; }
+    #nav-secondary li a, #nav-secondary li .mode-switch {
+      color: #fff; }
+      #nav-secondary li a:hover, #nav-secondary li .mode-switch:hover {
+        color: #47B5FF;
+        text-decoration: underline; }
+
+#type-b #content-wrap {
+  background: none; }
+
+/*
+ * Main Content
+ * --------------------------------------------------
+ */
+#type-c #content {
+  margin: 0 5% 0 235px; }
+
+.instructor {
+  margin-bottom: 2.25em; }
+
+.tagCloud {
+  color: #fff;
+  background-color: #007bff;
+  display: inline-block;
+  padding: .25em .4em;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem; }
+  .tagCloud a, .tagCloud .tagCount {
+    color: #fff; }
+
+.copyright {
+  margin-bottom: 1em; }
+  .copyright p {
+    font-size: 0.9em; }
+
+/*
+ * Tables
+ * --------------------------------------------------
+ */
+div.level1 > div:nth-of-type(4n-3) {
+  background-color: #eff4f6; }
+
+div.level1 > div:last-child {
+  border-bottom: 2px solid #0F425C; }
+
+.student-table table, .instructor-table table {
+  border: none; }
+  .student-table table a, .instructor-table table a {
+    text-decoration: underline;
+    color: #069; }
+  .student-table table tbody tr.row-odd, .instructor-table table tbody tr.row-odd {
+    background-color: #eff4f6; }
+
+.instructor-table thead tr, .student-table thead tr, .tableViewNotifications table thead tr {
+  background: #fff;
+  color: #767676; }
+
+.instructor-table thead th a, .instructor-table-nohover thead th a {
+  color: #767676;
+  text-decoration: none; }
+  .instructor-table thead th a:after, .instructor-table-nohover thead th a:after {
+    font-family: FontAwesome;
+    content: "\f0dc";
+    color: #b6b6b6;
+    margin-left: 0.5em; }
+
+.instructor-table tbody td, th, .student-table tbody td, th {
+  border-left: none; }
+
+.tableViewNotifications table thead tr.row-headings {
+  border-bottom: 1px solid #000066; }
+
+.tableViewNotifications table tbody {
+  border-bottom: 2px solid #0F425C; }
+
+table caption {
+  color: #0F425C;
+  background: transparent;
+  font-size: 126%;
+  border-bottom: none;
+  margin: 0.75em 0; }
+
+table tbody {
+  border-bottom: 2px solid #0F425C; }
+  table tbody tr.row-message td {
+    padding: 2em;
+    font-size: 1.2em;
+    text-align: center;
+    font-style: italic; }
+
+/*
+ * Forms
+ * --------------------------------------------------
+ */
+span.edit-link a {
+  color: #069;
+  text-decoration: underline; }
+
+form.f-wrap-request {
+  background: #eff4f6;
+  border-radius: 8px; }
+  form.f-wrap-request section {
+    padding: 1em; }
+    form.f-wrap-request section.additional-info {
+      padding: 1em 1.5em; }
+      form.f-wrap-request section.additional-info ul {
+        margin-bottom: 1em; }
+        form.f-wrap-request section.additional-info ul li {
+          margin-bottom: 0.25em; }
+  form.f-wrap-request h2 {
+    margin: 0.25em 0 0.75em 0;
+    color: #0F425C; }
+
+form#ImportItems {
+  background-color: transparent; }
+
+section + section {
+  border-top: 2px solid #fff; }
+
+p.required {
+  margin: 0.5em 0 1em 1em; }
+
+abbr[title=required] {
+  color: #FF3399;
+  cursor: unset;
+  font-size: 1.3em;
+  margin-left: 0.25em;
+  border-bottom: none;
+  text-decoration: none; }
+
+.submit-suggestion {
+  float: right;
+  padding-right: 1em; }
+
+.f-submit-wrap button {
+  margin: 1em 3em 2em; }
+
+.btn-primary {
+  background: #800000;
+  border-color: #800000;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
+  .btn-primary:hover {
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    background: #670000;
+    border-color: #800000; }
+
+.btn-link {
+  color: #767676; }
+
+legend {
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-bottom: none !important;
+  margin-bottom: 0.5em; }
+
+.form-group caption {
+  font-size: 1.3rem;
+  font-color: #767676;
+  letter-spacing: normal; }
+
+input[type="radio"] + label {
+  font-size: 1.3rem;
+  font-weight: normal;
+  margin-left: 0.5em;
+  display: inline;
+  line-height: 2em; }
+
+small {
+  display: block; }
+
+.text-addition {
+  margin: -1em 0 0 3em;
+  width: 80%; }
+
+#PickupLocation, #LoanPeriod {
+  display: block;
+  width: 100%;
+  font-weight: 100;
+  height: 34px;
+  padding: 6px 12px;
+  margin-left: 0;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px; }
+
+.import-section {
+  background: #eff4f6;
+  border-radius: 8px;
+  padding: 1em;
+  margin-bottom: 1em; }
+  .import-section .col-sm-6 + .col-sm-6 {
+    border-left: 2px solid #fff; }
+  .import-section span {
+    display: block; }
+
+/*
+ * Footer
+ * --------------------------------------------------
+ */
+#footer img {
+  max-height: 40px;
+  padding: 0 1em;
+  vertical-align: top; }
+
+#footer .library-logo {
+  border-left: 1px solid #767676; }
+
+/*# sourceMappingURL=uchicago.css.map */

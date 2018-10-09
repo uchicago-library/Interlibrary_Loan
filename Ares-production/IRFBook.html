@@ -3,190 +3,175 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Ares - <#USER field="Username"/></title>
-<link rel="shortcut icon" href="favicon.ico" />
 
-<link rel=stylesheet href="css/xc2_default.css" type="text/css"/>
-<script language="javascript" src="js/xc2_default.js"></script>
-<script language="javascript" src="js/xc2_inpage.js"></script>
-<script language="javascript" src="js/arescal.js"></script>
-<link rel="stylesheet" type="text/css" href="css/fat.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
-<!--[if lte IE 6]>
-<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
-<![endif]-->
-<script type="text/javascript" src="js/aresajax.js"></script>
-<script type="text/javascript" src="js/fat.js"></script>
+<#INCLUDE filename="include_head.html">
 </head>
+
 <body id="type-b">
 <div id="wrap">
-
-	<#INCLUDE filename="include_header.html">	
 	
 
-	<div id="content-wrap">
+	<div class="container main-container" id="content-wrap">
 		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseInstructor">
 		<#INCLUDE filename="include_instructorcoursemenu.html" restriction="Usertype:CourseFullProxy">
 		<#INCLUDE filename="include_courseproxycoursemenu.html" restriction="Usertype:CourseProxy">
 		
-		<div id="content">
+		<div class="col-xs-12 col-md-9" id="content">
+
+			<div class="row main-content">
+            	<h1>Reserve Item: Book, CD, or DVD</h1>
+            	<p class="required">Required fields are followed by <strong><abbr title="required">*</abbr></strong></p>
+				<span style="background-color:#E6F4FF ;font-size: 110%">
+				<#STATUS class="fade">
+				</span>
 
             <form action="ares.dll" method="post" name="CreateItem" class="f-wrap-request">
                 <input type="hidden" name="Action" value="11"/>
                 <input type="hidden" name="CourseID" value="<#COURSE field="CourseID"/>"/>				
                 <input type="hidden" name="Type" value="10"/>							
                 <input type="hidden" name="CopyrightRequired" value="No"/>
-		     <input type="hidden" name="DocumentType" value="HardCopy"/>
-		     <input type="hidden" name="ItemType" value="MON"/>
-		     <input type="hidden" name="format" value="Book"/>
-                 <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+			    <input type="hidden" name="DocumentType" value="HardCopy"/>
+			    <input type="hidden" name="ItemType" value="MON"/>
+			    <input type="hidden" name="format" value="Book"/>
+                <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
 				
-                <div class="req"><b>*</b> Indicates required field</div>
-                <fieldset>
-				<h3>Reserve Item: Book/CD/DVD</h3>
-				<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"></span>
 
-			<#OPTION name="PickupLocation" tabindex="2" selectedValue="JRL" headerText="<label for='Pickup Location'><b><span class='<#VALIDATION name=ERRORPickupLocation>'>Library where material should be placed on reserve</span></b>" footerText="<br /></label>" onChange="getNewLoanPeriods(document.getElementById('PickupLocation').value);">
-<br /></label>
+				<section>
+	                <h2>Item Information</h2>
+
+	                <div class="form-group">
+		             	<label for="Title"><#ERROR name="ERRORTitle"><span class="<#VALIDATION name="ERRORTitle">">Title</span><abbr title="required">*</abbr></label>					
+	            		<input id="Title" name="Title" type="text" class="form-control" aria-describedby="TitleHelp" value="<#PARAM name="Title">">
+	                	<small id="TitleHelp" class="form-text">Please do not abbreviate unless your citation is abbreviated.</small>
+	                </div>
+
+					<div class="form-group">
+						<label for="Author"><#ERROR name="ERRORAuthor"><span class="<#VALIDATION name="ERRORAuthor">">Authors/Editors</span><abbr title="required">*</abbr></label>
+	            		<input id="Author" name="Author" type="text" class="form-control" aria-describedby="AuthorHelp" value="<#PARAM name="Author">">
+	            		<small id="AuthorHelp" class="form-text">(Last Name, First Name)</small>
+	                </div>
+
+		            <div class="form-group">
+						<label for="Publisher"><#ERROR Name="ERRORPublisher"><span class="<#VALIDATION name="ERRORPublisher">">Publisher</span></label>
+						<input id="Publisher" name="Publisher" type="text" class="form-control" value="<#PARAM Name="publisher"/>">
+					</div>
+		                	
+					<div class="form-group row">
+						<div class="col-sm-4">
+					    	<label for="Edition"><#ERROR Name="ERROREdition"><span class="<#VALIDATION name="ERROREdition">">Book Edition</span></label>
+	                		<input id="Edition"" name="Edition"" type="text" class="form-control" value="<#PARAM name="edition">">
+					    </div>	
+					    
+						<div class="col-sm-4">			
+							<label for="PubDate"><#ERROR Name="ERRORPubDate"><span class="<#VALIDATION name="ERRORPubDate">">Date of Publication</span></label>
+							<input id="PubDate" name="PubDate" type="text" class="form-control" value="<#PARAM Name="pubdate"/>">
+		                </div>
+
+		                <div class="col-sm-4">
+							<label for="PubPlace"><#ERROR Name="ERRORPubPlace"><span class="<#VALIDATION name="ERRORPubPlace">">Place of Publication</span></label>
+	                		<input id="PubPlace" name="PubPlace" type="text" class="form-control" value="<#PARAM Name="pubplace"/>">
+	                	</div>			
+		            </div>
+				</section>
+
+               	<section>   
+				    <h2>Additional Information</h2>
+					<p>Information that helps speed request processing, but is not required.</p>
+		            <div class="form-group row">
+			            <div class="col-sm-4">
+			            	<label for="ISXN"><#ERROR name="ERRORISXN"><span class="<#VALIDATION name="ERRORISXN">">ISBN</span></label>
+	                		<input id="ISXN" name="ISXN" type="text" class="form-control" aria-describedby="ISSNHelp" value="<#PARAM name="ISXN">">
+	                		<small id="ISSNHelp" class="form-text"><em>Example:</em> 054792822X</small>
+	                	</div>
+
+	                	<div class="col-sm-4">
+							<label for="CallNumber"><#ERROR name="ERRORCallNumber"><span class="<#VALIDATION name="ERRORCallNumber">">Call Number</span></label>
+							<input type="text" id="CallNumber" name="CallNumber" aria-describedby="CallNumberHelp" class="form-control" value="<#PARAM name="callnumber">">
+							<small id="CallNumberHelp" class="form-text"><em>Example:</em> PN6728.B523C63 2016</small>
+						</div>
+
+						<div class="col-sm-4">		
+							<label for="ESPNumber"><#ERROR name="ERRORESPNumber"><span class="<#VALIDATION name="ERRORESPNumber">">OCLC Record Number</span></label>
+							<input type="text" id="ESPNumber" name="ESPNumber" aria-describedby="ESPNumberHelp" class="form-control" value="<#PARAM name="ESPNumber">">
+							<small id="ESPNumberHelp" class="form-text"><em>Example:</em> doi:10.1038/nphys1170</small>
+						</div>
+					</div>
+
+					<div class="form-group">
+		            	<label for="Notes">Notes</label>
+	            		<input type="text" id="Notes" name="ItemNote" class="form-control" aria-describedby="NotesHelp value="<#PARAM name="Notes">">
+	            		<small id="NotesHelp" class="form-text">Information that may help us find the item or other pertinent information.</small>
+	            	</div>
+
+					<div class="form-group">
+						<label for="CitedIn"><#ERROR name="ERRORCitedIn"><span class="<#VALIDATION name="ERRORCitedIn">">Where did you find this citation?</span></label>
+	                	<input id="CitedIn" name="CitedIn" type="text" class="form-control" value="<#PARAM name="CitedIn">">
+	                </div>
+				</section>
+
+				<section>
+	                <h2>Course Information</h2>
+	                <div class="form-group row">
+					    <div class="col-sm-6">
+					    	<#OPTION name="PickupLocation" selectedValue="JRL" headerText="<label for='Pickup Location'><span class='<#VALIDATION name=ERRORPickupLocation>'>Library where material should be placed on reserve</span>" footerText="<br /></label>" onChange="getNewLoanPeriods(document.getElementById('PickupLocation').value);">
+					    </div>
+
+					    <div class="col-sm-6">
+					    	<#OPTION name="LoanPeriod" selectedValue="3" SitePeriods="True" headerText="<label for='LoanPeriod'>Loan Period for Physical Items" footerText="<br /></label>">
+					    </div>
+					</div>
+
+	                <div class="form-group row">
+					    <div class="col-sm-6">
+		                	<label for="NeededBy">Needed By<abbr title="required">*</abbr></label>
+							<select id="NeededBy" name="NeededBy" class="form-control" aria-describedby="NeededByHelp">
+								<option value="01">Week 1</option>
+								<option value="02">Week 2</option>
+								<option value="03">Week 3</option>
+								<option value="04">Week 4</option>
+								<option value="05">Week 5</option>
+								<option value="06">Week 6</option>
+								<option value="07">Week 7</option>
+								<option value="08">Week 8</option>
+								<option value="09">Week 9</option>
+								<option value="10">Week 10</option>
+								<option value="11">Week 11</option>
+							</select>
+							<small id="NeededByHelp">Please indicate the week this material will be taught</small>
+						</div>
+
+						<div class="col-sm-6">
+							<label for="ItemTags"><#ERROR name="ItemTags">Tags</label>
+		                	<input id="ItemTags" name="ItemTags" class="form-control" aria-describedby="ItemTagsHelp"><#PARAM name="ItemTags"/>
+		                	<small id="ItemTagsHelp" class="form-text">Comma separated list of tags to be assigned to this Item (e.g., "required reading," "week 3," etc.)</small>
+						</div>
+					</div>
 			
-			<#OPTION name="LoanPeriod" tabindex="3" selectedValue="3" SitePeriods="True" headerText="<label for='LoanPeriod'><b>Loan Period for Physical Items</b>" footerText="<br /></label>">
-<br /></label>
-               				
-                  <label for="NeededBy"> 
-			<b><span class="req">*</span><span class="Valid">Needed By</span><br />
-			<span class="note">Please indicate the week this material will be taught</span></b>
-			<select tabindex="4" id="NeededBy" name="NeededBy">
-			<option selected></option>
-			<option>01</option>
-			<option>02</option>
-			<option>03</option>
-			<option>04</option>
-			<option>05</option>
-			<option>06</option>
-			<option>07</option>
-			<option>08</option>
-			<option>09</option>
-			<option>10</option>
-			<option>11</option>
-			</select>
-			</label>
-
-			<label for="Title">       
-                		<#ERROR Name="ERRORTitle">					         		
-                		<b><span class="req">*</span>
-				<span class="<#VALIDATION name="ERRORTitle">">Title</span><br />
-                		<span class="note">Please do not abbreviate unless your citation is abbreviated</span></b>
-                		<textarea id="Title" name="Title" rows="2" cols="40" class="f-name" tabindex="5"><#PARAM Name="title"/></textarea><br />
-                	</label>
-
-                	<label for="Author">                		
-                		<#ERROR Name="ERRORAuthor">
-				<b><span class="req">*</span><span class="<#VALIDATION name="ERRORAuthor">">Authors/Editors</span><br />
-				<span class="note">(Last Name, First Name)</span></b>
-                		<input id="Author" name="Author" type="text" size="40" class="f-name" tabindex="10" value="<#PARAM Name="author"/>"><br />
-                	</label>
-
-                	
-			<label for="Publisher">                		
-                		<#ERROR Name="ERRORPublisher">					
-                		<b><span class="<#VALIDATION name="ERRORPublisher">">Publisher</span></b>
-                		<input id="Publisher" name="Publisher" type="text" size="40" class="f-name" tabindex="15" value="<#PARAM Name="publisher"/>"><br />
-                	</label>
-
-                	<label for="PubPlace">
-                		<#ERROR Name="ERRORPubPlace">                		
-                		<b><span class="<#VALIDATION name="ERRORPubPlace">">Place of Publication</span></b>
-                		<input id="PubPlace" name="PubPlace" type="text" size="40" class="f-name" tabindex="20" value="<#PARAM Name="pubplace"/>"><br />
-                	</label>
-				
-                	<label for="PubDate">     
-                		<#ERROR Name="ERRORPubDate">					          		
-                		<b><span class="<#VALIDATION name="ERRORPubDate">">Publication Date</span></b>
-                		<input id="PubDate" name="PubDate" type="text" size="40" class="f-name" tabindex="25" value="<#PARAM Name="pubdate"/>"><br />
-                	</label>
-                
-					<label for="Edition">    
-                		<#ERROR Name="ERROREdition">					            		
-                		<b><span class="<#VALIDATION name="ERROREdition">">Edition</span></b>
-              		<input id="Edition" name="Edition" type="text" size="40" class="f-name" tabindex="30" value="<#PARAM Name="edition"/>"><br />
-                	</label>
-
-					
-	               	<label for="ISSN">          
-                		<#ERROR Name="ERRORISXN">					      		
-                		<b><span class="<#VALIDATION name="ERRORISXN">">ISBN (International Standard Book Number)</span><br />
-                		<span class="note">If given will speed request processing</span></b>
-                		<input id="ISXN" name="ISXN" type="text" size="20" class="f-name" tabindex="35" value="<#PARAM Name="ISXN"/>"><br />
-                	</label>
-					
-                	<label for="CallNumber">					                		
-                		<#ERROR name="ERRORCallNumber">
-				<b><span class="<#VALIDATION name="ERRORCallNumber">">Call Number</span></b>
-                		<input id="CallNumber" name="CallNumber" type="text" size="40" class="f-name" tabindex="40" value="<#PARAM Name="callnumber"/>"><br />
-                	</label>
-					
-                	<label for="ESPNumber">            
-                		<#ERROR name="ERRORESPNumber">					    		
-                		<b><span class="<#VALIDATION name="ERRORESPNumber">">OCLC Accession Number</span></b>
-                		<input id="ESPNumber" name="ESPNumber" type="text" size="45" class="f-name" tabindex="45" value="<#PARAM Name="ESPNumber"/>"><br />
-                	</label>
-							
-                	<label for="Notes">
-                		
-                		<b>Notes<br />
-                		<span class="note">Put any information here that may help us find the item, as well as any other pertinent information.</span></b>
-                		<textarea id="Notes" name="ItemNote" rows="2" cols="40" class="f-name" tabindex="50"><#PARAM Name="ItemNote"/></textarea>
-                		<br />
-                	</label>
-
-			<label for="ItemTags">
-                		<#ERROR name="ItemTags">
-                		<b>Tags
-					<br/><span class="note">Comma separated list of tags to be assigned to this Item (e.g., "required reading," "week 3," etc.)<span>
-				</b>
-                		<textarea id="ItemTags" name="ItemTags" tabindex="55" rows="4"><#PARAM name="ItemTags"/></textarea><br />
-                	</label>
-
-
-					<label for="SupplyMethod">
-                		<#ERROR name="ERRORSupplyMethod">
-                		<b>How will this item be supplied?</b>
-						<fieldset>									
-						<label for="WillDeliver">
-						<input id="WillDeliver" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="WillDeliver"> name="SupplyMethod" value="WillDeliver" class="f-radio" tabindex="200" />
-						I will bring the material to the library</label>				
+					<div class="form-group">
+						<fieldset>
+						<legend for="SupplyMethod"><#ERROR name="ERRORSupplyMethod"><span class="<#VALIDATION name="ERRORSupplyMethod">">How will this item be supplied?</span></legend>
+							<input id="WillDeliver" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="WillDeliver"> name="SupplyMethod" value="WillDeliver" />
+							<label for="WillDeliver">I will bring the material to the library</label><br/>			
 	
-						<label for="StaffSearch">
-						<input id="StaffSearch"  checked="checked" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="StaffSearch"> name="SupplyMethod" value="StaffSearch" class="f-radio" tabindex="205" />
-						Please have library staff pull the material off the shelves and place it on course reserves</label>
+							<input id="StaffSearch"  checked="checked" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="StaffSearch"> name="SupplyMethod" value="StaffSearch" />
+							<label for="StaffSearch">Please have library staff pull the material off the shelves and place it on course reserves</label><br/>
 
-						<label for="Purchase">
-						<input id="Purchase" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="Purchase"> name="SupplyMethod" value="Purchase" class="f-radio" tabindex="210" />
-						Please consider this item for purchase and make it available to my students through course reserves</label>
-
+							<input id="Purchase" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="Purchase"> name="SupplyMethod" value="Purchase" />
+							<label for="Purchase">Please consider this item for purchase and make it available to my students through course reserves</label><br/>
 						</fieldset>
-               		</label>
+	           		</div>
+					
+					<div class="form-group">
+						<#TABLE class="instructor-table" name="ItemRestrictions" classChoice="one" headerText="Reserve Restrictions" IncludeJavascriptCalendar="Yes" calendarText="<img src='images/cal.gif' alt='Open Calendar'/>"/>
+					</div>
+				</section>
 
-                	<h2>Where did you learn about this item?</h2>
-				<label for="CitedIn">
-                		<#ERROR name="ERRORCitedIn">		
-	<b><span class="<#VALIDATION name="ERRORCitedIn">">Where did you find this item cited?</span><br/>
-	<span class="note">Examples are databases such as Dissertation Abstracts and WorldCat, or a specific journal or book.</span></b>
-	<textarea id="CitedIn" name="CitedIn" rows="2" cols="40" class="f-name" tabindex="300"><#PARAM Name="citedin"/></textarea><br />
-					</label>
-                
-					<#TABLE class="instructor-table" name="ItemRestrictions" classChoice="one" headerText="Reserve Restrictions" IncludeJavascriptCalendar="Yes" calendarText="<img src='images/cal.gif' alt='Open Calendar'/>"/>
 
-						
-				<input type="submit" name="SubmitButton" tabindex="500" value="Submit Item" />
-				<input type="reset" name="ClearButton" tabindex="505" value="Clear" />									
-				</fieldset>
+			<#INCLUDE filename="include_request_buttons.html">								
+
 			</form>			
 
-			<div id="footer">
-			<p><#COPYRIGHT></p>
 			<#INCLUDE filename="include_footer.html">
-			</div>
 			
 		</div>
 			

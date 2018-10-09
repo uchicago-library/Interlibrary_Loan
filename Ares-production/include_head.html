@@ -1,24 +1,38 @@
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
+
+	<!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="js/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Fonts and Icons -->
+    <script src="https://use.fontawesome.com/d26aabc0ea.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://identity.uchicago.edu/c/fonts/proximanova.css" media="all" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+	<link rel="stylesheet" type="text/css" href="css/tagCloud.css"/>
 	<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
-	<link rel="stylesheet" type="text/css" href="css/tagCloud.css"/>
-	<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/smoothness/jquery-ui.css" />
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/uchicago.css"/>
 
+	<script type="text/javascript" src="js/aresajax.js"></script>
+	<script type="text/javascript" src="js/fat.js"></script>
+	<script type="text/javascript" src="js/prototype.js"></script>
+	<script type="text/javascript" src="js/scriptaculous.js"></script>
+	<script>
+	var sessionid = '<#PARAM Name="SessionID">';
+	</script>
 	<!--[if lte IE 6]>
 	<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
 	<![endif]-->
-	<script src="//code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/async/1.5.2/async.min.js"></script>
-
-	<script type="text/javascript" src="js/arescal.js"></script>
-	<script type="text/javascript" src="js/aresajax.js"></script>
-	<script type="text/javascript" src="js/fadeEffect.js"></script>
-	<script type="text/javascript" src="js/aresRowClick.js"></script>
-    <script type="text/javascript" src="js/aresTableFilter.js"></script>
-	<script type="text/javascript" src="js/aresBatchEditing.js"></script>
-    <script type="text/javascript" src="js/ltiContentItem.js"></script>
-    <script type="text/javascript" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<noscript><p class="error">Ares works best with JavaScript enabled. Some functionality may not be available when scripts are disabled.</p></noscript>
+	<span id="alertsgroup"><#ALERTS NoDataAction="showMessage" AllowAjax="Yes"></span>

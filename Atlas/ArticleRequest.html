@@ -42,14 +42,14 @@
 
 					<div class="form-group">
 						<label for="PhotoJournalTitle"><span class="<#ERROR name="ERRORPhotoJournalTitle">">Title (Journal, Conference Proceedings, Anthology)</span><abbr title="required">*</abbr></label>
-			       		<input type="text" id="PhotoJournalTitle" name="PhotoJournalTitle" aria-describedby="ePhotoJournalTitleHelp" class="form-control" value="<#PARAM name="PhotoJournalTitle">">
+			       		<input type="text" id="PhotoJournalTitle" name="PhotoJournalTitle" aria-describedby="ePhotoJournalTitleHelp" class="form-control" aria-describedby="emailHelp" value="<#PARAM name="PhotoJournalTitle">">
 				        <small id="ePhotoJournalTitleHelp" class="form-text text-muted">Please do not abbreviate unless your citation is abbreviated.</small>
 			        </div>
 		
 		            <div class="form-group row">
 					    <div class="col-sm-4"> 
 							<label for="PhotoJournalInclusivePages"><span class="<#ERROR name="ERRORPhotoJournalInclusivePages">">Inclusive Pages</span><abbr title="required">*</abbr></label>
-							<input type="text" id="PhotoJournalInclusivePages" name="PhotoJournalInclusivePages" class="form-control" value="<#PARAM name="PhotoJournalInclusivePages">">
+							<input type="text" id="PhotoJournalInclusivePages" name="PhotoJournalInclusivePages" maxlength="20" class="form-control" value="<#PARAM name="PhotoJournalInclusivePages">">
 						</div>
 			            <div class="col-sm-4">
 							<label for="PhotoJournalVolume"><span class="<#ERROR name="ERRORPhotoJournalVolume">">Volume</span></label>
