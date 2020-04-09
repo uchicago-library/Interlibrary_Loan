@@ -15,6 +15,11 @@ gh-pages: Mocks for approval and UX testing
 - `<#INCLUDE filename="include_copyright.html">` = Copyright restrictions; needs to be included when scans or PDFs are supplied.
 - `<#INCLUDE filename="include_service_links.html">` = "Your request is searched..." text
 
+### Request Form Files
+- `ArticleRequest.html` - Request a Article, Chapter, or Paper
+- `GenericRequestGargoyleExpress.html` - Scan and Deliver Request
+- `LoanRequest.html` - Request a Book, Video, Journal Issue, or Microfilm
+- `ThesisRequest.html` - Request a Dissertation or Thesis
 
 ## Test Server
 Access: https://requests.lib.uchicago.edu/illiad/testweb/
